@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>aosoluti CRM</title>
+<meta name="description" content="aosoluti CRM: filas de atendimento no estilo Trello, origens configuráveis (web, WhatsApp, Instagram, telefone), personalização, alarmes e grupos de especialistas.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  /* Aplica o tema salvo antes da pintura para evitar flash. */
+  (function () {
+    try {
+      var t = localStorage.getItem('aosoluti-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<!-- Ícones (sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l.9-1.6-2-1-1 .8a4 4 0 0 1-2.3-2.3l.8-1-1-2Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l4-4-4-4M14 12H4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="logo-mark" viewBox="0 0 120 120">
+      <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="95" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="25" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="60" cy="20" r="12" fill="var(--logo-accent)"/>
+      <circle cx="95" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="25" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="60" cy="60" r="18" fill="var(--logo-core)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#topo" aria-label="aosoluti CRM">
+      <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+    </a>
+
+    <div class="header-actions">
+      <div class="theme-switch" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+        <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+        <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+        <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+      </div>
+
+      <label class="lang-select">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <span class="sr-only" data-i18n="lang.label">Idioma</span>
+        <select id="lang" name="lang">
+          <option value="pt-BR">PT</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </label>
+
+      <a class="btn btn-primary btn-login" href="/login" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
+        <svg aria-hidden="true"><use href="#i-login"/></svg>
+        <span data-i18n="nav.login">Entrar</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ SECTION 1 — O que o sistema faz ============ -->
+<section class="section section-overview" id="topo" aria-labelledby="hero-title">
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow">CRM de atendimento</p>
+        <h1 id="hero-title" data-i18n="hero.title">Todo atendimento em um só quadro.</h1>
+        <p class="lede" data-i18n="hero.lede">O aosoluti CRM reúne as conversas do site, WhatsApp, Instagram e telefone em filas visuais, no estilo Trello. Sua equipe arrasta, prioriza e resolve sem trocar de tela.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="/login" data-i18n="hero.ctaPrimary">Acessar o CRM</a>
+          <a class="btn btn-ghost btn-lg" href="#filas">
+            <span data-i18n="hero.ctaSecondary">Ver como funciona</span>
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-art">
+        <svg class="il" viewBox="0 0 560 430" role="img" aria-labelledby="il-hero-t">
+          <title id="il-hero-t" data-i18n="il.hero">Duas pessoas organizando cartões de atendimento em um quadro de filas</title>
+          <ellipse cx="300" cy="404" rx="250" ry="16" fill="var(--il-shadow)"/>
+          <!-- quadro -->
+          <path d="M222 286 L210 398 M478 286 L490 398" stroke="var(--il-line)" stroke-width="7" stroke-linecap="round"/>
+          <rect x="170" y="36" width="360" height="252" rx="18" fill="var(--il-board)" stroke="var(--il-line)" stroke-width="3"/>
+          <rect x="190" y="56" width="58" height="8" rx="4" fill="var(--il-muted)"/>
+          <rect x="300" y="56" width="70" height="8" rx="4" fill="var(--il-muted)"/>
+          <rect x="410" y="56" width="50" height="8" rx="4" fill="var(--il-muted)"/>
+          <g>
+            <rect x="190" y="76" width="98" height="42" rx="9" fill="#ffd3c4"/>
+            <rect x="200" y="88" width="52" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+            <rect x="200" y="100" width="34" height="6" rx="3" fill="#3c493f" opacity=".2"/>
+            <rect x="190" y="126" width="98" height="42" rx="9" fill="#cfdcff"/>
+            <rect x="200" y="138" width="60" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+            <rect x="200" y="150" width="28" height="6" rx="3" fill="#3c493f" opacity=".2"/>
+            <rect x="190" y="176" width="98" height="42" rx="9" fill="#fbe3a6"/>
+            <rect x="200" y="188" width="46" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+
+            <rect x="300" y="76" width="98" height="42" rx="9" fill="#a2e3c4"/>
+            <rect x="310" y="88" width="56" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+            <rect x="310" y="100" width="30" height="6" rx="3" fill="#3c493f" opacity=".2"/>
+            <rect x="300" y="126" width="98" height="42" rx="9" fill="#ffd3c4"/>
+            <rect x="310" y="138" width="40" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+
+            <rect x="410" y="76" width="98" height="42" rx="9" fill="#cfdcff"/>
+            <rect x="420" y="88" width="50" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+            <rect x="410" y="126" width="98" height="42" rx="9" fill="#a2e3c4"/>
+            <rect x="420" y="138" width="62" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+            <rect x="410" y="176" width="98" height="42" rx="9" fill="#a2e3c4"/>
+            <rect x="420" y="188" width="44" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+            <rect x="410" y="226" width="98" height="42" rx="9" fill="#fbe3a6"/>
+            <rect x="420" y="238" width="54" height="6" rx="3" fill="#3c493f" opacity=".35"/>
+          </g>
+          <!-- balões de canais -->
+          <g class="il-float">
+            <rect x="110" y="20" width="64" height="40" rx="14" fill="var(--accent)"/>
+            <path d="M126 58 L120 72 L138 60 Z" fill="var(--accent)"/>
+            <circle cx="130" cy="40" r="4" fill="#1f3d2e"/><circle cx="142" cy="40" r="4" fill="#1f3d2e"/><circle cx="154" cy="40" r="4" fill="#1f3d2e"/>
+          </g>
+          <!-- planta -->
+          <path d="M40 360 h48 l-6 42 h-36 Z" fill="#e8a87c"/>
+          <ellipse cx="52" cy="330" rx="12" ry="30" transform="rotate(-24 52 330)" fill="#4f9d76"/>
+          <ellipse cx="76" cy="326" rx="11" ry="32" transform="rotate(20 76 326)" fill="#7cc59f"/>
+          <ellipse cx="64" cy="316" rx="10" ry="36" fill="#5fb088"/>
+
+          <!-- pessoa em pé apontando -->
+          <path d="M112 268 L104 386" stroke="var(--il-pants)" stroke-width="17" stroke-linecap="round"/>
+          <path d="M134 268 L150 386" stroke="var(--il-pants)" stroke-width="17" stroke-linecap="round"/>
+          <path d="M88 398 q2 -12 18 -12 q10 0 12 12 Z" fill="#2b2220"/>
+          <path d="M140 398 q2 -12 18 -12 q10 0 12 12 Z" fill="#2b2220"/>
+          <rect x="114" y="160" width="14" height="22" rx="5" fill="#c68a5e"/>
+          <path d="M96 188 Q121 176 146 188 L152 278 Q122 288 92 278 Z" fill="#f28b6c"/>
+          <path d="M101 198 Q88 234 96 262" stroke="#f28b6c" stroke-width="13" fill="none" stroke-linecap="round"/>
+          <circle cx="97" cy="267" r="7" fill="#c68a5e"/>
+          <path d="M141 198 Q168 188 190 162" stroke="#f28b6c" stroke-width="13" fill="none" stroke-linecap="round"/>
+          <circle cx="194" cy="157" r="7" fill="#c68a5e"/>
+          <circle cx="121" cy="150" r="19" fill="#c68a5e"/>
+          <path d="M101 150 Q98 126 121 126 Q145 126 141 152 Q137 140 123 140 Q109 140 105 154 Z" fill="#2b2220"/>
+          <circle cx="104" cy="132" r="9" fill="#2b2220"/>
+
+          <!-- pessoa sentada com notebook -->
+          <ellipse cx="430" cy="344" rx="36" ry="8" fill="var(--il-stool)"/>
+          <path d="M408 348 L400 400 M452 348 L460 400 M430 350 L430 400" stroke="var(--il-stool)" stroke-width="5" stroke-linecap="round"/>
+          <path d="M432 338 L474 342 L474 396" stroke="var(--il-pants)" stroke-width="17" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M442 334 L484 334 L488 394" stroke="var(--il-pants)" stroke-width="17" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M462 404 q2 -12 18 -12 q10 0 12 12 Z" fill="#f2f2f2" stroke="#3c493f" stroke-width="2"/>
+          <path d="M476 402 q2 -12 18 -12 q10 0 12 12 Z" fill="#f2f2f2" stroke="#3c493f" stroke-width="2"/>
+          <rect x="426" y="254" width="14" height="18" rx="5" fill="#8d5a3b"/>
+          <path d="M410 338 L414 276 Q432 262 452 276 L454 338 Z" fill="#6c8ee8"/>
+          <path d="M438 324 L500 324 L496 332 L434 332 Z" fill="#c9d3ce"/>
+          <path d="M452 324 L468 282 L514 282 L498 324 Z" fill="#9aa8a1"/>
+          <circle cx="483" cy="303" r="5" fill="#f0f7f4"/>
+          <path d="M448 282 Q464 304 470 322" stroke="#6c8ee8" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <circle cx="472" cy="325" r="6" fill="#8d5a3b"/>
+          <circle cx="433" cy="243" r="18" fill="#8d5a3b"/>
+          <path d="M414 246 Q411 222 434 222 Q457 222 453 248 L455 284 Q446 274 447 250 Q440 236 421 243 L419 284 Q410 272 414 246 Z" fill="#1f1a17"/>
+        </svg>
+      </figure>
+    </div>
+
+    <!-- Filas estilo Trello -->
+    <div class="block" id="filas">
+      <div class="block-head">
+        <h2 data-i18n="queues.title">Filas de atendimento no estilo Trello</h2>
+        <p data-i18n="queues.text">Cada atendimento vira um cartão. Arraste entre as etapas, veja quem está cuidando de cada conversa e quanto tempo ela está esperando.</p>
+      </div>
+
+      <div class="board-scroll" tabindex="0" data-i18n-attr="aria-label:queues.boardLabel" aria-label="Exemplo de quadro de filas" role="region">
+        <div class="board">
+          <span class="board-tag" data-i18n="common.example">Exemplo</span>
+
+          <div class="column">
+            <div class="column-head"><span data-i18n="queues.col1">Novos</span><span class="count">4</span></div>
+            <article class="ticket">
+              <div class="ticket-top"><span class="chan chan-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</span><span class="time" data-i18n="queues.t1time">há 4 min</span></div>
+              <h3 data-i18n="queues.t1">Segunda via de boleto</h3>
+              <div class="ticket-foot"><span class="who">Mariana S.</span><span class="tag" data-i18n="groups.finance">Financeiro</span></div>
+            </article>
+            <article class="ticket">
+              <div class="ticket-top"><span class="chan chan-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</span><span class="time" data-i18n="queues.t2time">há 9 min</span></div>
+              <h3 data-i18n="queues.t2">Dúvida sobre o plano anual</h3>
+              <div class="ticket-foot"><span class="who">Rafael T.</span><span class="tag" data-i18n="groups.sales">Comercial</span></div>
+            </article>
+          </div>
+
+          <div class="column">
+            <div class="column-head"><span data-i18n="queues.col2">Em atendimento</span><span class="count">3</span></div>
+            <article class="ticket ticket-alert">
+              <div class="ticket-top"><span class="chan chan-web"><svg aria-hidden="true"><use href="#i-web"/></svg>Web</span><span class="time time-alert"><svg aria-hidden="true"><use href="#i-bell"/></svg><span data-i18n="queues.t3time">18 min sem resposta</span></span></div>
+              <h3 data-i18n="queues.t3">Cadastro não conclui</h3>
+              <div class="ticket-foot"><span class="who">Júlia M.</span><span class="tag" data-i18n="groups.support">Suporte técnico</span></div>
+            </article>
+            <article class="ticket">
+              <div class="ticket-top"><span class="chan chan-phone"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="channels.phone">Telefone</span></span><span class="time" data-i18n="queues.t4time">há 22 min</span></div>
+              <h3 data-i18n="queues.t4">Retorno de ligação</h3>
+              <div class="ticket-foot"><span class="who">Carlos A.</span><span class="tag" data-i18n="groups.sales">Comercial</span></div>
+            </article>
+          </div>
+
+          <div class="column">
+            <div class="column-head"><span data-i18n="queues.col3">Aguardando cliente</span><span class="count">2</span></div>
+            <article class="ticket">
+              <div class="ticket-top"><span class="chan chan-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</span><span class="time" data-i18n="queues.t5time">há 1 h</span></div>
+              <h3 data-i18n="queues.t5">Envio de comprovante</h3>
+              <div class="ticket-foot"><span class="who">Patrícia L.</span><span class="tag" data-i18n="groups.finance">Financeiro</span></div>
+            </article>
+          </div>
+
+          <div class="column column-done">
+            <div class="column-head"><span data-i18n="queues.col4">Resolvidos hoje</span><span class="count">12</span></div>
+            <article class="ticket ticket-done">
+              <div class="ticket-top"><span class="chan chan-web"><svg aria-hidden="true"><use href="#i-web"/></svg>Web</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
+              <h3 data-i18n="queues.t6">Troca de senha</h3>
+            </article>
+            <article class="ticket ticket-done">
+              <div class="ticket-top"><span class="chan chan-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
+              <h3 data-i18n="queues.t7">Prazo de entrega</h3>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Origens -->
+    <div class="block" id="origens">
+      <div class="block-head">
+        <h2 data-i18n="channels.title">Origens de atendimento configuráveis</h2>
+        <p data-i18n="channels.text">Conecte os canais que seus clientes já usam. Para cada origem, defina em qual fila a conversa entra, qual grupo atende e em que horário.</p>
+      </div>
+      <ul class="channels">
+        <li class="channel">
+          <span class="channel-icon chan-web"><svg aria-hidden="true"><use href="#i-web"/></svg></span>
+          <h3>Web</h3>
+          <p data-i18n="channels.webText">Chat e formulário de contato no seu site.</p>
+        </li>
+        <li class="channel">
+          <span class="channel-icon chan-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+          <h3>WhatsApp</h3>
+          <p data-i18n="channels.whatsappText">Mensagens do número da empresa entram direto na fila.</p>
+        </li>
+        <li class="channel">
+          <span class="channel-icon chan-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span>
+          <h3>Instagram</h3>
+          <p data-i18n="channels.instagramText">Conversas do Direct viram atendimentos com histórico.</p>
+        </li>
+        <li class="channel">
+          <span class="channel-icon chan-phone"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <h3 data-i18n="channels.phone">Telefone</h3>
+          <p data-i18n="channels.phoneText">Registre ligações e agende retornos na mesma fila.</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Personalização + Alarmes -->
+    <div class="features">
+      <article class="feature" id="personalizacao">
+        <div class="feature-art">
+          <svg class="il" viewBox="0 0 400 320" role="img" aria-labelledby="il-custom-t">
+            <title id="il-custom-t" data-i18n="il.custom">Pessoa pintando as cores de um painel de configurações</title>
+            <ellipse cx="210" cy="302" rx="180" ry="12" fill="var(--il-shadow)"/>
+            <rect x="160" y="30" width="216" height="244" rx="18" fill="var(--il-board)" stroke="var(--il-line)" stroke-width="3"/>
+            <rect x="182" y="54" width="90" height="8" rx="4" fill="var(--il-muted)"/>
+            <g>
+              <rect x="182" y="80" width="110" height="7" rx="3.5" fill="var(--il-muted)" opacity=".7"/>
+              <rect x="316" y="74" width="40" height="20" rx="10" fill="var(--accent)"/><circle cx="346" cy="84" r="7" fill="#fff"/>
+              <rect x="182" y="114" width="92" height="7" rx="3.5" fill="var(--il-muted)" opacity=".7"/>
+              <rect x="316" y="108" width="40" height="20" rx="10" fill="var(--il-line)"/><circle cx="326" cy="118" r="7" fill="#fff"/>
+              <rect x="182" y="148" width="120" height="7" rx="3.5" fill="var(--il-muted)" opacity=".7"/>
+              <rect x="316" y="142" width="40" height="20" rx="10" fill="var(--accent)"/><circle cx="346" cy="152" r="7" fill="#fff"/>
+            </g>
+            <g>
+              <circle cx="196" cy="206" r="14" fill="#a2e3c4"/>
+              <circle cx="232" cy="206" r="14" fill="#f28b6c"/>
+              <circle cx="268" cy="206" r="14" fill="#f5c35b"/>
+              <circle cx="304" cy="206" r="14" fill="#6c8ee8"/>
+              <circle cx="340" cy="206" r="14" fill="#3c493f" stroke="var(--il-line)" stroke-width="2"/>
+              <rect x="182" y="238" width="80" height="18" rx="9" fill="#ffd3c4"/>
+              <rect x="270" y="238" width="60" height="18" rx="9" fill="#cfdcff"/>
+            </g>
+            <!-- pincel -->
+            <path d="M126 172 L212 128" stroke="#b07a4f" stroke-width="7" stroke-linecap="round"/>
+            <path d="M206 124 l20 -10 l8 12 l-20 12 Z" fill="#f28b6c"/>
+            <!-- pessoa -->
+            <path d="M84 206 L78 290" stroke="var(--il-pants)" stroke-width="15" stroke-linecap="round"/>
+            <path d="M104 206 L114 290" stroke="var(--il-pants)" stroke-width="15" stroke-linecap="round"/>
+            <path d="M62 300 q2 -11 16 -11 q10 0 11 11 Z" fill="#f28b6c"/>
+            <path d="M104 300 q2 -11 16 -11 q10 0 11 11 Z" fill="#f28b6c"/>
+            <rect x="87" y="104" width="13" height="20" rx="5" fill="#f1c7a4"/>
+            <path d="M70 128 Q94 116 118 128 L122 212 Q94 220 66 212 Z" fill="#f5c35b"/>
+            <path d="M74 138 Q62 170 70 196" stroke="#f5c35b" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <circle cx="71" cy="200" r="6.5" fill="#f1c7a4"/>
+            <path d="M114 138 Q128 158 124 170" stroke="#f5c35b" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <circle cx="126" cy="172" r="6.5" fill="#f1c7a4"/>
+            <circle cx="93" cy="94" r="17" fill="#f1c7a4"/>
+            <path d="M75 96 Q70 72 94 72 Q116 72 112 92 L104 86 Q90 90 80 84 Q78 92 79 100 Z" fill="#c2562f"/>
+          </svg>
+        </div>
+        <div class="feature-copy">
+          <h2 data-i18n="custom.title">Personalização do seu jeito</h2>
+          <p data-i18n="custom.text">Adapte o CRM ao seu processo, não o contrário.</p>
+          <ul class="checks">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="custom.li1">Etapas das filas com os nomes que sua equipe usa</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="custom.li2">Campos personalizados no cadastro do cliente</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="custom.li3">Etiquetas coloridas e respostas rápidas</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="custom.li4">Tema claro ou escuro para cada usuário</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="feature feature-reverse" id="alarmes">
+        <div class="feature-art">
+          <svg class="il" viewBox="0 0 400 320" role="img" aria-labelledby="il-alarm-t">
+            <title id="il-alarm-t" data-i18n="il.alarm">Pessoa ao lado de um grande despertador com um alerta</title>
+            <ellipse cx="200" cy="302" rx="180" ry="12" fill="var(--il-shadow)"/>
+            <!-- relógio -->
+            <path d="M216 250 L200 290 M296 250 L312 290" stroke="var(--il-stroke)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M190 78 a30 30 0 0 1 42 -34 Z" fill="#f28b6c"/>
+            <path d="M322 78 a30 30 0 0 0 -42 -34 Z" fill="#f28b6c"/>
+            <circle cx="256" cy="168" r="92" fill="var(--il-board)" stroke="var(--il-stroke)" stroke-width="7"/>
+            <g stroke="var(--il-muted)" stroke-width="5" stroke-linecap="round">
+              <path d="M256 90 v12M256 234 v12M178 168 h12M322 168 h12"/>
+            </g>
+            <path d="M256 168 V118 M256 168 L292 190" stroke="var(--il-stroke)" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="256" cy="168" r="8" fill="#f28b6c"/>
+            <!-- ondas -->
+            <g class="il-ring" stroke="#f28b6c" stroke-width="5" fill="none" stroke-linecap="round">
+              <path d="M352 110 q14 18 0 40"/><path d="M366 96 q24 32 0 68"/>
+            </g>
+            <!-- notificação -->
+            <rect x="24" y="36" width="130" height="46" rx="14" fill="var(--il-board)" stroke="var(--il-line)" stroke-width="3"/>
+            <circle cx="48" cy="59" r="10" fill="#f28b6c"/>
+            <rect x="66" y="50" width="70" height="7" rx="3.5" fill="var(--il-muted)"/>
+            <rect x="66" y="63" width="46" height="7" rx="3.5" fill="var(--il-muted)" opacity=".6"/>
+            <!-- pessoa -->
+            <path d="M92 214 L84 290" stroke="var(--il-pants)" stroke-width="15" stroke-linecap="round"/>
+            <path d="M112 214 L122 290" stroke="var(--il-pants)" stroke-width="15" stroke-linecap="round"/>
+            <path d="M68 300 q2 -11 16 -11 q10 0 11 11 Z" fill="#2b2220"/>
+            <path d="M112 300 q2 -11 16 -11 q10 0 11 11 Z" fill="#2b2220"/>
+            <rect x="94" y="112" width="13" height="20" rx="5" fill="#6b4430"/>
+            <path d="M76 136 Q100 124 126 136 L130 220 Q102 228 72 220 Z" fill="#a2e3c4"/>
+            <path d="M80 146 Q70 178 78 204" stroke="#a2e3c4" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <circle cx="79" cy="208" r="6.5" fill="#6b4430"/>
+            <path d="M122 146 Q146 132 166 120" stroke="#a2e3c4" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <circle cx="170" cy="118" r="6.5" fill="#6b4430"/>
+            <circle cx="100" cy="100" r="17" fill="#6b4430"/>
+            <path d="M82 100 Q80 78 100 78 Q120 78 118 98 Q112 88 100 88 Q88 88 84 106 Z" fill="#141010"/>
+            <circle cx="86" cy="86" r="4" fill="#141010"/><circle cx="96" cy="80" r="4" fill="#141010"/><circle cx="110" cy="81" r="4" fill="#141010"/>
+          </svg>
+        </div>
+        <div class="feature-copy">
+          <h2 data-i18n="alarm.title">Alarmes que não deixam ninguém esperando</h2>
+          <p data-i18n="alarm.text">Defina prazos por fila e por grupo. Quando um atendimento passa do tempo, o CRM avisa quem precisa agir.</p>
+          <ul class="alarms" data-i18n-attr="aria-label:alarm.listLabel" aria-label="Exemplos de alarmes">
+            <li class="alarm alarm-hot">
+              <svg aria-hidden="true"><use href="#i-bell"/></svg>
+              <div><strong data-i18n="alarm.a1">Sem resposta há 15 min</strong><span data-i18n="alarm.a1sub">Fila Suporte técnico · avisa o atendente e o líder</span></div>
+            </li>
+            <li class="alarm">
+              <svg aria-hidden="true"><use href="#i-clock"/></svg>
+              <div><strong data-i18n="alarm.a2">Retornar ligação às 16:00</strong><span data-i18n="alarm.a2sub">Lembrete agendado pelo atendente</span></div>
+            </li>
+            <li class="alarm">
+              <svg aria-hidden="true"><use href="#i-clock"/></svg>
+              <div><strong data-i18n="alarm.a3">Cliente sem retorno há 2 dias</strong><span data-i18n="alarm.a3sub">Move o cartão para “Aguardando cliente”</span></div>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — Grupos de especialistas ============ -->
+<section class="section section-experts" id="especialistas" aria-labelledby="experts-title">
+  <div class="wrap">
+    <div class="experts-intro">
+      <div class="experts-copy">
+        <p class="eyebrow" data-i18n="experts.eyebrow">Grupos de especialistas</p>
+        <h2 id="experts-title" class="h-display" data-i18n="experts.title">Cada pergunta chega a quem sabe responder.</h2>
+        <p class="lede" data-i18n="experts.lede">Organize sua equipe em grupos por assunto. O CRM direciona cada atendimento para o grupo certo e distribui entre os especialistas disponíveis.</p>
+      </div>
+      <figure class="experts-art">
+        <svg class="il" viewBox="0 0 400 320" role="img" aria-labelledby="il-experts-t">
+          <title id="il-experts-t" data-i18n="il.experts">Três especialistas conectados a uma central de atendimento</title>
+          <defs>
+            <clipPath id="cp-a"><circle cx="200" cy="58" r="46"/></clipPath>
+            <clipPath id="cp-b"><circle cx="330" cy="250" r="46"/></clipPath>
+            <clipPath id="cp-c"><circle cx="70" cy="250" r="46"/></clipPath>
+          </defs>
+          <path d="M200 176 L200 104 M200 176 L292 228 M200 176 L108 228" stroke="var(--il-line)" stroke-width="7" stroke-linecap="round"/>
+          <!-- central -->
+          <circle cx="200" cy="176" r="38" fill="var(--il-hub)"/>
+          <rect x="180" y="160" width="40" height="28" rx="9" fill="var(--accent)"/>
+          <path d="M188 186 L184 198 L198 188 Z" fill="var(--accent)"/>
+          <circle cx="191" cy="174" r="3" fill="#1f3d2e"/><circle cx="200" cy="174" r="3" fill="#1f3d2e"/><circle cx="209" cy="174" r="3" fill="#1f3d2e"/>
+          <!-- especialista A -->
+          <circle cx="200" cy="58" r="46" fill="#ffd3c4"/>
+          <g clip-path="url(#cp-a)">
+            <path d="M160 110 Q162 74 200 74 Q238 74 240 110 Z" fill="#6c8ee8"/>
+            <rect x="194" y="58" width="12" height="18" rx="4" fill="#c68a5e"/>
+            <circle cx="200" cy="48" r="15" fill="#c68a5e"/>
+            <path d="M184 48 Q182 30 200 30 Q218 30 216 46 Q208 38 196 40 Q188 42 186 54 Z" fill="#2b2220"/>
+          </g>
+          <!-- especialista B -->
+          <circle cx="330" cy="250" r="46" fill="#cfdcff"/>
+          <g clip-path="url(#cp-b)">
+            <path d="M290 302 Q292 266 330 266 Q368 266 370 302 Z" fill="#f28b6c"/>
+            <rect x="324" y="250" width="12" height="18" rx="4" fill="#f1c7a4"/>
+            <path d="M313 240 Q312 220 330 220 Q348 220 347 240 L350 270 L310 270 Z" fill="#e0b04a"/>
+            <circle cx="330" cy="240" r="15" fill="#f1c7a4"/>
+            <path d="M315 236 Q318 222 330 222 Q344 222 346 236 Q336 228 324 232 Z" fill="#e0b04a"/>
+          </g>
+          <!-- especialista C -->
+          <circle cx="70" cy="250" r="46" fill="#fbe3a6"/>
+          <g clip-path="url(#cp-c)">
+            <path d="M30 302 Q32 266 70 266 Q108 266 110 302 Z" fill="#3c8f6a"/>
+            <rect x="64" y="250" width="12" height="18" rx="4" fill="#6b4430"/>
+            <circle cx="70" cy="240" r="15" fill="#6b4430"/>
+            <path d="M54 238 Q52 218 70 218 Q88 218 86 236 Q82 228 70 228 Q58 228 56 242 Z" fill="#141010"/>
+            <circle cx="56" cy="224" r="6" fill="#141010"/><circle cx="84" cy="224" r="6" fill="#141010"/><circle cx="70" cy="216" r="6" fill="#141010"/>
+          </g>
+        </svg>
+      </figure>
+    </div>
+
+    <div class="groups" role="list" data-i18n-attr="aria-label:experts.groupsLabel" aria-label="Exemplo de grupos">
+      <article class="group" role="listitem">
+        <div class="group-head">
+          <h3 data-i18n="groups.finance">Financeiro</h3>
+          <span class="group-queue"><span class="num">6</span> <span data-i18n="experts.inQueue">na fila</span></span>
+        </div>
+        <div class="avatars" aria-hidden="true">
+          <span style="--av:#ffd3c4">MS</span><span style="--av:#cfdcff">PL</span><span style="--av:#fbe3a6">RB</span>
+        </div>
+        <dl class="group-meta">
+          <div><dt data-i18n="experts.online">Online</dt><dd>3 / 4</dd></div>
+          <div><dt data-i18n="experts.rule">Distribuição</dt><dd data-i18n="experts.ruleRoundRobin">Rodízio</dd></div>
+          <div><dt data-i18n="experts.avg">1ª resposta</dt><dd>4 min</dd></div>
+        </dl>
+      </article>
+      <article class="group" role="listitem">
+        <div class="group-head">
+          <h3 data-i18n="groups.support">Suporte técnico</h3>
+          <span class="group-queue group-queue-hot"><span class="num">11</span> <span data-i18n="experts.inQueue">na fila</span></span>
+        </div>
+        <div class="avatars" aria-hidden="true">
+          <span style="--av:#a2e3c4">JM</span><span style="--av:#ffd3c4">DF</span><span style="--av:#cfdcff">LC</span><span style="--av:#fbe3a6">+2</span>
+        </div>
+        <dl class="group-meta">
+          <div><dt data-i18n="experts.online">Online</dt><dd>5 / 6</dd></div>
+          <div><dt data-i18n="experts.rule">Distribuição</dt><dd data-i18n="experts.ruleLoad">Menor carga</dd></div>
+          <div><dt data-i18n="experts.avg">1ª resposta</dt><dd>7 min</dd></div>
+        </dl>
+      </article>
+      <article class="group" role="listitem">
+        <div class="group-head">
+          <h3 data-i18n="groups.sales">Comercial</h3>
+          <span class="group-queue"><span class="num">3</span> <span data-i18n="experts.inQueue">na fila</span></span>
+        </div>
+        <div class="avatars" aria-hidden="true">
+          <span style="--av:#cfdcff">RT</span><span style="--av:#a2e3c4">CA</span>
+        </div>
+        <dl class="group-meta">
+          <div><dt data-i18n="experts.online">Online</dt><dd>2 / 3</dd></div>
+          <div><dt data-i18n="experts.rule">Distribuição</dt><dd data-i18n="experts.ruleRoundRobin">Rodízio</dd></div>
+          <div><dt data-i18n="experts.avg">1ª resposta</dt><dd>2 min</dd></div>
+        </dl>
+      </article>
+    </div>
+    <p class="groups-note" data-i18n="common.exampleData">Dados ilustrativos.</p>
+
+    <ul class="experts-points">
+      <li>
+        <h3 data-i18n="experts.p1t">Grupos por assunto</h3>
+        <p data-i18n="experts.p1">Financeiro, suporte, comercial ou o que o seu negócio precisar. Uma pessoa pode fazer parte de vários grupos.</p>
+      </li>
+      <li>
+        <h3 data-i18n="experts.p2t">Distribuição automática</h3>
+        <p data-i18n="experts.p2">Escolha entre rodízio ou menor carga. Quem está ausente não recebe novos atendimentos.</p>
+      </li>
+      <li>
+        <h3 data-i18n="experts.p3t">Transferência com histórico</h3>
+        <p data-i18n="experts.p3">Passe a conversa para outro grupo sem perder o contexto. O cliente não precisa repetir nada.</p>
+      </li>
+      <li>
+        <h3 data-i18n="experts.p4t">Visão do gestor</h3>
+        <p data-i18n="experts.p4">Acompanhe fila, tempo de resposta e alarmes de cada grupo em tempo real.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#topo" aria-label="aosoluti CRM">
+        <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+      </a>
+      <p data-i18n="footer.tagline">Atendimento organizado, do primeiro contato à solução.</p>
+    </div>
+    <nav class="footer-nav" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+      <h2 data-i18n="footer.product">Produto</h2>
+      <a href="#filas" data-i18n="footer.queues">Filas</a>
+      <a href="#origens" data-i18n="footer.channels">Origens</a>
+      <a href="#personalizacao" data-i18n="footer.custom">Personalização</a>
+      <a href="#alarmes" data-i18n="footer.alarms">Alarmes</a>
+      <a href="#especialistas" data-i18n="footer.experts">Especialistas</a>
+    </nav>
+    <nav class="footer-nav" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+      <h2 data-i18n="footer.company">Empresa</h2>
+      <a href="#contato" data-i18n="footer.contact">Contato</a>
+      <a href="#privacidade" data-i18n="footer.privacy">Privacidade</a>
+      <a href="#termos" data-i18n="footer.terms">Termos de uso</a>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
