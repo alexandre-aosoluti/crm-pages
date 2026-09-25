@@ -2,7 +2,7 @@
    O HTML já vem em pt-BR; as chaves ausentes em outro idioma mantêm o texto original. */
 window.AOSOLUTI_I18N = {
   'pt-BR': {
-    'meta.description': 'aosoluti CRM: filas de atendimento no estilo Trello, origens configuráveis (web, WhatsApp, Instagram, telefone), personalização, alarmes e grupos de especialistas.',
+    'meta.description': 'aosoluti CRM: filas de atendimento visuais, origens configuráveis (web, WhatsApp, Instagram, telefone), personalização, alarmes e grupos de especialistas.',
     'skip': 'Pular para o conteúdo',
     'theme.label': 'Tema',
     'theme.light': 'Claro',
@@ -13,7 +13,7 @@ window.AOSOLUTI_I18N = {
 
     'hero.eyebrow': 'CRM de atendimento',
     'hero.title': 'Todo atendimento em um só quadro.',
-    'hero.lede': 'O aosoluti CRM reúne as conversas do site, WhatsApp, Instagram e telefone em filas visuais, no estilo Trello. Sua equipe arrasta, prioriza e resolve sem trocar de tela.',
+    'hero.lede': 'O aosoluti CRM reúne as conversas do site, WhatsApp, Instagram e telefone em filas visuais. Sua equipe arrasta, prioriza e resolve sem trocar de tela.',
     'hero.ctaPrimary': 'Acessar o CRM',
     'hero.ctaSecondary': 'Ver como funciona',
 
@@ -108,7 +108,7 @@ window.AOSOLUTI_I18N = {
   },
 
   en: {
-    'meta.description': 'aosoluti CRM: Trello-style service queues, configurable channels (web, WhatsApp, Instagram, phone), customization, alarms and specialist groups.',
+    'meta.description': 'aosoluti CRM: visual service queues, configurable channels (web, WhatsApp, Instagram, phone), customization, alarms and specialist groups.',
     'skip': 'Skip to content',
     'theme.label': 'Theme',
     'theme.light': 'Light',
@@ -119,7 +119,7 @@ window.AOSOLUTI_I18N = {
 
     'hero.eyebrow': 'Customer service CRM',
     'hero.title': 'Every conversation on one board.',
-    'hero.lede': 'aosoluti CRM brings conversations from your website, WhatsApp, Instagram and phone into visual, Trello-style queues. Your team drags, prioritizes and resolves without switching screens.',
+    'hero.lede': 'aosoluti CRM brings conversations from your website, WhatsApp, Instagram and phone into visual queues. Your team drags, prioritizes and resolves without switching screens.',
     'hero.ctaPrimary': 'Open the CRM',
     'hero.ctaSecondary': 'See how it works',
 
@@ -214,7 +214,7 @@ window.AOSOLUTI_I18N = {
   },
 
   es: {
-    'meta.description': 'aosoluti CRM: colas de atención estilo Trello, canales configurables (web, WhatsApp, Instagram, teléfono), personalización, alarmas y grupos de especialistas.',
+    'meta.description': 'aosoluti CRM: colas de atención visuales, canales configurables (web, WhatsApp, Instagram, teléfono), personalización, alarmas y grupos de especialistas.',
     'skip': 'Saltar al contenido',
     'theme.label': 'Tema',
     'theme.light': 'Claro',
@@ -225,7 +225,7 @@ window.AOSOLUTI_I18N = {
 
     'hero.eyebrow': 'CRM de atención',
     'hero.title': 'Toda la atención en un solo tablero.',
-    'hero.lede': 'aosoluti CRM reúne las conversaciones del sitio web, WhatsApp, Instagram y teléfono en colas visuales, estilo Trello. Tu equipo arrastra, prioriza y resuelve sin cambiar de pantalla.',
+    'hero.lede': 'aosoluti CRM reúne las conversaciones del sitio web, WhatsApp, Instagram y teléfono en colas visuales. Tu equipo arrastra, prioriza y resuelve sin cambiar de pantalla.',
     'hero.ctaPrimary': 'Acceder al CRM',
     'hero.ctaSecondary': 'Ver cómo funciona',
 
