@@ -17,7 +17,7 @@ window.AOSOLUTI_I18N = {
     'hero.ctaPrimary': 'Acessar o CRM',
     'hero.ctaSecondary': 'Ver como funciona',
 
-    'queues.title': 'Filas de atendimento no estilo Trello',
+    'queues.title': 'Filas de atendimento',
     'queues.text': 'Cada atendimento vira um cartão. Arraste entre as etapas, veja quem está cuidando de cada conversa e quanto tempo ela está esperando.',
     'queues.boardLabel': 'Exemplo de quadro de filas',
     'queues.col1': 'Novos',
@@ -123,7 +123,7 @@ window.AOSOLUTI_I18N = {
     'hero.ctaPrimary': 'Open the CRM',
     'hero.ctaSecondary': 'See how it works',
 
-    'queues.title': 'Trello-style service queues',
+    'queues.title': 'Service queues',
     'queues.text': 'Every request becomes a card. Drag it between stages, see who is handling each conversation and how long it has been waiting.',
     'queues.boardLabel': 'Example queue board',
     'queues.col1': 'New',
@@ -229,7 +229,7 @@ window.AOSOLUTI_I18N = {
     'hero.ctaPrimary': 'Acceder al CRM',
     'hero.ctaSecondary': 'Ver cómo funciona',
 
-    'queues.title': 'Colas de atención estilo Trello',
+    'queues.title': 'Colas de atención',
     'queues.text': 'Cada atención se convierte en una tarjeta. Arrástrala entre etapas, mira quién atiende cada conversación y cuánto tiempo lleva esperando.',
     'queues.boardLabel': 'Ejemplo de tablero de colas',
     'queues.col1': 'Nuevos',
