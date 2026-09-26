@@ -14,7 +14,8 @@
   /* Aplica o tema salvo antes da pintura para evitar flash. */
   (function () {
     try {
-      var t = localStorage.getItem('aosoluti-theme');
+      var c = JSON.parse(localStorage.getItem('aosoluti-consent') || 'null');
+      var t = c && c.theme ? localStorage.getItem('aosoluti-theme') : null;
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
   })();
@@ -37,6 +38,7 @@
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
     <symbol id="logo-mark" viewBox="0 0 120 120">
       <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
@@ -553,12 +555,70 @@
       <a href="contato.html" data-i18n="footer.contact">Contato</a>
       <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
       <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
+      <button type="button" class="footer-link" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
     </nav>
   </div>
   <div class="wrap footer-bottom">
     <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
   </div>
 </footer>
+
+<!-- ============ AVISO DE ARMAZENAMENTO ============ -->
+<div class="consent-banner" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="wrap consent-banner-row">
+    <div class="consent-banner-text">
+      <h2 id="consent-title" data-i18n="consent.title">Configurações guardadas no seu navegador</h2>
+      <p data-i18n="consent.text">Este site pode usar o armazenamento local do navegador (localStorage) para guardar suas configurações, como tema e idioma. Não usamos cookies de publicidade nem de rastreamento.</p>
+    </div>
+    <div class="consent-banner-actions">
+      <button type="button" class="btn btn-ghost" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
+      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.reject">Recusar</button>
+      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="consent-dialog" id="consent-dialog" aria-labelledby="consent-dialog-title">
+  <div class="consent-dialog-body">
+    <div class="consent-dialog-head">
+      <h2 id="consent-dialog-title" data-i18n="consent.dialogTitle">O que guardamos no seu navegador</h2>
+      <button type="button" class="icon-btn" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="consent-dialog-intro" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
+    <ul class="consent-list">
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-theme" data-i18n="consent.themeT">Tema</label>
+          <p data-i18n="consent.themeP">Lembra se você prefere o tema claro, escuro ou o do sistema.</p>
+          <p class="consent-meta"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-theme" name="pref-theme">
+      </li>
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-lang" data-i18n="consent.langT">Idioma</label>
+          <p data-i18n="consent.langP">Lembra o idioma escolhido para exibir o site.</p>
+          <p class="consent-meta"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-lang" name="pref-lang">
+      </li>
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-consent" data-i18n="consent.choiceT">Sua escolha sobre este aviso</label>
+          <p data-i18n="consent.choiceP">Guardada quando você salva uma escolha, para que este aviso não apareça a cada visita. Não inclui dados pessoais.</p>
+          <p class="consent-meta"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-consent" name="pref-consent" checked disabled>
+      </li>
+    </ul>
+    <p class="consent-note"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
+    <div class="consent-dialog-actions">
+      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
+      <button type="button" class="btn btn-ghost" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
+      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
+    </div>
+  </div>
+</dialog>
 
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
