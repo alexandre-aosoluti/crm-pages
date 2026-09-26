@@ -72,8 +72,12 @@
       });
     });
 
+    var metaKey = document.body.getAttribute('data-meta-key') || 'meta.description';
     var meta = document.querySelector('meta[name="description"]');
-    if (meta && t(lang, 'meta.description')) meta.setAttribute('content', t(lang, 'meta.description'));
+    if (meta && t(lang, metaKey)) meta.setAttribute('content', t(lang, metaKey));
+
+    var titleKey = document.body.getAttribute('data-title-key');
+    if (titleKey && t(lang, titleKey)) document.title = t(lang, titleKey);
 
     if (langSelect) langSelect.value = lang;
     write(LANG_KEY, lang);
@@ -93,6 +97,11 @@
     langSelect.addEventListener('change', function () { applyLang(langSelect.value); });
   }
   applyLang(detectLang());
+
+  /* Tradução para outros scripts da página (ex.: formulário de contato). */
+  window.AOSOLUTI = {
+    t: function (key) { return t(root.lang, key); }
+  };
 
   /* ---------- Ano no rodapé ---------- */
   var year = document.getElementById('year');

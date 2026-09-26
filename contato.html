@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contato · aosoluti CRM</title>
+<meta name="description" content="Fale com a equipe do aosoluti CRM: conheça o sistema, tire dúvidas ou peça suporte.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  /* Aplica o tema salvo antes da pintura para evitar flash. */
+  (function () {
+    try {
+      var t = localStorage.getItem('aosoluti-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-title-key="contact.docTitle" data-meta-key="contact.meta">
+
+<!-- Ícones (sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l.9-1.6-2-1-1 .8a4 4 0 0 1-2.3-2.3l.8-1-1-2Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l4-4-4-4M14 12H4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="logo-mark" viewBox="0 0 120 120">
+      <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="95" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="25" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="60" cy="20" r="12" fill="var(--logo-accent)"/>
+      <circle cx="95" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="25" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="60" cy="60" r="18" fill="var(--logo-core)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html" aria-label="aosoluti CRM">
+      <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+    </a>
+
+    <div class="header-actions">
+      <div class="theme-switch" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+        <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+        <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+        <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+      </div>
+
+      <label class="lang-select">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <span class="sr-only" data-i18n="lang.label">Idioma</span>
+        <select id="lang" name="lang">
+          <option value="pt-BR">PT</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </label>
+
+      <a class="btn btn-primary btn-login" href="/login" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
+        <svg aria-hidden="true"><use href="#i-login"/></svg>
+        <span data-i18n="nav.login">Entrar</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+<section class="section page-hero" aria-labelledby="page-title">
+  <div class="wrap page-hero-row">
+    <div class="page-hero-copy">
+      <p class="eyebrow" data-i18n="contact.eyebrow">Contato</p>
+      <h1 id="page-title" data-i18n="contact.title">Fale com a gente.</h1>
+      <p class="lede" data-i18n="contact.lede">Quer conhecer o aosoluti CRM, tirar uma dúvida ou falar com o suporte? Escolha o assunto e sua mensagem chega direto ao grupo certo.</p>
+    </div>
+    <figure class="page-hero-art">
+      <svg class="il" viewBox="0 0 320 240" role="img" aria-labelledby="il-contact-t">
+        <title id="il-contact-t" data-i18n="contact.il">Pessoa enviando uma carta que vira uma mensagem de chat</title>
+        <ellipse cx="160" cy="226" rx="140" ry="10" fill="var(--il-shadow)"/>
+        <rect x="178" y="28" width="116" height="64" rx="18" fill="var(--accent)"/>
+        <path d="M200 90 L192 110 L218 92 Z" fill="var(--accent)"/>
+        <circle cx="214" cy="60" r="6" fill="#1f3d2e"/><circle cx="236" cy="60" r="6" fill="#1f3d2e"/><circle cx="258" cy="60" r="6" fill="#1f3d2e"/>
+        <path d="M150 118 q20 -30 40 -30" stroke="var(--il-line)" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" fill="none"/>
+        <g transform="rotate(-12 150 140)">
+          <rect x="112" y="120" width="76" height="50" rx="7" fill="var(--il-board)" stroke="var(--il-stroke)" stroke-width="3"/>
+          <path d="M114 124 L150 150 L186 124" stroke="var(--il-stroke)" stroke-width="3" fill="none" stroke-linejoin="round"/>
+        </g>
+        <path d="M78 160 L72 214" stroke="var(--il-pants)" stroke-width="13" stroke-linecap="round"/>
+        <path d="M94 160 L102 214" stroke="var(--il-pants)" stroke-width="13" stroke-linecap="round"/>
+        <path d="M58 222 q2 -10 14 -10 q9 0 10 10 Z" fill="#2b2220"/>
+        <path d="M94 222 q2 -10 14 -10 q9 0 10 10 Z" fill="#2b2220"/>
+        <rect x="80" y="76" width="11" height="17" rx="4" fill="#c68a5e"/>
+        <path d="M64 96 Q86 86 106 96 L110 166 Q86 172 60 166 Z" fill="#6c8ee8"/>
+        <path d="M68 104 Q58 132 64 152" stroke="#6c8ee8" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <circle cx="65" cy="156" r="6" fill="#c68a5e"/>
+        <path d="M102 104 Q118 124 126 144" stroke="#6c8ee8" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <circle cx="128" cy="147" r="6" fill="#c68a5e"/>
+        <circle cx="86" cy="66" r="15" fill="#c68a5e"/>
+        <path d="M70 66 Q68 46 86 46 Q104 46 102 64 L96 58 Q84 60 74 56 Q72 64 73 72 Z" fill="#2b2220"/>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-tight" aria-label="Formulário e canais de contato" data-i18n-attr="aria-label:contact.formRegion">
+  <div class="wrap contact-grid">
+    <form class="contact-form" id="contact-form" novalidate data-endpoint="">
+      <h2 data-i18n="contact.formTitle">Envie uma mensagem</h2>
+      <div class="form-row">
+        <div class="field">
+          <label for="cf-name"><span data-i18n="contact.name">Nome</span></label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err">
+          <p class="field-error" id="cf-name-err" data-i18n="contact.nameErr" hidden>Informe seu nome.</p>
+        </div>
+        <div class="field">
+          <label for="cf-email"><span data-i18n="contact.email">E-mail</span></label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-err">
+          <p class="field-error" id="cf-email-err" data-i18n="contact.emailErr" hidden>Informe um e-mail válido, como nome@empresa.com.</p>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="cf-phone"><span data-i18n="contact.phone">Telefone ou WhatsApp</span> <span class="optional" data-i18n="contact.optional">(opcional)</span></label>
+          <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="cf-company"><span data-i18n="contact.company">Empresa</span> <span class="optional" data-i18n="contact.optional">(opcional)</span></label>
+          <input id="cf-company" name="company" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <div class="field">
+        <label for="cf-subject"><span data-i18n="contact.subject">Assunto</span></label>
+        <select id="cf-subject" name="subject">
+              <option value="demo" data-i18n="contact.sub.demo">Quero conhecer o CRM</option>
+              <option value="support" data-i18n="contact.sub.support">Suporte técnico</option>
+              <option value="finance" data-i18n="contact.sub.finance">Financeiro</option>
+              <option value="other" data-i18n="contact.sub.other">Outro assunto</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="cf-message"><span data-i18n="contact.message">Mensagem</span></label>
+        <textarea id="cf-message" name="message" rows="6" required aria-describedby="cf-message-err"></textarea>
+        <p class="field-error" id="cf-message-err" data-i18n="contact.messageErr" hidden>Escreva sua mensagem.</p>
+      </div>
+      <div class="field field-check">
+        <input id="cf-consent" name="consent" type="checkbox" required aria-describedby="cf-consent-err">
+        <label for="cf-consent"><span data-i18n="contact.consent">Li e concordo com a</span> <a href="privacidade.html" data-i18n="contact.consentLink">Política de Privacidade</a>.</label>
+        <p class="field-error" id="cf-consent-err" data-i18n="contact.consentErr" hidden>Para enviar, aceite a Política de Privacidade.</p>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary btn-lg" type="submit">
+          <span data-i18n="contact.submit">Enviar mensagem</span>
+          <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+        </button>
+        <p class="form-status" id="cf-status" role="status" aria-live="polite" hidden></p>
+      </div>
+    </form>
+
+    <aside class="contact-side" aria-labelledby="side-title">
+      <h2 id="side-title" data-i18n="contact.sideTitle">Outros canais</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="channel-icon chan-web"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+          <div><h3 data-i18n="contact.mailT">E-mail</h3><p class="selectable">[E-MAIL DE CONTATO]</p></div>
+        </li>
+        <li>
+          <span class="channel-icon chan-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+          <div><h3>WhatsApp</h3><p class="selectable">[NÚMERO DO WHATSAPP]</p></div>
+        </li>
+        <li>
+          <span class="channel-icon chan-phone"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+          <div><h3 data-i18n="contact.phoneT">Telefone</h3><p class="selectable">[NÚMERO DE TELEFONE]</p></div>
+        </li>
+        <li>
+          <span class="channel-icon chan-instagram"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div><h3 data-i18n="contact.hoursT">Horário de atendimento</h3><p data-i18n="contact.hours">[DIAS E HORÁRIOS]</p></div>
+        </li>
+      </ul>
+      <div class="contact-client">
+        <h3 data-i18n="contact.clientT">Já é cliente?</h3>
+        <p data-i18n="contact.clientP">Entre no CRM para abrir um chamado com o suporte e acompanhar o andamento.</p>
+        <a class="btn btn-ghost" href="/login"><svg aria-hidden="true"><use href="#i-login"/></svg><span data-i18n="nav.login">Entrar</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="aosoluti CRM">
+        <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+      </a>
+      <p data-i18n="footer.tagline">Atendimento organizado, do primeiro contato à solução.</p>
+    </div>
+    <nav class="footer-nav" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+      <h2 data-i18n="footer.product">Produto</h2>
+      <a href="index.html#filas" data-i18n="footer.queues">Filas</a>
+      <a href="index.html#origens" data-i18n="footer.channels">Origens</a>
+      <a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a>
+      <a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a>
+      <a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a>
+    </nav>
+    <nav class="footer-nav" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+      <h2 data-i18n="footer.company">Empresa</h2>
+      <a href="contato.html" data-i18n="footer.contact">Contato</a>
+      <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
+      <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/i18n-pages.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/contact.js"></script>
+</body>
+</html>
