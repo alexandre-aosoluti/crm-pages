@@ -25,9 +25,6 @@
 <!-- Ícones (sprite) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l.9-1.6-2-1-1 .8a4 4 0 0 1-2.3-2.3l.8-1-1-2Z"/></symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
@@ -38,6 +35,8 @@
     <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
     <symbol id="logo-mark" viewBox="0 0 120 120">
       <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
@@ -119,7 +118,7 @@
       <section class="legal-section" id="privacy-1" aria-labelledby="privacy-1-t">
         <h2 id="privacy-1-t"><span class="legal-num">1.</span> <span data-i18n="privacy.s1.t">Quem somos</span></h2>
         <p data-i18n="privacy.s1.p1">O aosoluti CRM é oferecido por [RAZÃO SOCIAL], inscrita no CNPJ sob o nº [CNPJ], com sede em [ENDEREÇO COMPLETO] (“aosoluti”, “nós”). Esta política explica como tratamos dados pessoais no site e no CRM, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018, “LGPD”).</p>
-        <p data-i18n="privacy.s1.p2">No site e na gestão das contas de clientes, a aosoluti é a controladora dos dados. Nos atendimentos que nossos clientes registram no CRM (conversas de web, WhatsApp, Instagram e telefone), o cliente é o controlador e a aosoluti atua como operadora, tratando os dados apenas conforme as instruções dele.</p>
+        <p data-i18n="privacy.s1.p2">No site e na gestão das contas de clientes, a aosoluti é a controladora dos dados. Nos atendimentos que nossos clientes registram no CRM, o cliente é o controlador e a aosoluti atua como operadora, tratando os dados apenas conforme as instruções dele.</p>
       </section>
 
       <section class="legal-section" id="privacy-2" aria-labelledby="privacy-2-t">
@@ -128,8 +127,9 @@
           <li data-i18n="privacy.s2.li1">Dados de contato que você envia pelo formulário: nome, e-mail, telefone, empresa e mensagem.</li>
           <li data-i18n="privacy.s2.li2">Dados de conta dos usuários do CRM: nome, e-mail, grupo de especialistas, permissões e preferências.</li>
           <li data-i18n="privacy.s2.li3">Dados técnicos e de uso: endereço IP, tipo de navegador e dispositivo, data e hora de acesso e registros de atividade no sistema.</li>
-          <li data-i18n="privacy.s2.li4">Conteúdo dos atendimentos registrados pelos clientes no CRM, como mensagens, anexos e dados de contato dos consumidores atendidos.</li>
+          <li data-i18n="privacy.s2.li4">Informações que os usuários dos clientes registram nos cartões de atendimento, como descrição, anotações, anexos, origem e dados de contato das pessoas atendidas.</li>
         </ul>
+        <p data-i18n="privacy.s2.p1">As origens de atendimento (por exemplo, web, WhatsApp, Instagram ou telefone) são apenas categorias cadastradas pelos próprios usuários para classificar os cartões. Todas as informações dos atendimentos são registradas manualmente pelos usuários no CRM.</p>
       </section>
 
       <section class="legal-section" id="privacy-3" aria-labelledby="privacy-3-t">
@@ -153,8 +153,7 @@
         <p data-i18n="privacy.s5.p1">Não vendemos dados pessoais. Compartilhamos dados apenas quando necessário para prestar o serviço:</p>
         <ul>
           <li data-i18n="privacy.s5.li1">Provedores de infraestrutura e hospedagem que operam o sistema.</li>
-          <li data-i18n="privacy.s5.li2">Plataformas dos canais que o cliente conecta, como WhatsApp, Instagram e provedores de telefonia, que seguem suas próprias políticas.</li>
-          <li data-i18n="privacy.s5.li3">Autoridades públicas, quando houver obrigação legal ou ordem judicial.</li>
+          <li data-i18n="privacy.s5.li2">Autoridades públicas, quando houver obrigação legal ou ordem judicial.</li>
         </ul>
       </section>
 

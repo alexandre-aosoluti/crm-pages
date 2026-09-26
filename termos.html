@@ -25,9 +25,6 @@
 <!-- Ícones (sprite) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l.9-1.6-2-1-1 .8a4 4 0 0 1-2.3-2.3l.8-1-1-2Z"/></symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
@@ -38,6 +35,8 @@
     <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
     <symbol id="logo-mark" viewBox="0 0 120 120">
       <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
@@ -107,7 +106,7 @@
         <li><a href="#terms-2" data-i18n="terms.s2.t">O serviço</a></li>
         <li><a href="#terms-3" data-i18n="terms.s3.t">Conta e acesso</a></li>
         <li><a href="#terms-4" data-i18n="terms.s4.t">Uso permitido</a></li>
-        <li><a href="#terms-5" data-i18n="terms.s5.t">Integrações de terceiros</a></li>
+        <li><a href="#terms-5" data-i18n="terms.s5.t">Origens de atendimento</a></li>
         <li><a href="#terms-6" data-i18n="terms.s6.t">Dados do cliente</a></li>
         <li><a href="#terms-7" data-i18n="terms.s7.t">Planos, pagamento e cancelamento</a></li>
         <li><a href="#terms-8" data-i18n="terms.s8.t">Disponibilidade e suporte</a></li>
@@ -126,7 +125,7 @@
 
       <section class="legal-section" id="terms-2" aria-labelledby="terms-2-t">
         <h2 id="terms-2-t"><span class="legal-num">2.</span> <span data-i18n="terms.s2.t">O serviço</span></h2>
-        <p data-i18n="terms.s2.p1">O aosoluti CRM é um sistema de gestão de atendimento que organiza conversas em filas visuais, integra origens como web, WhatsApp, Instagram e telefone, e oferece personalização, alarmes e grupos de especialistas. Os recursos disponíveis dependem do plano contratado.</p>
+        <p data-i18n="terms.s2.p1">O aosoluti CRM é um sistema de gestão de atendimento que organiza atendimentos em filas visuais, permite cadastrar origens de atendimento personalizadas para classificar os cartões e oferece personalização, alarmes e grupos de especialistas. Os recursos disponíveis dependem do plano contratado.</p>
       </section>
 
       <section class="legal-section" id="terms-3" aria-labelledby="terms-3-t">
@@ -144,7 +143,7 @@
         <p data-i18n="terms.s4.p1">Ao usar o CRM, você não pode:</p>
         <ul>
           <li data-i18n="terms.s4.li1">Enviar spam, mensagens em massa não solicitadas ou conteúdo ilegal, ofensivo ou enganoso.</li>
-          <li data-i18n="terms.s4.li2">Violar as políticas das plataformas conectadas, como as regras de uso do WhatsApp e do Instagram.</li>
+          <li data-i18n="terms.s4.li2">Usar o sistema para violar direitos de terceiros.</li>
           <li data-i18n="terms.s4.li3">Tratar dados pessoais sem base legal ou em desacordo com a LGPD.</li>
           <li data-i18n="terms.s4.li4">Tentar acessar áreas restritas, contornar limites técnicos ou fazer engenharia reversa do sistema.</li>
         </ul>
@@ -152,8 +151,9 @@
       </section>
 
       <section class="legal-section" id="terms-5" aria-labelledby="terms-5-t">
-        <h2 id="terms-5-t"><span class="legal-num">5.</span> <span data-i18n="terms.s5.t">Integrações de terceiros</span></h2>
-        <p data-i18n="terms.s5.p1">As origens de atendimento dependem de serviços de terceiros, como WhatsApp, Instagram e operadoras de telefonia. O uso desses serviços está sujeito aos termos de cada fornecedor. A aosoluti não responde por mudanças, cobranças ou indisponibilidades causadas por eles.</p>
+        <h2 id="terms-5-t"><span class="legal-num">5.</span> <span data-i18n="terms.s5.t">Origens de atendimento</span></h2>
+        <p data-i18n="terms.s5.p1">As origens de atendimento (por exemplo, web, WhatsApp, Instagram e telefone) são categorias cadastradas e gerenciadas pelos usuários do cliente, usadas para classificar os cartões. Os nomes das origens são definidos pelo próprio cliente e não indicam vínculo da aosoluti com as empresas donas dessas marcas.</p>
+        <p data-i18n="terms.s5.p2">As informações de cada atendimento são registradas pelos próprios usuários no CRM, que responde pela veracidade e pela licitude desses registros.</p>
       </section>
 
       <section class="legal-section" id="terms-6" aria-labelledby="terms-6-t">
@@ -178,7 +178,7 @@
 
       <section class="legal-section" id="terms-10" aria-labelledby="terms-10-t">
         <h2 id="terms-10-t"><span class="legal-num">10.</span> <span data-i18n="terms.s10.t">Limitação de responsabilidade</span></h2>
-        <p data-i18n="terms.s10.p1">A aosoluti não responde pelo conteúdo das mensagens trocadas pelos clientes com seus consumidores, nem por danos indiretos ou lucros cessantes decorrentes do uso ou da indisponibilidade do sistema, nos limites permitidos pela lei. Nada nestes termos afasta direitos garantidos pelo Código de Defesa do Consumidor, quando aplicável.</p>
+        <p data-i18n="terms.s10.p1">A aosoluti não responde pelo conteúdo que os clientes registram no CRM, nem por danos indiretos ou lucros cessantes decorrentes do uso ou da indisponibilidade do sistema, nos limites permitidos pela lei. Nada nestes termos afasta direitos garantidos pelo Código de Defesa do Consumidor, quando aplicável.</p>
       </section>
 
       <section class="legal-section" id="terms-11" aria-labelledby="terms-11-t">
