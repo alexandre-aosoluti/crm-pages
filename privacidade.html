@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Política de Privacidade · aosoluti CRM</title>
+<meta name="description" content="Política de Privacidade do aosoluti CRM, conforme a LGPD.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  /* Aplica o tema salvo antes da pintura para evitar flash. */
+  (function () {
+    try {
+      var c = JSON.parse(localStorage.getItem('aosoluti-consent') || 'null');
+      var t = c && c.theme ? localStorage.getItem('aosoluti-theme') : null;
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-title-key="privacy.docTitle" data-meta-key="privacy.meta">
+
+<!-- Ícones (sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l4-4-4-4M14 12H4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="logo-mark" viewBox="0 0 120 120">
+      <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="95" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="25" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="60" cy="20" r="12" fill="var(--logo-accent)"/>
+      <circle cx="95" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="25" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="60" cy="60" r="18" fill="var(--logo-core)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html" aria-label="aosoluti CRM">
+      <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+    </a>
+
+    <div class="header-actions">
+      <div class="theme-switch" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+        <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+        <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+        <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+      </div>
+
+      <label class="lang-select">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <span class="sr-only" data-i18n="lang.label">Idioma</span>
+        <select id="lang" name="lang">
+          <option value="pt-BR">PT</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </label>
+
+      <a class="btn btn-primary btn-login" href="/login" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
+        <svg aria-hidden="true"><use href="#i-login"/></svg>
+        <span data-i18n="nav.login">Entrar</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+<section class="section page-hero page-hero-legal" aria-labelledby="page-title">
+  <div class="wrap">
+    <div class="page-hero-copy">
+      <p class="eyebrow" data-i18n="privacy.eyebrow">Privacidade</p>
+      <h1 id="page-title" data-i18n="privacy.title">Política de Privacidade</h1>
+      <p class="lede" data-i18n="privacy.lede">Como o aosoluti CRM coleta, usa e protege dados pessoais, e como você exerce seus direitos pela LGPD.</p>
+      <p class="updated"><span data-i18n="page.updatedLabel">Última atualização:</span> <span data-i18n="page.updatedDate">[DATA DA PUBLICAÇÃO]</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="wrap legal-grid">
+    <nav class="toc" aria-labelledby="toc-t">
+      <h2 id="toc-t" data-i18n="page.toc">Nesta página</h2>
+      <ol>
+        <li><a href="#privacy-1" data-i18n="privacy.s1.t">Quem somos</a></li>
+        <li><a href="#privacy-2" data-i18n="privacy.s2.t">Dados que coletamos</a></li>
+        <li><a href="#privacy-3" data-i18n="privacy.s3.t">Como usamos os dados</a></li>
+        <li><a href="#privacy-4" data-i18n="privacy.s4.t">Bases legais</a></li>
+        <li><a href="#privacy-5" data-i18n="privacy.s5.t">Compartilhamento</a></li>
+        <li><a href="#privacy-6" data-i18n="privacy.s6.t">Armazenamento e segurança</a></li>
+        <li><a href="#privacy-7" data-i18n="privacy.s7.t">Cookies e armazenamento local</a></li>
+        <li><a href="#privacy-8" data-i18n="privacy.s8.t">Seus direitos</a></li>
+        <li><a href="#privacy-9" data-i18n="privacy.s9.t">Encarregado de dados (DPO)</a></li>
+        <li><a href="#privacy-10" data-i18n="privacy.s10.t">Alterações desta política</a></li>
+      </ol>
+    </nav>
+    <article class="legal">
+      <section class="legal-section" id="privacy-1" aria-labelledby="privacy-1-t">
+        <h2 id="privacy-1-t"><span class="legal-num">1.</span> <span data-i18n="privacy.s1.t">Quem somos</span></h2>
+        <p data-i18n="privacy.s1.p1">O aosoluti CRM é oferecido por [RAZÃO SOCIAL], inscrita no CNPJ sob o nº [CNPJ], com sede em [ENDEREÇO COMPLETO] (“aosoluti”, “nós”). Esta política explica como tratamos dados pessoais no site e no CRM, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018, “LGPD”).</p>
+        <p data-i18n="privacy.s1.p2">No site e na gestão das contas de clientes, a aosoluti é a controladora dos dados. Nos atendimentos que nossos clientes registram no CRM, o cliente é o controlador e a aosoluti atua como operadora, tratando os dados apenas conforme as instruções dele.</p>
+      </section>
+
+      <section class="legal-section" id="privacy-2" aria-labelledby="privacy-2-t">
+        <h2 id="privacy-2-t"><span class="legal-num">2.</span> <span data-i18n="privacy.s2.t">Dados que coletamos</span></h2>
+        <ul>
+          <li data-i18n="privacy.s2.li1">Dados de contato que você envia pelo formulário: nome, e-mail, telefone, empresa e mensagem.</li>
+          <li data-i18n="privacy.s2.li2">Dados de conta dos usuários do CRM: nome, e-mail, grupo de especialistas, permissões e preferências.</li>
+          <li data-i18n="privacy.s2.li3">Dados técnicos e de uso: endereço IP, tipo de navegador e dispositivo, data e hora de acesso e registros de atividade no sistema.</li>
+          <li data-i18n="privacy.s2.li4">Informações que os usuários dos clientes registram nos cartões de atendimento, como descrição, anotações, anexos, origem e dados de contato das pessoas atendidas.</li>
+        </ul>
+        <p data-i18n="privacy.s2.p1">As origens de atendimento (por exemplo, web, WhatsApp, Instagram ou telefone) são apenas categorias cadastradas pelos próprios usuários para classificar os cartões. Todas as informações dos atendimentos são registradas manualmente pelos usuários no CRM.</p>
+      </section>
+
+      <section class="legal-section" id="privacy-3" aria-labelledby="privacy-3-t">
+        <h2 id="privacy-3-t"><span class="legal-num">3.</span> <span data-i18n="privacy.s3.t">Como usamos os dados</span></h2>
+        <ul>
+          <li data-i18n="privacy.s3.li1">Responder mensagens enviadas pelo site e apresentar o CRM.</li>
+          <li data-i18n="privacy.s3.li2">Prestar o serviço contratado: filas, origens de atendimento, alarmes, grupos de especialistas e demais recursos.</li>
+          <li data-i18n="privacy.s3.li3">Manter a segurança do sistema, prevenir fraudes e investigar incidentes.</li>
+          <li data-i18n="privacy.s3.li4">Enviar comunicações sobre o serviço, como avisos de manutenção e mudanças nestes documentos.</li>
+          <li data-i18n="privacy.s3.li5">Cumprir obrigações legais e regulatórias.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section" id="privacy-4" aria-labelledby="privacy-4-t">
+        <h2 id="privacy-4-t"><span class="legal-num">4.</span> <span data-i18n="privacy.s4.t">Bases legais</span></h2>
+        <p data-i18n="privacy.s4.p1">Tratamos dados com base na execução de contrato, no cumprimento de obrigação legal, no legítimo interesse (por exemplo, segurança e melhoria do serviço) e, quando necessário, no seu consentimento, que pode ser revogado a qualquer momento.</p>
+      </section>
+
+      <section class="legal-section" id="privacy-5" aria-labelledby="privacy-5-t">
+        <h2 id="privacy-5-t"><span class="legal-num">5.</span> <span data-i18n="privacy.s5.t">Compartilhamento</span></h2>
+        <p data-i18n="privacy.s5.p1">Não vendemos dados pessoais. Compartilhamos dados apenas quando necessário para prestar o serviço:</p>
+        <ul>
+          <li data-i18n="privacy.s5.li1">Provedores de infraestrutura e hospedagem que operam o sistema.</li>
+          <li data-i18n="privacy.s5.li2">Autoridades públicas, quando houver obrigação legal ou ordem judicial.</li>
+        </ul>
+      </section>
+
+      <section class="legal-section" id="privacy-6" aria-labelledby="privacy-6-t">
+        <h2 id="privacy-6-t"><span class="legal-num">6.</span> <span data-i18n="privacy.s6.t">Armazenamento e segurança</span></h2>
+        <p data-i18n="privacy.s6.p1">Adotamos medidas técnicas e administrativas para proteger os dados contra acesso não autorizado, perda ou alteração. Mantemos os dados pelo tempo do contrato e pelos prazos exigidos em lei. Depois disso, eles são excluídos ou anonimizados.</p>
+        <p data-i18n="privacy.s6.p2">Alguns fornecedores podem armazenar dados fora do Brasil. Nesses casos, a transferência segue as regras da LGPD.</p>
+      </section>
+
+      <section class="legal-section" id="privacy-7" aria-labelledby="privacy-7-t">
+        <h2 id="privacy-7-t"><span class="legal-num">7.</span> <span data-i18n="privacy.s7.t">Cookies e armazenamento local</span></h2>
+        <p data-i18n="privacy.s7.p1">Este site não usa cookies. Com a sua permissão, usamos o armazenamento local do navegador (localStorage) apenas para guardar configurações do site:</p>
+        <ul>
+          <li data-i18n="privacy.s7.li1">Tema (aosoluti-theme): claro, escuro ou o do sistema.</li>
+          <li data-i18n="privacy.s7.li2">Idioma (aosoluti-lang): português, inglês ou espanhol.</li>
+          <li data-i18n="privacy.s7.li3">Sua escolha sobre o aviso de armazenamento (aosoluti-consent): o que você permitiu e a data da escolha. É guardada quando você salva uma escolha, para que o aviso não apareça a cada visita.</li>
+        </ul>
+        <p data-i18n="privacy.s7.p2">Na primeira visita, um aviso pergunta se você permite guardar essas configurações. Em “Ver o que é guardado” você vê cada item e escolhe o que pode ser guardado. Enquanto você não permitir, nada além da sua escolha é gravado, e o tema e o idioma voltam ao padrão a cada visita.</p>
+        <p data-i18n="privacy.s7.p3">Essas informações ficam no seu dispositivo e não são enviadas para nós. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé do site, ou apagar os dados nas configurações do navegador.</p>
+        <p data-i18n="privacy.s7.p4">Para exibir as fontes do site, o navegador baixa arquivos do Google Fonts. Nessa requisição, o seu endereço IP é enviado aos servidores do Google, conforme a política de privacidade do Google.</p>
+      </section>
+
+      <section class="legal-section" id="privacy-8" aria-labelledby="privacy-8-t">
+        <h2 id="privacy-8-t"><span class="legal-num">8.</span> <span data-i18n="privacy.s8.t">Seus direitos</span></h2>
+        <p data-i18n="privacy.s8.p1">Pela LGPD, você pode pedir:</p>
+        <ul>
+          <li data-i18n="privacy.s8.li1">Confirmação de que tratamos seus dados e acesso a eles.</li>
+          <li data-i18n="privacy.s8.li2">Correção de dados incompletos, inexatos ou desatualizados.</li>
+          <li data-i18n="privacy.s8.li3">Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desacordo com a lei.</li>
+          <li data-i18n="privacy.s8.li4">Portabilidade dos dados para outro fornecedor.</li>
+          <li data-i18n="privacy.s8.li5">Informação sobre com quem compartilhamos seus dados.</li>
+          <li data-i18n="privacy.s8.li6">Revogação do consentimento e eliminação dos dados tratados com base nele.</li>
+        </ul>
+        <p data-i18n="privacy.s8.p2">Se você é atendido por uma empresa que usa o aosoluti CRM, faça o pedido diretamente a essa empresa, que é a controladora dos seus dados. Você também pode registrar reclamação na Autoridade Nacional de Proteção de Dados (ANPD).</p>
+      </section>
+
+      <section class="legal-section" id="privacy-9" aria-labelledby="privacy-9-t">
+        <h2 id="privacy-9-t"><span class="legal-num">9.</span> <span data-i18n="privacy.s9.t">Encarregado de dados (DPO)</span></h2>
+        <p data-i18n="privacy.s9.p1">Para exercer seus direitos ou tirar dúvidas sobre esta política, fale com nosso encarregado: [NOME DO ENCARREGADO], pelo e-mail [E-MAIL DO ENCARREGADO].</p>
+      </section>
+
+      <section class="legal-section" id="privacy-10" aria-labelledby="privacy-10-t">
+        <h2 id="privacy-10-t"><span class="legal-num">10.</span> <span data-i18n="privacy.s10.t">Alterações desta política</span></h2>
+        <p data-i18n="privacy.s10.p1">Podemos atualizar esta política. A data da última atualização fica no topo da página. Mudanças relevantes serão comunicadas aos clientes por e-mail ou dentro do CRM.</p>
+      </section>
+      <p class="legal-back"><a href="index.html" data-i18n="page.back">Voltar ao início</a></p>
+    </article>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="aosoluti CRM">
+        <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+      </a>
+      <p data-i18n="footer.tagline">Atendimento organizado, do primeiro contato à solução.</p>
+    </div>
+    <nav class="footer-nav" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+      <h2 data-i18n="footer.product">Produto</h2>
+      <a href="index.html#filas" data-i18n="footer.queues">Filas</a>
+      <a href="index.html#origens" data-i18n="footer.channels">Origens</a>
+      <a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a>
+      <a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a>
+      <a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a>
+    </nav>
+    <nav class="footer-nav" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+      <h2 data-i18n="footer.company">Empresa</h2>
+      <a href="contato.html" data-i18n="footer.contact">Contato</a>
+      <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
+      <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
+      <button type="button" class="footer-link" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
+  </div>
+</footer>
+
+<!-- ============ AVISO DE ARMAZENAMENTO ============ -->
+<div class="consent-banner" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="wrap consent-banner-row">
+    <div class="consent-banner-text">
+      <h2 id="consent-title" data-i18n="consent.title">Configurações guardadas no seu navegador</h2>
+      <p data-i18n="consent.text">Este site pode usar o armazenamento local do navegador (localStorage) para guardar suas configurações, como tema e idioma. Não usamos cookies de publicidade nem de rastreamento.</p>
+    </div>
+    <div class="consent-banner-actions">
+      <button type="button" class="btn btn-ghost" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
+      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.reject">Recusar</button>
+      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="consent-dialog" id="consent-dialog" aria-labelledby="consent-dialog-title">
+  <div class="consent-dialog-body">
+    <div class="consent-dialog-head">
+      <h2 id="consent-dialog-title" data-i18n="consent.dialogTitle">O que guardamos no seu navegador</h2>
+      <button type="button" class="icon-btn" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="consent-dialog-intro" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
+    <ul class="consent-list">
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-theme" data-i18n="consent.themeT">Tema</label>
+          <p data-i18n="consent.themeP">Lembra se você prefere o tema claro, escuro ou o do sistema.</p>
+          <p class="consent-meta"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-theme" name="pref-theme">
+      </li>
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-lang" data-i18n="consent.langT">Idioma</label>
+          <p data-i18n="consent.langP">Lembra o idioma escolhido para exibir o site.</p>
+          <p class="consent-meta"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-lang" name="pref-lang">
+      </li>
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-consent" data-i18n="consent.choiceT">Sua escolha sobre este aviso</label>
+          <p data-i18n="consent.choiceP">Guardada quando você salva uma escolha, para que este aviso não apareça a cada visita. Não inclui dados pessoais.</p>
+          <p class="consent-meta"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-consent" name="pref-consent" checked disabled>
+      </li>
+    </ul>
+    <p class="consent-note"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
+    <div class="consent-dialog-actions">
+      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
+      <button type="button" class="btn btn-ghost" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
+      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/i18n-pages.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

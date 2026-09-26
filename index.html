@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>aosoluti CRM</title>
-<meta name="description" content="aosoluti CRM: filas de atendimento visuais, origens configuráveis (web, WhatsApp, Instagram, telefone), personalização, alarmes e grupos de especialistas.">
+<meta name="description" content="aosoluti CRM: filas de atendimento visuais, origens de atendimento personalizadas, personalização, alarmes e grupos de especialistas.">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,8 @@
   /* Aplica o tema salvo antes da pintura para evitar flash. */
   (function () {
     try {
-      var t = localStorage.getItem('aosoluti-theme');
+      var c = JSON.parse(localStorage.getItem('aosoluti-consent') || 'null');
+      var t = c && c.theme ? localStorage.getItem('aosoluti-theme') : null;
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
   })();
@@ -25,9 +26,6 @@
 <!-- Ícones (sprite) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1A8.5 8.5 0 1 1 8 19.3Z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l.9-1.6-2-1-1 .8a4 4 0 0 1-2.3-2.3l.8-1-1-2Z"/></symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
     <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
@@ -38,6 +36,10 @@
     <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
     <symbol id="logo-mark" viewBox="0 0 120 120">
       <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
       <line x1="60" y1="60" x2="95" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
@@ -95,7 +97,7 @@
       <div class="hero-copy">
         <p class="eyebrow" data-i18n="hero.eyebrow">CRM de atendimento</p>
         <h1 id="hero-title" data-i18n="hero.title">Todo atendimento em um só quadro.</h1>
-        <p class="lede" data-i18n="hero.lede">O aosoluti CRM reúne as conversas do site, WhatsApp, Instagram e telefone em filas visuais. Sua equipe arrasta, prioriza e resolve sem trocar de tela.</p>
+        <p class="lede" data-i18n="hero.lede">O aosoluti CRM organiza os atendimentos da sua equipe em filas visuais. Cada cartão mostra a origem do contato, como site, WhatsApp ou telefone, a partir das origens que vocês cadastram.</p>
         <div class="hero-cta">
           <a class="btn btn-primary btn-lg" href="/login" data-i18n="hero.ctaPrimary">Acessar o CRM</a>
           <a class="btn btn-ghost btn-lg" href="#filas">
@@ -140,7 +142,7 @@
             <rect x="410" y="226" width="98" height="42" rx="9" fill="#fbe3a6"/>
             <rect x="420" y="238" width="54" height="6" rx="3" fill="#3c493f" opacity=".35"/>
           </g>
-          <!-- balões de canais -->
+          <!-- balão de conversa -->
           <g class="il-float">
             <rect x="110" y="20" width="64" height="40" rx="14" fill="var(--accent)"/>
             <path d="M126 58 L120 72 L138 60 Z" fill="var(--accent)"/>
@@ -201,12 +203,12 @@
           <div class="column">
             <div class="column-head"><span data-i18n="queues.col1">Novos</span><span class="count">4</span></div>
             <article class="ticket">
-              <div class="ticket-top"><span class="chan chan-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</span><span class="time" data-i18n="queues.t1time">há 4 min</span></div>
+              <div class="ticket-top"><span class="origin origin-whatsapp">WhatsApp</span><span class="time" data-i18n="queues.t1time">há 4 min</span></div>
               <h3 data-i18n="queues.t1">Segunda via de boleto</h3>
               <div class="ticket-foot"><span class="who">Mariana S.</span><span class="tag" data-i18n="groups.finance">Financeiro</span></div>
             </article>
             <article class="ticket">
-              <div class="ticket-top"><span class="chan chan-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</span><span class="time" data-i18n="queues.t2time">há 9 min</span></div>
+              <div class="ticket-top"><span class="origin origin-instagram">Instagram</span><span class="time" data-i18n="queues.t2time">há 9 min</span></div>
               <h3 data-i18n="queues.t2">Dúvida sobre o plano anual</h3>
               <div class="ticket-foot"><span class="who">Rafael T.</span><span class="tag" data-i18n="groups.sales">Comercial</span></div>
             </article>
@@ -215,12 +217,12 @@
           <div class="column">
             <div class="column-head"><span data-i18n="queues.col2">Em atendimento</span><span class="count">3</span></div>
             <article class="ticket ticket-alert">
-              <div class="ticket-top"><span class="chan chan-web"><svg aria-hidden="true"><use href="#i-web"/></svg>Web</span><span class="time time-alert"><svg aria-hidden="true"><use href="#i-bell"/></svg><span data-i18n="queues.t3time">18 min sem resposta</span></span></div>
+              <div class="ticket-top"><span class="origin origin-web">Web</span><span class="time time-alert"><svg aria-hidden="true"><use href="#i-bell"/></svg><span data-i18n="queues.t3time">18 min sem resposta</span></span></div>
               <h3 data-i18n="queues.t3">Cadastro não conclui</h3>
               <div class="ticket-foot"><span class="who">Júlia M.</span><span class="tag" data-i18n="groups.support">Suporte técnico</span></div>
             </article>
             <article class="ticket">
-              <div class="ticket-top"><span class="chan chan-phone"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="channels.phone">Telefone</span></span><span class="time" data-i18n="queues.t4time">há 22 min</span></div>
+              <div class="ticket-top"><span class="origin origin-phone" data-i18n="channels.phone">Telefone</span><span class="time" data-i18n="queues.t4time">há 22 min</span></div>
               <h3 data-i18n="queues.t4">Retorno de ligação</h3>
               <div class="ticket-foot"><span class="who">Carlos A.</span><span class="tag" data-i18n="groups.sales">Comercial</span></div>
             </article>
@@ -229,7 +231,7 @@
           <div class="column">
             <div class="column-head"><span data-i18n="queues.col3">Aguardando cliente</span><span class="count">2</span></div>
             <article class="ticket">
-              <div class="ticket-top"><span class="chan chan-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</span><span class="time" data-i18n="queues.t5time">há 1 h</span></div>
+              <div class="ticket-top"><span class="origin origin-whatsapp">WhatsApp</span><span class="time" data-i18n="queues.t5time">há 1 h</span></div>
               <h3 data-i18n="queues.t5">Envio de comprovante</h3>
               <div class="ticket-foot"><span class="who">Patrícia L.</span><span class="tag" data-i18n="groups.finance">Financeiro</span></div>
             </article>
@@ -238,11 +240,11 @@
           <div class="column column-done">
             <div class="column-head"><span data-i18n="queues.col4">Resolvidos hoje</span><span class="count">12</span></div>
             <article class="ticket ticket-done">
-              <div class="ticket-top"><span class="chan chan-web"><svg aria-hidden="true"><use href="#i-web"/></svg>Web</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
+              <div class="ticket-top"><span class="origin origin-web">Web</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
               <h3 data-i18n="queues.t6">Troca de senha</h3>
             </article>
             <article class="ticket ticket-done">
-              <div class="ticket-top"><span class="chan chan-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
+              <div class="ticket-top"><span class="origin origin-instagram">Instagram</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
               <h3 data-i18n="queues.t7">Prazo de entrega</h3>
             </article>
           </div>
@@ -254,30 +256,39 @@
     <div class="block" id="origens">
       <div class="block-head">
         <h2 data-i18n="channels.title">Origens de atendimento configuráveis</h2>
-        <p data-i18n="channels.text">Conecte os canais que seus clientes já usam. Para cada origem, defina em qual fila a conversa entra, qual grupo atende e em que horário.</p>
+        <p data-i18n="channels.text">As origens são categorias que a sua equipe cadastra para identificar por onde cada cliente chegou. Elas aparecem nos cartões e podem ser alteradas a qualquer momento.</p>
       </div>
-      <ul class="channels">
-        <li class="channel">
-          <span class="channel-icon chan-web"><svg aria-hidden="true"><use href="#i-web"/></svg></span>
-          <h3>Web</h3>
-          <p data-i18n="channels.webText">Chat e formulário de contato no seu site.</p>
-        </li>
-        <li class="channel">
-          <span class="channel-icon chan-whatsapp"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
-          <h3>WhatsApp</h3>
-          <p data-i18n="channels.whatsappText">Mensagens do número da empresa entram direto na fila.</p>
-        </li>
-        <li class="channel">
-          <span class="channel-icon chan-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></span>
-          <h3>Instagram</h3>
-          <p data-i18n="channels.instagramText">Conversas do Direct viram atendimentos com histórico.</p>
-        </li>
-        <li class="channel">
-          <span class="channel-icon chan-phone"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
-          <h3 data-i18n="channels.phone">Telefone</h3>
-          <p data-i18n="channels.phoneText">Registre ligações e agende retornos na mesma fila.</p>
-        </li>
-      </ul>
+      <div class="origins">
+        <figure class="origins-panel" data-i18n-attr="aria-label:origins.panelLabel" aria-label="Exemplo de cadastro de origens">
+          <div class="origins-head">
+            <span class="origins-title" data-i18n="origins.panelTitle">Origens</span>
+            <span class="origins-add" aria-hidden="true"><svg><use href="#i-plus"/></svg><span data-i18n="origins.new">Nova origem</span></span>
+          </div>
+          <ul class="origins-list">
+            <li><span class="origin origin-web">Web</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="origin origin-whatsapp">WhatsApp</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="origin origin-instagram">Instagram</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="origin origin-phone" data-i18n="channels.phone">Telefone</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="origin origin-mail" data-i18n="origins.mail">E-mail</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
+            <li class="is-off"><span class="origin origin-desk" data-i18n="origins.desk">Balcão</span><span class="origins-state" data-i18n="origins.inactive">Inativa</span></li>
+          </ul>
+          <figcaption class="board-tag-inline" data-i18n="common.example">Exemplo</figcaption>
+        </figure>
+        <ul class="origins-points">
+          <li>
+            <h3 data-i18n="origins.p1t">Você define a lista</h3>
+            <p data-i18n="origins.p1">Cadastre as origens que fazem sentido para o seu negócio: web, WhatsApp, Instagram, telefone, e-mail, balcão ou qualquer outra.</p>
+          </li>
+          <li>
+            <h3 data-i18n="origins.p2t">Uma categoria em cada cartão</h3>
+            <p data-i18n="origins.p2">Ao abrir um atendimento, a equipe escolhe a origem. O cartão mostra essa informação no quadro de filas.</p>
+          </li>
+          <li>
+            <h3 data-i18n="origins.p3t">Sob controle da sua equipe</h3>
+            <p data-i18n="origins.p3">Crie, renomeie, mude a cor ou desative uma origem sempre que precisar.</p>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <!-- Personalização + Alarmes -->
@@ -410,7 +421,7 @@
       </div>
       <figure class="experts-art">
         <svg class="il" viewBox="0 0 400 320" role="img" aria-labelledby="il-experts-t">
-          <title id="il-experts-t" data-i18n="il.experts">Três especialistas conectados a uma central de atendimento</title>
+          <title id="il-experts-t" data-i18n="il.experts">Três especialistas organizados em torno de uma central de atendimento</title>
           <defs>
             <clipPath id="cp-a"><circle cx="200" cy="58" r="46"/></clipPath>
             <clipPath id="cp-b"><circle cx="330" cy="250" r="46"/></clipPath>
@@ -541,15 +552,73 @@
     </nav>
     <nav class="footer-nav" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
       <h2 data-i18n="footer.company">Empresa</h2>
-      <a href="#contato" data-i18n="footer.contact">Contato</a>
-      <a href="#privacidade" data-i18n="footer.privacy">Privacidade</a>
-      <a href="#termos" data-i18n="footer.terms">Termos de uso</a>
+      <a href="contato.html" data-i18n="footer.contact">Contato</a>
+      <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
+      <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
+      <button type="button" class="footer-link" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
     </nav>
   </div>
   <div class="wrap footer-bottom">
     <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
   </div>
 </footer>
+
+<!-- ============ AVISO DE ARMAZENAMENTO ============ -->
+<div class="consent-banner" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="wrap consent-banner-row">
+    <div class="consent-banner-text">
+      <h2 id="consent-title" data-i18n="consent.title">Configurações guardadas no seu navegador</h2>
+      <p data-i18n="consent.text">Este site pode usar o armazenamento local do navegador (localStorage) para guardar suas configurações, como tema e idioma. Não usamos cookies de publicidade nem de rastreamento.</p>
+    </div>
+    <div class="consent-banner-actions">
+      <button type="button" class="btn btn-ghost" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
+      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.reject">Recusar</button>
+      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="consent-dialog" id="consent-dialog" aria-labelledby="consent-dialog-title">
+  <div class="consent-dialog-body">
+    <div class="consent-dialog-head">
+      <h2 id="consent-dialog-title" data-i18n="consent.dialogTitle">O que guardamos no seu navegador</h2>
+      <button type="button" class="icon-btn" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="consent-dialog-intro" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
+    <ul class="consent-list">
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-theme" data-i18n="consent.themeT">Tema</label>
+          <p data-i18n="consent.themeP">Lembra se você prefere o tema claro, escuro ou o do sistema.</p>
+          <p class="consent-meta"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-theme" name="pref-theme">
+      </li>
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-lang" data-i18n="consent.langT">Idioma</label>
+          <p data-i18n="consent.langP">Lembra o idioma escolhido para exibir o site.</p>
+          <p class="consent-meta"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-lang" name="pref-lang">
+      </li>
+      <li>
+        <div class="consent-item-text">
+          <label for="pref-consent" data-i18n="consent.choiceT">Sua escolha sobre este aviso</label>
+          <p data-i18n="consent.choiceP">Guardada quando você salva uma escolha, para que este aviso não apareça a cada visita. Não inclui dados pessoais.</p>
+          <p class="consent-meta"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-consent" name="pref-consent" checked disabled>
+      </li>
+    </ul>
+    <p class="consent-note"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
+    <div class="consent-dialog-actions">
+      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
+      <button type="button" class="btn btn-ghost" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
+      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
+    </div>
+  </div>
+</dialog>
 
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
