@@ -52,34 +52,34 @@
   </defs>
 </svg>
 
-<a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+<a class="absolute -top-12 left-3 z-[100] rounded-lg bg-ink px-3.5 py-2 text-bg no-underline focus:top-3" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
 
 <!-- ============ HEADER ============ -->
-<header class="site-header">
-  <div class="wrap header-row">
-    <a class="brand" href="#topo" aria-label="aosoluti CRM">
-      <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
-      <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+<header class="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-line bg-bg/85 backdrop-blur-md backdrop-saturate-[1.2]">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex min-h-[68px] items-center justify-between gap-4">
+    <a class="inline-flex items-center gap-2.5 text-ink no-underline" href="#topo" aria-label="aosoluti CRM">
+      <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
     </a>
 
-    <div class="header-actions">
-      <div class="theme-switch" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+    <div class="flex items-center gap-1.5 sm:gap-2.5">
+      <div class="inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
         <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
         <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
         <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
       </div>
 
-      <label class="lang-select">
+      <label class="relative inline-flex h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 max-sm:[&>svg]:hidden [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
         <svg aria-hidden="true"><use href="#i-globe"/></svg>
         <span class="sr-only" data-i18n="lang.label">Idioma</span>
-        <select id="lang" name="lang">
+        <select id="lang" name="lang" class="select-arrow">
           <option value="pt-BR">PT</option>
           <option value="en">EN</option>
           <option value="es">ES</option>
         </select>
       </label>
 
-      <a class="btn btn-primary btn-login" href="/login" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
+      <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong max-sm:w-11 max-sm:px-0 max-sm:[&_span]:hidden" href="/login" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
         <svg aria-hidden="true"><use href="#i-login"/></svg>
         <span data-i18n="nav.login">Entrar</span>
       </a>
@@ -90,25 +90,25 @@
 <main id="conteudo">
 
 <!-- ============ SECTION 1 — O que o sistema faz ============ -->
-<section class="section section-overview" id="topo" aria-labelledby="hero-title">
-  <div class="wrap">
+<section class="pt-[clamp(32px,5vw,64px)] pb-[clamp(48px,7vw,96px)]" id="topo" aria-labelledby="hero-title">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)]">
 
-    <div class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero.eyebrow">CRM de atendimento</p>
+    <div class="grid grid-cols-1 items-center gap-[clamp(24px,4vw,56px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+      <div class="flex flex-col gap-5 [&_h1]:text-[clamp(40px,6.2vw,72px)] [&_h1]:font-bold [&_h1]:tracking-[-0.035em]">
+        <p class="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-accent-strong" data-i18n="hero.eyebrow">CRM de atendimento</p>
         <h1 id="hero-title" data-i18n="hero.title">Todo atendimento em um só quadro.</h1>
-        <p class="lede" data-i18n="hero.lede">O aosoluti CRM organiza os atendimentos da sua equipe em filas visuais. Cada cartão mostra a origem do contato, como site, WhatsApp ou telefone, a partir das origens que vocês cadastram.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary btn-lg" href="/login" data-i18n="hero.ctaPrimary">Acessar o CRM</a>
-          <a class="btn btn-ghost btn-lg" href="#filas">
+        <p class="max-w-[58ch] text-[clamp(17px,1.6vw,19px)] text-ink-2" data-i18n="hero.lede">O aosoluti CRM organiza os atendimentos da sua equipe em filas visuais. Cada cartão mostra a origem do contato, como site, WhatsApp ou telefone, a partir das origens que vocês cadastram.</p>
+        <div class="mt-2 flex flex-wrap gap-3">
+          <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 min-h-[52px] px-6 text-base border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" href="/login" data-i18n="hero.ctaPrimary">Acessar o CRM</a>
+          <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 min-h-[52px] px-6 text-base border-line bg-transparent text-ink hover:border-ink" href="#filas">
             <span data-i18n="hero.ctaSecondary">Ver como funciona</span>
             <svg aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
         </div>
       </div>
 
-      <figure class="hero-art">
-        <svg class="il" viewBox="0 0 560 430" role="img" aria-labelledby="il-hero-t">
+      <figure class="m-0 w-full max-w-[560px] justify-self-center lg:max-w-none">
+        <svg class="block h-auto w-full" viewBox="0 0 560 430" role="img" aria-labelledby="il-hero-t">
           <title id="il-hero-t" data-i18n="il.hero">Duas pessoas organizando cartões de atendimento em um quadro de filas</title>
           <ellipse cx="300" cy="404" rx="250" ry="16" fill="var(--il-shadow)"/>
           <!-- quadro -->
@@ -190,61 +190,61 @@
     </div>
 
     <!-- Filas de atendimento -->
-    <div class="block" id="filas">
-      <div class="block-head">
+    <div class="mt-[clamp(64px,9vw,112px)] flex flex-col gap-7" id="filas">
+      <div class="grid grid-cols-1 items-end gap-x-12 gap-y-4 lg:grid-cols-2 [&_h2]:text-[clamp(28px,3.4vw,40px)] [&_h2]:font-bold [&_p]:max-w-[56ch] [&_p]:text-ink-2">
         <h2 data-i18n="queues.title">Filas de atendimento</h2>
         <p data-i18n="queues.text">Cada atendimento vira um cartão. Arraste entre as etapas, veja quem está cuidando de cada conversa e quanto tempo ela está esperando.</p>
       </div>
 
-      <div class="board-scroll" tabindex="0" data-i18n-attr="aria-label:queues.boardLabel" aria-label="Exemplo de quadro de filas" role="region">
-        <div class="board">
-          <span class="board-tag" data-i18n="common.example">Exemplo</span>
+      <div class="relative min-w-0 max-w-full overflow-x-auto rounded-panel [scrollbar-width:thin]" tabindex="0" data-i18n-attr="aria-label:queues.boardLabel" aria-label="Exemplo de quadro de filas" role="region">
+        <div class="relative grid min-w-[920px] grid-cols-4 gap-3.5 rounded-panel border border-line bg-surface-2 px-4 pt-11 pb-4">
+          <span class="absolute top-3.5 left-[18px] font-display text-[11px] font-semibold uppercase leading-none tracking-[0.14em] text-ink-2" data-i18n="common.example">Exemplo</span>
 
-          <div class="column">
-            <div class="column-head"><span data-i18n="queues.col1">Novos</span><span class="count">4</span></div>
-            <article class="ticket">
-              <div class="ticket-top"><span class="origin origin-whatsapp">WhatsApp</span><span class="time" data-i18n="queues.t1time">há 4 min</span></div>
+          <div class="flex flex-col gap-2.5 rounded-card bg-bg-alt p-2.5">
+            <div class="flex items-center justify-between px-1 pt-1 pb-1.5 font-display text-sm font-semibold leading-tight"><span data-i18n="queues.col1">Novos</span><span class="rounded-full bg-surface px-2 py-1 text-xs font-semibold leading-none text-ink-2 tabular-nums">4</span></div>
+            <article class="flex flex-col gap-2 rounded-xl border bg-surface p-3 [&_h3]:font-sans [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-normal border-line shadow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-wa-bg text-ch-wa">WhatsApp</span><span class="text-xs text-ink-2 tabular-nums" data-i18n="queues.t1time">há 4 min</span></div>
               <h3 data-i18n="queues.t1">Segunda via de boleto</h3>
-              <div class="ticket-foot"><span class="who">Mariana S.</span><span class="tag" data-i18n="groups.finance">Financeiro</span></div>
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="text-[13px] text-ink-2">Mariana S.</span><span class="rounded-md bg-bg-alt px-2 py-[3px] text-xs font-semibold text-ink" data-i18n="groups.finance">Financeiro</span></div>
             </article>
-            <article class="ticket">
-              <div class="ticket-top"><span class="origin origin-instagram">Instagram</span><span class="time" data-i18n="queues.t2time">há 9 min</span></div>
+            <article class="flex flex-col gap-2 rounded-xl border bg-surface p-3 [&_h3]:font-sans [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-normal border-line shadow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-ig-bg text-ch-ig">Instagram</span><span class="text-xs text-ink-2 tabular-nums" data-i18n="queues.t2time">há 9 min</span></div>
               <h3 data-i18n="queues.t2">Dúvida sobre o plano anual</h3>
-              <div class="ticket-foot"><span class="who">Rafael T.</span><span class="tag" data-i18n="groups.sales">Comercial</span></div>
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="text-[13px] text-ink-2">Rafael T.</span><span class="rounded-md bg-bg-alt px-2 py-[3px] text-xs font-semibold text-ink" data-i18n="groups.sales">Comercial</span></div>
             </article>
           </div>
 
-          <div class="column">
-            <div class="column-head"><span data-i18n="queues.col2">Em atendimento</span><span class="count">3</span></div>
-            <article class="ticket ticket-alert">
-              <div class="ticket-top"><span class="origin origin-web">Web</span><span class="time time-alert"><svg aria-hidden="true"><use href="#i-bell"/></svg><span data-i18n="queues.t3time">18 min sem resposta</span></span></div>
+          <div class="flex flex-col gap-2.5 rounded-card bg-bg-alt p-2.5">
+            <div class="flex items-center justify-between px-1 pt-1 pb-1.5 font-display text-sm font-semibold leading-tight"><span data-i18n="queues.col2">Em atendimento</span><span class="rounded-full bg-surface px-2 py-1 text-xs font-semibold leading-none text-ink-2 tabular-nums">3</span></div>
+            <article class="flex flex-col gap-2 rounded-xl border bg-surface p-3 [&_h3]:font-sans [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-normal border-hot shadow-card ring-[3px] ring-hot-bg">
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-web-bg text-ch-web">Web</span><span class="inline-flex items-center gap-1 text-xs font-semibold text-hot tabular-nums [&_svg]:size-3.5"><svg aria-hidden="true"><use href="#i-bell"/></svg><span data-i18n="queues.t3time">18 min sem resposta</span></span></div>
               <h3 data-i18n="queues.t3">Cadastro não conclui</h3>
-              <div class="ticket-foot"><span class="who">Júlia M.</span><span class="tag" data-i18n="groups.support">Suporte técnico</span></div>
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="text-[13px] text-ink-2">Júlia M.</span><span class="rounded-md bg-bg-alt px-2 py-[3px] text-xs font-semibold text-ink" data-i18n="groups.support">Suporte técnico</span></div>
             </article>
-            <article class="ticket">
-              <div class="ticket-top"><span class="origin origin-phone" data-i18n="channels.phone">Telefone</span><span class="time" data-i18n="queues.t4time">há 22 min</span></div>
+            <article class="flex flex-col gap-2 rounded-xl border bg-surface p-3 [&_h3]:font-sans [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-normal border-line shadow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-ph-bg text-ch-ph" data-i18n="channels.phone">Telefone</span><span class="text-xs text-ink-2 tabular-nums" data-i18n="queues.t4time">há 22 min</span></div>
               <h3 data-i18n="queues.t4">Retorno de ligação</h3>
-              <div class="ticket-foot"><span class="who">Carlos A.</span><span class="tag" data-i18n="groups.sales">Comercial</span></div>
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="text-[13px] text-ink-2">Carlos A.</span><span class="rounded-md bg-bg-alt px-2 py-[3px] text-xs font-semibold text-ink" data-i18n="groups.sales">Comercial</span></div>
             </article>
           </div>
 
-          <div class="column">
-            <div class="column-head"><span data-i18n="queues.col3">Aguardando cliente</span><span class="count">2</span></div>
-            <article class="ticket">
-              <div class="ticket-top"><span class="origin origin-whatsapp">WhatsApp</span><span class="time" data-i18n="queues.t5time">há 1 h</span></div>
+          <div class="flex flex-col gap-2.5 rounded-card bg-bg-alt p-2.5">
+            <div class="flex items-center justify-between px-1 pt-1 pb-1.5 font-display text-sm font-semibold leading-tight"><span data-i18n="queues.col3">Aguardando cliente</span><span class="rounded-full bg-surface px-2 py-1 text-xs font-semibold leading-none text-ink-2 tabular-nums">2</span></div>
+            <article class="flex flex-col gap-2 rounded-xl border bg-surface p-3 [&_h3]:font-sans [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-normal border-line shadow-card">
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-wa-bg text-ch-wa">WhatsApp</span><span class="text-xs text-ink-2 tabular-nums" data-i18n="queues.t5time">há 1 h</span></div>
               <h3 data-i18n="queues.t5">Envio de comprovante</h3>
-              <div class="ticket-foot"><span class="who">Patrícia L.</span><span class="tag" data-i18n="groups.finance">Financeiro</span></div>
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="text-[13px] text-ink-2">Patrícia L.</span><span class="rounded-md bg-bg-alt px-2 py-[3px] text-xs font-semibold text-ink" data-i18n="groups.finance">Financeiro</span></div>
             </article>
           </div>
 
-          <div class="column column-done">
-            <div class="column-head"><span data-i18n="queues.col4">Resolvidos hoje</span><span class="count">12</span></div>
-            <article class="ticket ticket-done">
-              <div class="ticket-top"><span class="origin origin-web">Web</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
+          <div class="flex flex-col gap-2.5 rounded-card bg-bg-alt p-2.5">
+            <div class="flex items-center justify-between px-1 pt-1 pb-1.5 font-display text-sm font-semibold leading-tight"><span data-i18n="queues.col4">Resolvidos hoje</span><span class="rounded-full bg-surface px-2 py-1 text-xs font-semibold leading-none text-ink-2 tabular-nums">12</span></div>
+            <article class="flex flex-col gap-2 rounded-xl border bg-surface p-3 [&_h3]:font-sans [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-normal border-line opacity-80 [&_h3]:line-through [&_h3]:decoration-ink-2">
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-web-bg text-ch-web">Web</span><svg class="size-[18px] text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg></div>
               <h3 data-i18n="queues.t6">Troca de senha</h3>
             </article>
-            <article class="ticket ticket-done">
-              <div class="ticket-top"><span class="origin origin-instagram">Instagram</span><svg class="done-check" aria-hidden="true"><use href="#i-check"/></svg></div>
+            <article class="flex flex-col gap-2 rounded-xl border bg-surface p-3 [&_h3]:font-sans [&_h3]:text-[15px] [&_h3]:font-semibold [&_h3]:leading-snug [&_h3]:tracking-normal border-line opacity-80 [&_h3]:line-through [&_h3]:decoration-ink-2">
+              <div class="flex flex-wrap items-center justify-between gap-2"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-ig-bg text-ch-ig">Instagram</span><svg class="size-[18px] text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg></div>
               <h3 data-i18n="queues.t7">Prazo de entrega</h3>
             </article>
           </div>
@@ -253,28 +253,28 @@
     </div>
 
     <!-- Origens -->
-    <div class="block" id="origens">
-      <div class="block-head">
+    <div class="mt-[clamp(64px,9vw,112px)] flex flex-col gap-7" id="origens">
+      <div class="grid grid-cols-1 items-end gap-x-12 gap-y-4 lg:grid-cols-2 [&_h2]:text-[clamp(28px,3.4vw,40px)] [&_h2]:font-bold [&_p]:max-w-[56ch] [&_p]:text-ink-2">
         <h2 data-i18n="channels.title">Origens de atendimento configuráveis</h2>
         <p data-i18n="channels.text">As origens são categorias que a sua equipe cadastra para identificar por onde cada cliente chegou. Elas aparecem nos cartões e podem ser alteradas a qualquer momento.</p>
       </div>
-      <div class="origins">
-        <figure class="origins-panel" data-i18n-attr="aria-label:origins.panelLabel" aria-label="Exemplo de cadastro de origens">
-          <div class="origins-head">
-            <span class="origins-title" data-i18n="origins.panelTitle">Origens</span>
-            <span class="origins-add" aria-hidden="true"><svg><use href="#i-plus"/></svg><span data-i18n="origins.new">Nova origem</span></span>
+      <div class="grid grid-cols-1 items-center gap-[clamp(24px,5vw,64px)] lg:grid-cols-2">
+        <figure class="m-0 flex flex-col gap-3 rounded-panel border border-line bg-surface p-5 shadow-card" data-i18n-attr="aria-label:origins.panelLabel" aria-label="Exemplo de cadastro de origens">
+          <div class="flex items-center justify-between gap-3 border-b border-line pb-3">
+            <span class="font-display text-[17px] font-semibold leading-tight" data-i18n="origins.panelTitle">Origens</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-[13px] font-semibold text-on-accent [&_svg]:size-3.5" aria-hidden="true"><svg><use href="#i-plus"/></svg><span data-i18n="origins.new">Nova origem</span></span>
           </div>
-          <ul class="origins-list">
-            <li><span class="origin origin-web">Web</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
-            <li><span class="origin origin-whatsapp">WhatsApp</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
-            <li><span class="origin origin-instagram">Instagram</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
-            <li><span class="origin origin-phone" data-i18n="channels.phone">Telefone</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
-            <li><span class="origin origin-mail" data-i18n="origins.mail">E-mail</span><span class="origins-state" data-i18n="origins.active">Ativa</span></li>
-            <li class="is-off"><span class="origin origin-desk" data-i18n="origins.desk">Balcão</span><span class="origins-state" data-i18n="origins.inactive">Inativa</span></li>
+          <ul class="flex flex-col [&_li]:flex [&_li]:items-center [&_li]:justify-between [&_li]:gap-3 [&_li]:border-b [&_li]:border-dashed [&_li]:border-line [&_li]:px-1 [&_li]:py-2.5 [&_li:last-child]:border-b-0 [&_li>span:first-child]:px-3 [&_li>span:first-child]:py-1 [&_li>span:first-child]:text-sm">
+            <li><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-web-bg text-ch-web">Web</span><span class="text-[13px] text-ink-2" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-wa-bg text-ch-wa">WhatsApp</span><span class="text-[13px] text-ink-2" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-ig-bg text-ch-ig">Instagram</span><span class="text-[13px] text-ink-2" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-ph-bg text-ch-ph" data-i18n="channels.phone">Telefone</span><span class="text-[13px] text-ink-2" data-i18n="origins.active">Ativa</span></li>
+            <li><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-ch-mail-bg text-ch-mail" data-i18n="origins.mail">E-mail</span><span class="text-[13px] text-ink-2" data-i18n="origins.active">Ativa</span></li>
+            <li class="[&>span:first-child]:opacity-60"><span class="inline-flex items-center rounded-full px-[9px] py-[3px] text-xs font-semibold bg-bg-alt text-ink-2" data-i18n="origins.desk">Balcão</span><span class="text-[13px] text-ink-2" data-i18n="origins.inactive">Inativa</span></li>
           </ul>
-          <figcaption class="board-tag-inline" data-i18n="common.example">Exemplo</figcaption>
+          <figcaption class="font-display text-[11px] font-semibold uppercase leading-none tracking-[0.14em] text-ink-2" data-i18n="common.example">Exemplo</figcaption>
         </figure>
-        <ul class="origins-points">
+        <ul class="flex flex-col gap-[22px] [&_li]:flex [&_li]:flex-col [&_li]:gap-1.5 [&_li]:border-l-2 [&_li]:border-accent [&_li]:pl-[18px] [&_h3]:text-[19px] [&_h3]:font-semibold [&_p]:text-base [&_p]:text-ink-2">
           <li>
             <h3 data-i18n="origins.p1t">Você define a lista</h3>
             <p data-i18n="origins.p1">Cadastre as origens que fazem sentido para o seu negócio: web, WhatsApp, Instagram, telefone, e-mail, balcão ou qualquer outra.</p>
@@ -292,10 +292,10 @@
     </div>
 
     <!-- Personalização + Alarmes -->
-    <div class="features">
-      <article class="feature" id="personalizacao">
-        <div class="feature-art">
-          <svg class="il" viewBox="0 0 400 320" role="img" aria-labelledby="il-custom-t">
+    <div class="mt-[clamp(64px,9vw,112px)] flex flex-col gap-[clamp(56px,8vw,96px)]">
+      <article class="grid grid-cols-1 items-center gap-[clamp(24px,5vw,72px)] lg:grid-cols-2" id="personalizacao">
+        <div class="w-full max-w-[480px] justify-self-center">
+          <svg class="block h-auto w-full" viewBox="0 0 400 320" role="img" aria-labelledby="il-custom-t">
             <title id="il-custom-t" data-i18n="il.custom">Pessoa pintando as cores de um painel de configurações</title>
             <ellipse cx="210" cy="302" rx="180" ry="12" fill="var(--il-shadow)"/>
             <rect x="160" y="30" width="216" height="244" rx="18" fill="var(--il-board)" stroke="var(--il-line)" stroke-width="3"/>
@@ -335,10 +335,10 @@
             <path d="M75 96 Q70 72 94 72 Q116 72 112 92 L104 86 Q90 90 80 84 Q78 92 79 100 Z" fill="#c2562f"/>
           </svg>
         </div>
-        <div class="feature-copy">
+        <div class="flex flex-col gap-4 [&_h2]:text-[clamp(28px,3.4vw,40px)] [&_h2]:font-bold [&>p]:max-w-[52ch] [&>p]:text-ink-2">
           <h2 data-i18n="custom.title">Personalização do seu jeito</h2>
           <p data-i18n="custom.text">Adapte o CRM ao seu processo, não o contrário.</p>
-          <ul class="checks">
+          <ul class="mt-1 flex flex-col gap-2.5 [&_li]:flex [&_li]:items-start [&_li]:gap-2.5 [&_svg]:mt-0.5 [&_svg]:size-[22px] [&_svg]:shrink-0 [&_svg]:rounded-full [&_svg]:bg-accent [&_svg]:p-[3px] [&_svg]:text-on-accent">
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="custom.li1">Etapas das filas com os nomes que sua equipe usa</span></li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="custom.li2">Campos personalizados no cadastro do cliente</span></li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="custom.li3">Etiquetas coloridas e respostas rápidas</span></li>
@@ -347,9 +347,9 @@
         </div>
       </article>
 
-      <article class="feature feature-reverse" id="alarmes">
-        <div class="feature-art">
-          <svg class="il" viewBox="0 0 400 320" role="img" aria-labelledby="il-alarm-t">
+      <article class="grid grid-cols-1 items-center gap-[clamp(24px,5vw,72px)] lg:grid-cols-2 lg:[&>*:first-child]:order-2" id="alarmes">
+        <div class="w-full max-w-[480px] justify-self-center">
+          <svg class="block h-auto w-full" viewBox="0 0 400 320" role="img" aria-labelledby="il-alarm-t">
             <title id="il-alarm-t" data-i18n="il.alarm">Pessoa ao lado de um grande despertador com um alerta</title>
             <ellipse cx="200" cy="302" rx="180" ry="12" fill="var(--il-shadow)"/>
             <!-- relógio -->
@@ -387,19 +387,19 @@
             <circle cx="86" cy="86" r="4" fill="#141010"/><circle cx="96" cy="80" r="4" fill="#141010"/><circle cx="110" cy="81" r="4" fill="#141010"/>
           </svg>
         </div>
-        <div class="feature-copy">
+        <div class="flex flex-col gap-4 [&_h2]:text-[clamp(28px,3.4vw,40px)] [&_h2]:font-bold [&>p]:max-w-[52ch] [&>p]:text-ink-2">
           <h2 data-i18n="alarm.title">Alarmes que não deixam ninguém esperando</h2>
           <p data-i18n="alarm.text">Defina prazos por fila e por grupo. Quando um atendimento passa do tempo, o CRM avisa quem precisa agir.</p>
-          <ul class="alarms" data-i18n-attr="aria-label:alarm.listLabel" aria-label="Exemplos de alarmes">
-            <li class="alarm alarm-hot">
+          <ul class="mt-1 flex flex-col gap-2.5" data-i18n-attr="aria-label:alarm.listLabel" aria-label="Exemplos de alarmes">
+            <li class="flex items-start gap-3 rounded-card border px-4 py-3.5 [&>svg]:mt-px [&>svg]:size-[22px] [&>svg]:shrink-0 [&_div]:flex [&_div]:flex-col [&_div]:gap-0.5 [&_strong]:font-semibold [&_span]:text-sm [&_span]:text-ink-2 border-hot bg-[color-mix(in_srgb,var(--hot-bg)_55%,var(--surface))] [&>svg]:text-hot [&_strong]:text-hot">
               <svg aria-hidden="true"><use href="#i-bell"/></svg>
               <div><strong data-i18n="alarm.a1">Sem resposta há 15 min</strong><span data-i18n="alarm.a1sub">Fila Suporte técnico · avisa o atendente e o líder</span></div>
             </li>
-            <li class="alarm">
+            <li class="flex items-start gap-3 rounded-card border px-4 py-3.5 [&>svg]:mt-px [&>svg]:size-[22px] [&>svg]:shrink-0 [&_div]:flex [&_div]:flex-col [&_div]:gap-0.5 [&_strong]:font-semibold [&_span]:text-sm [&_span]:text-ink-2 border-line bg-surface [&>svg]:text-ink-2">
               <svg aria-hidden="true"><use href="#i-clock"/></svg>
               <div><strong data-i18n="alarm.a2">Retornar ligação às 16:00</strong><span data-i18n="alarm.a2sub">Lembrete agendado pelo atendente</span></div>
             </li>
-            <li class="alarm">
+            <li class="flex items-start gap-3 rounded-card border px-4 py-3.5 [&>svg]:mt-px [&>svg]:size-[22px] [&>svg]:shrink-0 [&_div]:flex [&_div]:flex-col [&_div]:gap-0.5 [&_strong]:font-semibold [&_span]:text-sm [&_span]:text-ink-2 border-line bg-surface [&>svg]:text-ink-2">
               <svg aria-hidden="true"><use href="#i-clock"/></svg>
               <div><strong data-i18n="alarm.a3">Cliente sem retorno há 2 dias</strong><span data-i18n="alarm.a3sub">Move o cartão para “Aguardando cliente”</span></div>
             </li>
@@ -411,16 +411,16 @@
 </section>
 
 <!-- ============ SECTION 2 — Grupos de especialistas ============ -->
-<section class="section section-experts" id="especialistas" aria-labelledby="experts-title">
-  <div class="wrap">
-    <div class="experts-intro">
-      <div class="experts-copy">
-        <p class="eyebrow" data-i18n="experts.eyebrow">Grupos de especialistas</p>
-        <h2 id="experts-title" class="h-display" data-i18n="experts.title">Cada pergunta chega a quem sabe responder.</h2>
-        <p class="lede" data-i18n="experts.lede">Organize sua equipe em grupos por assunto. O CRM direciona cada atendimento para o grupo certo e distribui entre os especialistas disponíveis.</p>
+<section class="py-[clamp(48px,7vw,96px)] border-t border-line bg-bg-alt" id="especialistas" aria-labelledby="experts-title">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)]">
+    <div class="grid grid-cols-1 items-center gap-[clamp(24px,5vw,64px)] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+      <div class="flex flex-col gap-[18px]">
+        <p class="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-accent-strong" data-i18n="experts.eyebrow">Grupos de especialistas</p>
+        <h2 id="experts-title" class="text-[clamp(34px,4.8vw,56px)] font-bold tracking-[-0.03em]" data-i18n="experts.title">Cada pergunta chega a quem sabe responder.</h2>
+        <p class="max-w-[58ch] text-[clamp(17px,1.6vw,19px)] text-ink-2" data-i18n="experts.lede">Organize sua equipe em grupos por assunto. O CRM direciona cada atendimento para o grupo certo e distribui entre os especialistas disponíveis.</p>
       </div>
-      <figure class="experts-art">
-        <svg class="il" viewBox="0 0 400 320" role="img" aria-labelledby="il-experts-t">
+      <figure class="m-0 w-full max-w-[440px] justify-self-center">
+        <svg class="block h-auto w-full" viewBox="0 0 400 320" role="img" aria-labelledby="il-experts-t">
           <title id="il-experts-t" data-i18n="il.experts">Três especialistas organizados em torno de uma central de atendimento</title>
           <defs>
             <clipPath id="cp-a"><circle cx="200" cy="58" r="46"/></clipPath>
@@ -463,53 +463,53 @@
       </figure>
     </div>
 
-    <div class="groups" role="list" data-i18n-attr="aria-label:experts.groupsLabel" aria-label="Exemplo de grupos">
-      <article class="group" role="listitem">
-        <div class="group-head">
+    <div class="mt-[clamp(40px,6vw,64px)] grid grid-cols-1 gap-4 max-lg:max-w-[560px] lg:grid-cols-3" role="list" data-i18n-attr="aria-label:experts.groupsLabel" aria-label="Exemplo de grupos">
+      <article class="flex flex-col gap-4 rounded-panel border border-line bg-surface p-[22px] shadow-card" role="listitem">
+        <div class="flex items-center justify-between gap-3 [&_h3]:text-xl [&_h3]:font-semibold">
           <h3 data-i18n="groups.finance">Financeiro</h3>
-          <span class="group-queue"><span class="num">6</span> <span data-i18n="experts.inQueue">na fila</span></span>
+          <span class="whitespace-nowrap rounded-full px-2.5 py-1 text-[13px] bg-bg-alt text-ink-2"><span class="font-bold text-ink tabular-nums">6</span> <span data-i18n="experts.inQueue">na fila</span></span>
         </div>
-        <div class="avatars" aria-hidden="true">
+        <div class="flex [&_span]:-ml-2 [&_span:first-child]:ml-0 [&_span]:grid [&_span]:size-[38px] [&_span]:place-items-center [&_span]:rounded-full [&_span]:border-[3px] [&_span]:border-surface [&_span]:bg-(--av) [&_span]:font-display [&_span]:text-xs [&_span]:font-bold [&_span]:leading-none [&_span]:text-[#2b3a31]" aria-hidden="true">
           <span style="--av:#ffd3c4">MS</span><span style="--av:#cfdcff">PL</span><span style="--av:#fbe3a6">RB</span>
         </div>
-        <dl class="group-meta">
+        <dl class="m-0 grid grid-cols-3 gap-2 border-t border-line pt-3.5 [&_div]:flex [&_div]:flex-col [&_div]:gap-0.5 [&_dt]:text-xs [&_dt]:text-ink-2 [&_dd]:m-0 [&_dd]:text-[15px] [&_dd]:font-semibold [&_dd]:tabular-nums">
           <div><dt data-i18n="experts.online">Online</dt><dd>3 / 4</dd></div>
           <div><dt data-i18n="experts.rule">Distribuição</dt><dd data-i18n="experts.ruleRoundRobin">Rodízio</dd></div>
           <div><dt data-i18n="experts.avg">1ª resposta</dt><dd>4 min</dd></div>
         </dl>
       </article>
-      <article class="group" role="listitem">
-        <div class="group-head">
+      <article class="flex flex-col gap-4 rounded-panel border border-line bg-surface p-[22px] shadow-card" role="listitem">
+        <div class="flex items-center justify-between gap-3 [&_h3]:text-xl [&_h3]:font-semibold">
           <h3 data-i18n="groups.support">Suporte técnico</h3>
-          <span class="group-queue group-queue-hot"><span class="num">11</span> <span data-i18n="experts.inQueue">na fila</span></span>
+          <span class="whitespace-nowrap rounded-full px-2.5 py-1 text-[13px] bg-hot-bg text-ink [&>span:first-child]:text-hot"><span class="font-bold text-ink tabular-nums">11</span> <span data-i18n="experts.inQueue">na fila</span></span>
         </div>
-        <div class="avatars" aria-hidden="true">
+        <div class="flex [&_span]:-ml-2 [&_span:first-child]:ml-0 [&_span]:grid [&_span]:size-[38px] [&_span]:place-items-center [&_span]:rounded-full [&_span]:border-[3px] [&_span]:border-surface [&_span]:bg-(--av) [&_span]:font-display [&_span]:text-xs [&_span]:font-bold [&_span]:leading-none [&_span]:text-[#2b3a31]" aria-hidden="true">
           <span style="--av:#a2e3c4">JM</span><span style="--av:#ffd3c4">DF</span><span style="--av:#cfdcff">LC</span><span style="--av:#fbe3a6">+2</span>
         </div>
-        <dl class="group-meta">
+        <dl class="m-0 grid grid-cols-3 gap-2 border-t border-line pt-3.5 [&_div]:flex [&_div]:flex-col [&_div]:gap-0.5 [&_dt]:text-xs [&_dt]:text-ink-2 [&_dd]:m-0 [&_dd]:text-[15px] [&_dd]:font-semibold [&_dd]:tabular-nums">
           <div><dt data-i18n="experts.online">Online</dt><dd>5 / 6</dd></div>
           <div><dt data-i18n="experts.rule">Distribuição</dt><dd data-i18n="experts.ruleLoad">Menor carga</dd></div>
           <div><dt data-i18n="experts.avg">1ª resposta</dt><dd>7 min</dd></div>
         </dl>
       </article>
-      <article class="group" role="listitem">
-        <div class="group-head">
+      <article class="flex flex-col gap-4 rounded-panel border border-line bg-surface p-[22px] shadow-card" role="listitem">
+        <div class="flex items-center justify-between gap-3 [&_h3]:text-xl [&_h3]:font-semibold">
           <h3 data-i18n="groups.sales">Comercial</h3>
-          <span class="group-queue"><span class="num">3</span> <span data-i18n="experts.inQueue">na fila</span></span>
+          <span class="whitespace-nowrap rounded-full px-2.5 py-1 text-[13px] bg-bg-alt text-ink-2"><span class="font-bold text-ink tabular-nums">3</span> <span data-i18n="experts.inQueue">na fila</span></span>
         </div>
-        <div class="avatars" aria-hidden="true">
+        <div class="flex [&_span]:-ml-2 [&_span:first-child]:ml-0 [&_span]:grid [&_span]:size-[38px] [&_span]:place-items-center [&_span]:rounded-full [&_span]:border-[3px] [&_span]:border-surface [&_span]:bg-(--av) [&_span]:font-display [&_span]:text-xs [&_span]:font-bold [&_span]:leading-none [&_span]:text-[#2b3a31]" aria-hidden="true">
           <span style="--av:#cfdcff">RT</span><span style="--av:#a2e3c4">CA</span>
         </div>
-        <dl class="group-meta">
+        <dl class="m-0 grid grid-cols-3 gap-2 border-t border-line pt-3.5 [&_div]:flex [&_div]:flex-col [&_div]:gap-0.5 [&_dt]:text-xs [&_dt]:text-ink-2 [&_dd]:m-0 [&_dd]:text-[15px] [&_dd]:font-semibold [&_dd]:tabular-nums">
           <div><dt data-i18n="experts.online">Online</dt><dd>2 / 3</dd></div>
           <div><dt data-i18n="experts.rule">Distribuição</dt><dd data-i18n="experts.ruleRoundRobin">Rodízio</dd></div>
           <div><dt data-i18n="experts.avg">1ª resposta</dt><dd>2 min</dd></div>
         </dl>
       </article>
     </div>
-    <p class="groups-note" data-i18n="common.exampleData">Dados ilustrativos.</p>
+    <p class="mt-2.5 text-[13px] text-ink-2" data-i18n="common.exampleData">Dados ilustrativos.</p>
 
-    <ul class="experts-points">
+    <ul class="mt-[clamp(40px,6vw,64px)] grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4 [&_li]:flex [&_li]:flex-col [&_li]:gap-2 [&_li]:border-t-2 [&_li]:border-accent [&_li]:pt-4 [&_h3]:text-lg [&_h3]:font-semibold [&_p]:text-[15px] [&_p]:text-ink-2">
       <li>
         <h3 data-i18n="experts.p1t">Grupos por assunto</h3>
         <p data-i18n="experts.p1">Financeiro, suporte, comercial ou o que o seu negócio precisar. Uma pessoa pode fazer parte de vários grupos.</p>
@@ -527,95 +527,107 @@
         <p data-i18n="experts.p4">Acompanhe fila, tempo de resposta e alarmes de cada grupo em tempo real.</p>
       </li>
     </ul>
+
+    <div class="mt-[clamp(48px,7vw,80px)] flex flex-col items-start gap-5 rounded-panel bg-ink p-[clamp(24px,4vw,40px)] text-bg lg:flex-row lg:items-center lg:justify-between [&_h2]:text-[clamp(24px,3vw,32px)] [&_h2]:font-bold [&_p]:mt-2 [&_p]:max-w-[52ch] [&_p]:opacity-85">
+      <div>
+        <h2 data-i18n="cta.title">Pronto para organizar seus atendimentos?</h2>
+        <p data-i18n="cta.text">Veja os planos e escolha o que cabe no tamanho da sua equipe.</p>
+      </div>
+      <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 min-h-[52px] px-6 text-base border-transparent bg-accent text-on-accent hover:-translate-y-px" href="precos.html">
+        <span data-i18n="cta.button">Ver planos e preços</span>
+        <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <a class="brand" href="#topo" aria-label="aosoluti CRM">
-        <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
-        <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+<footer class="border-t border-line bg-bg pt-12 pb-6">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-2 gap-8 sm:grid-cols-[2fr_1fr_1fr]">
+    <div class="col-span-2 flex flex-col gap-3 sm:col-span-1 [&_p]:max-w-[36ch] [&_p]:text-ink-2">
+      <a class="inline-flex items-center gap-2.5 text-ink no-underline" href="#topo" aria-label="aosoluti CRM">
+        <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
       </a>
       <p data-i18n="footer.tagline">Atendimento organizado, do primeiro contato à solução.</p>
     </div>
-    <nav class="footer-nav" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+    <nav class="flex flex-col gap-2 [&_h2]:mb-1 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_a]:w-fit [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
       <h2 data-i18n="footer.product">Produto</h2>
       <a href="#filas" data-i18n="footer.queues">Filas</a>
       <a href="#origens" data-i18n="footer.channels">Origens</a>
       <a href="#personalizacao" data-i18n="footer.custom">Personalização</a>
       <a href="#alarmes" data-i18n="footer.alarms">Alarmes</a>
       <a href="#especialistas" data-i18n="footer.experts">Especialistas</a>
+      <a href="precos.html" data-i18n="footer.pricing">Preços</a>
     </nav>
-    <nav class="footer-nav" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+    <nav class="flex flex-col gap-2 [&_h2]:mb-1 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_a]:w-fit [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
       <h2 data-i18n="footer.company">Empresa</h2>
       <a href="contato.html" data-i18n="footer.contact">Contato</a>
       <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
       <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
-      <button type="button" class="footer-link" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
+      <button type="button" class="w-fit cursor-pointer border-0 bg-transparent p-0 text-left text-ink hover:text-accent-strong hover:underline" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
     </nav>
   </div>
-  <div class="wrap footer-bottom">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] mt-10 border-t border-line pt-5 text-sm text-ink-2">
     <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
   </div>
 </footer>
 
 <!-- ============ AVISO DE ARMAZENAMENTO ============ -->
-<div class="consent-banner" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
-  <div class="wrap consent-banner-row">
-    <div class="consent-banner-text">
+<div class="fixed inset-x-0 bottom-0 z-60 border-t border-line bg-surface pt-4 pb-[calc(16px+env(safe-area-inset-bottom,0px))] shadow-[0_-10px_30px_-18px_rgba(0,0,0,.35)]" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+    <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-1 [&_h2]:text-[17px] [&_h2]:font-semibold [&_h2]:tracking-[-0.01em] [&_p]:max-w-[72ch] [&_p]:text-[15px] [&_p]:text-ink-2">
       <h2 id="consent-title" data-i18n="consent.title">Configurações guardadas no seu navegador</h2>
       <p data-i18n="consent.text">Este site pode usar o armazenamento local do navegador (localStorage) para guardar suas configurações, como tema e idioma. Não usamos cookies de publicidade nem de rastreamento.</p>
     </div>
-    <div class="consent-banner-actions">
-      <button type="button" class="btn btn-ghost" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
-      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.reject">Recusar</button>
-      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
+    <div class="flex flex-wrap gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.reject">Recusar</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
     </div>
   </div>
 </div>
 
-<dialog class="consent-dialog" id="consent-dialog" aria-labelledby="consent-dialog-title">
-  <div class="consent-dialog-body">
-    <div class="consent-dialog-head">
+<dialog class="m-auto max-h-[calc(100%-32px)] w-[min(560px,calc(100%-32px))] rounded-panel border border-line bg-surface p-0 text-ink shadow-card backdrop:bg-[rgba(28,36,31,.55)]" id="consent-dialog" aria-labelledby="consent-dialog-title">
+  <div class="flex flex-col gap-4 p-[clamp(20px,4vw,28px)]">
+    <div class="flex items-start justify-between gap-3 [&_h2]:text-[22px] [&_h2]:font-bold">
       <h2 id="consent-dialog-title" data-i18n="consent.dialogTitle">O que guardamos no seu navegador</h2>
-      <button type="button" class="icon-btn" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button type="button" class="-mt-2 -mr-2 grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border-0 bg-transparent text-ink-2 hover:bg-bg-alt hover:text-ink [&_svg]:size-5" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
-    <p class="consent-dialog-intro" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
-    <ul class="consent-list">
+    <p class="text-[15px] text-ink-2" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
+    <ul class="flex flex-col rounded-card border border-line [&>li]:flex [&>li]:items-start [&>li]:justify-between [&>li]:gap-4 [&>li]:border-b [&>li]:border-line [&>li]:px-4 [&>li]:py-3.5 [&>li:last-child]:border-b-0">
       <li>
-        <div class="consent-item-text">
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
           <label for="pref-theme" data-i18n="consent.themeT">Tema</label>
           <p data-i18n="consent.themeP">Lembra se você prefere o tema claro, escuro ou o do sistema.</p>
-          <p class="consent-meta"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
         </div>
         <input type="checkbox" class="switch" id="pref-theme" name="pref-theme">
       </li>
       <li>
-        <div class="consent-item-text">
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
           <label for="pref-lang" data-i18n="consent.langT">Idioma</label>
           <p data-i18n="consent.langP">Lembra o idioma escolhido para exibir o site.</p>
-          <p class="consent-meta"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
         </div>
         <input type="checkbox" class="switch" id="pref-lang" name="pref-lang">
       </li>
       <li>
-        <div class="consent-item-text">
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
           <label for="pref-consent" data-i18n="consent.choiceT">Sua escolha sobre este aviso</label>
           <p data-i18n="consent.choiceP">Guardada quando você salva uma escolha, para que este aviso não apareça a cada visita. Não inclui dados pessoais.</p>
-          <p class="consent-meta"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
         </div>
         <input type="checkbox" class="switch" id="pref-consent" name="pref-consent" checked disabled>
       </li>
     </ul>
-    <p class="consent-note"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
-    <div class="consent-dialog-actions">
-      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
-      <button type="button" class="btn btn-ghost" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
-      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
+    <p class="text-sm text-ink-2"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
+    <div class="flex flex-wrap justify-end gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
     </div>
   </div>
 </dialog>

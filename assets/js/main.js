@@ -114,6 +114,7 @@
     if (langSelect) langSelect.value = lang;
     persist('lang', lang);
     updateConsentValues();
+    document.dispatchEvent(new CustomEvent('aosoluti:lang', { detail: { lang: lang } }));
   }
 
   function detectLang() {

@@ -1,0 +1,274 @@
+/* aosoluti CRM — fonte do CSS (Tailwind CSS v4).
+   Gera assets/css/styles.css com `npm run build`. O layout fica nas classes
+   utilitárias do HTML; aqui ficam só os tokens de tema e itens específicos.
+
+   Cores da marca (artefato "aosoluti CRM Logo"):
+   claro  → fundo #f0f7f4 · texto #3c493f · secundário #7e8d85 · destaque #a2e3c4
+   escuro → fundo #3c493f · texto #f0f7f4 · secundário #b3bfb8 · destaque #a2e3c4 */
+
+@import "tailwindcss";
+
+@source "../*.html";
+@source "../assets/js/*.js";
+
+/* ---------- tokens do Tailwind ----------
+   As cores apontam para variáveis CSS, que mudam com o tema (claro/escuro).
+   Assim `bg-surface`, `text-ink` etc. já funcionam nos dois temas sem `dark:`. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-on-accent: var(--on-accent);
+  --color-hot: var(--hot);
+  --color-hot-bg: var(--hot-bg);
+  --color-focus: var(--focus);
+  --color-ch-web: var(--ch-web);
+  --color-ch-web-bg: var(--ch-web-bg);
+  --color-ch-wa: var(--ch-wa);
+  --color-ch-wa-bg: var(--ch-wa-bg);
+  --color-ch-ig: var(--ch-ig);
+  --color-ch-ig-bg: var(--ch-ig-bg);
+  --color-ch-ph: var(--ch-ph);
+  --color-ch-ph-bg: var(--ch-ph-bg);
+  --color-ch-mail: var(--ch-mail);
+  --color-ch-mail-bg: var(--ch-mail-bg);
+  --shadow-card: var(--shadow);
+}
+
+@theme {
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --breakpoint-lg: 60rem;            /* 960px */
+  --container-page: 1180px;          /* max-w-page */
+  --radius-card: 14px;               /* rounded-card */
+  --radius-panel: 22px;              /* rounded-panel */
+}
+
+/* ---------- tema claro / escuro ---------- */
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg: #f0f7f4;
+    --bg-alt: #e2efe8;
+    --surface: #ffffff;
+    --surface-2: #f6faf8;
+    --ink: #3c493f;
+    --ink-2: #57665d;          /* #7e8d85 escurecido p/ contraste 4.5:1 em texto corrido */
+    --line: #cfe0d7;
+    --accent: #a2e3c4;
+    --accent-strong: #2f7a58;  /* destaque legível como texto */
+    --on-accent: #1f3d2e;
+    --hot: #c2452a;
+    --hot-bg: #fde4dc;
+    --focus: #2f7a58;
+
+    --logo-line: #7e8d85;
+    --logo-accent: #a2e3c4;
+    --logo-core: #3c493f;
+
+    --il-board: #ffffff;
+    --il-line: #cfe0d7;
+    --il-muted: #b9ccc2;
+    --il-shadow: rgba(60, 73, 63, .10);
+    --il-pants: #2d3e63;
+    --il-stool: #7e8d85;
+    --il-stroke: #3c493f;
+    --il-hub: #3c493f;
+
+    --ch-web: #3b6fd6;
+    --ch-web-bg: #e3ebfb;
+    --ch-wa: #1f8a55;
+    --ch-wa-bg: #dcf3e7;
+    --ch-ig: #b83a7c;
+    --ch-ig-bg: #f8e1ee;
+    --ch-ph: #9a6410;
+    --ch-ph-bg: #fbeed2;
+    --ch-mail: #6a4fc0;
+    --ch-mail-bg: #ece6fb;
+
+    --shadow: 0 1px 2px rgba(60, 73, 63, .06), 0 8px 24px -12px rgba(60, 73, 63, .18);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #2c3730;
+      --bg-alt: #33403a;
+      --surface: #3c493f;
+      --surface-2: #435148;
+      --ink: #f0f7f4;
+      --ink-2: #b3bfb8;
+      --line: #52625a;
+      --accent-strong: #a2e3c4;
+      --hot: #ff9d85;
+      --hot-bg: #5a3b33;
+      --focus: #a2e3c4;
+      --logo-line: #b3bfb8;
+      --logo-core: #f0f7f4;
+      --il-board: #3c493f;
+      --il-line: #5d6e65;
+      --il-muted: #6f8278;
+      --il-shadow: rgba(0, 0, 0, .22);
+      --il-pants: #8ea3d9;
+      --il-stool: #b3bfb8;
+      --il-stroke: #f0f7f4;
+      --il-hub: #f0f7f4;
+      --ch-web: #9dbcf6;
+      --ch-web-bg: #34425c;
+      --ch-wa: #8fdcb2;
+      --ch-wa-bg: #2f4d3e;
+      --ch-ig: #f0a6cc;
+      --ch-ig-bg: #553648;
+      --ch-ph: #f1c979;
+      --ch-ph-bg: #54472d;
+      --ch-mail: #c7b6f5;
+      --ch-mail-bg: #43395e;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 10px 28px -14px rgba(0, 0, 0, .5);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #2c3730;
+    --bg-alt: #33403a;
+    --surface: #3c493f;
+    --surface-2: #435148;
+    --ink: #f0f7f4;
+    --ink-2: #b3bfb8;
+    --line: #52625a;
+    --accent-strong: #a2e3c4;
+    --hot: #ff9d85;
+    --hot-bg: #5a3b33;
+    --focus: #a2e3c4;
+    --logo-line: #b3bfb8;
+    --logo-core: #f0f7f4;
+    --il-board: #3c493f;
+    --il-line: #5d6e65;
+    --il-muted: #6f8278;
+    --il-shadow: rgba(0, 0, 0, .22);
+    --il-pants: #8ea3d9;
+    --il-stool: #b3bfb8;
+    --il-stroke: #f0f7f4;
+    --il-hub: #f0f7f4;
+    --ch-web: #9dbcf6;
+    --ch-web-bg: #34425c;
+    --ch-wa: #8fdcb2;
+    --ch-wa-bg: #2f4d3e;
+    --ch-ig: #f0a6cc;
+    --ch-ig-bg: #553648;
+    --ch-ph: #f1c979;
+    --ch-ph-bg: #54472d;
+    --ch-mail: #c7b6f5;
+    --ch-mail-bg: #43395e;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 10px 28px -14px rgba(0, 0, 0, .5);
+  }
+
+  /* ---------- base tipográfica ---------- */
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color .25s ease, color .25s ease;
+  }
+  @media (max-width: 639px) { body { font-size: 16px; } }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; letter-spacing: -0.02em; text-wrap: balance; }
+  a { color: var(--accent-strong); }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
+}
+
+/* ---------- itens específicos ---------- */
+@layer components {
+  /* Ilustrações */
+  .il-float { animation: il-float 5s ease-in-out infinite; transform-origin: center; }
+  .il-ring { animation: il-ring 1.6s ease-in-out infinite; }
+
+  /* Seta dos <select> (idioma no header e assunto no contato) */
+  .select-arrow {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    background-position: right 5px center, right 0 center;
+  }
+  .select-arrow option { color: #3c493f; background: #fff; }
+  .select-field { background-position: right 20px center, right 15px center; }
+
+  /* Chave liga/desliga das preferências de armazenamento */
+  .switch {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    flex: none;
+    width: 46px;
+    height: 26px;
+    margin: 2px 0 0;
+    border-radius: 999px;
+    cursor: pointer;
+    background: var(--line);
+    transition: background-color .15s ease;
+  }
+  .switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
+    transition: transform .15s ease;
+  }
+  .switch:checked { background: var(--accent-strong); }
+  .switch:checked::after { transform: translateX(20px); }
+  .switch:disabled { cursor: not-allowed; opacity: .6; }
+  .switch:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  /* Marcadores das listas nos documentos legais */
+  .legal-section li { position: relative; padding-left: 22px; }
+  .legal-section li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: .62em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--accent);
+  }
+
+  /* Seta das perguntas frequentes */
+  .faq summary { list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "";
+    flex: none;
+    width: 10px;
+    height: 10px;
+    margin-top: .45em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .2s ease;
+  }
+  .faq details[open] summary::after { transform: rotate(-135deg); }
+}
+
+@keyframes il-float { 50% { transform: translateY(-8px); } }
+@keyframes il-ring { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
