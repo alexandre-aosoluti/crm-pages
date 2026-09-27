@@ -38,6 +38,8 @@
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
     <symbol id="logo-mark" viewBox="0 0 120 120">
@@ -56,23 +58,50 @@
 
 <!-- ============ HEADER ============ -->
 <header class="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-line bg-bg/85 backdrop-blur-md backdrop-saturate-[1.2]">
-  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex min-h-[68px] items-center justify-between gap-4">
-    <a class="inline-flex items-center gap-2.5 text-ink no-underline" href="index.html" aria-label="aosoluti CRM">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex min-h-[68px] items-center gap-3 lg:gap-6">
+    <a class="mr-auto inline-flex shrink-0 items-center gap-2.5 lg:mr-0 text-ink no-underline" href="index.html" aria-label="aosoluti CRM">
       <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
       <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
     </a>
 
+    <nav class="mr-auto hidden items-center gap-1 lg:flex" data-i18n-attr="aria-label:nav.main" aria-label="Principal">
+      <div class="relative" data-dropdown>
+        <button type="button" class="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-[15px] font-semibold text-ink hover:bg-bg-alt aria-expanded:bg-bg-alt [&_svg]:size-4 [&_svg]:transition-transform aria-expanded:[&_svg]:rotate-180" aria-expanded="false" aria-controls="menu-product" data-dropdown-toggle>
+          <span data-i18n="footer.product">Produto</span><svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul id="menu-product" class="absolute top-full left-0 z-50 mt-2 flex w-64 flex-col rounded-card border border-line bg-surface p-2 shadow-card [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a]:rounded-lg [&_a]:px-3 [&_a]:text-[15px] [&_a]:text-ink [&_a]:no-underline [&_a:hover]:bg-bg-alt [&_a[aria-current=page]]:font-semibold [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-11 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:rounded-lg [&_button]:px-3 [&_button]:text-left [&_button]:text-[15px] [&_button]:text-ink [&_button:hover]:bg-bg-alt" hidden>
+          <li><a href="index.html#filas" data-i18n="footer.queues">Filas</a></li>
+          <li><a href="index.html#origens" data-i18n="footer.channels">Origens</a></li>
+          <li><a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a></li>
+          <li><a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a></li>
+          <li><a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a></li>
+          <li><a href="precos.html" data-i18n="footer.pricing">Preços</a></li>
+        </ul>
+      </div>
+      <div class="relative" data-dropdown>
+        <button type="button" class="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-[15px] font-semibold text-ink hover:bg-bg-alt aria-expanded:bg-bg-alt [&_svg]:size-4 [&_svg]:transition-transform aria-expanded:[&_svg]:rotate-180" aria-expanded="false" aria-controls="menu-company" data-dropdown-toggle>
+          <span data-i18n="footer.company">Empresa</span><svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul id="menu-company" class="absolute top-full left-0 z-50 mt-2 flex w-64 flex-col rounded-card border border-line bg-surface p-2 shadow-card [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a]:rounded-lg [&_a]:px-3 [&_a]:text-[15px] [&_a]:text-ink [&_a]:no-underline [&_a:hover]:bg-bg-alt [&_a[aria-current=page]]:font-semibold [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-11 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:rounded-lg [&_button]:px-3 [&_button]:text-left [&_button]:text-[15px] [&_button]:text-ink [&_button:hover]:bg-bg-alt" hidden>
+          <li><a href="contato.html" data-i18n="footer.contact">Contato</a></li>
+          <li><a href="privacidade.html" aria-current="page" data-i18n="footer.privacy">Privacidade</a></li>
+          <li><a href="termos.html" data-i18n="footer.terms">Termos de uso</a></li>
+          <li><button type="button" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="flex items-center gap-1.5 sm:gap-2.5">
-      <div class="inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+      <div class="hidden sm:inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
         <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
         <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
         <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
       </div>
 
-      <label class="relative inline-flex h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 max-sm:[&>svg]:hidden [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
+      <label class="hidden sm:inline-flex relative h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 max-sm:[&>svg]:hidden [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
         <svg aria-hidden="true"><use href="#i-globe"/></svg>
         <span class="sr-only" data-i18n="lang.label">Idioma</span>
-        <select id="lang" name="lang" class="select-arrow">
+        <select id="lang" name="lang" class="select-arrow" data-lang-select>
           <option value="pt-BR">PT</option>
           <option value="en">EN</option>
           <option value="es">ES</option>
@@ -83,6 +112,55 @@
         <svg aria-hidden="true"><use href="#i-login"/></svg>
         <span data-i18n="nav.login">Entrar</span>
       </a>
+
+      <button type="button" class="group grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border border-line bg-surface text-ink lg:hidden [&_svg]:size-5" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Menu">
+        <svg class="group-aria-expanded:hidden" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="hidden group-aria-expanded:block" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="max-h-[calc(100dvh-68px)] overflow-y-auto border-t border-line bg-bg lg:hidden" hidden>
+    <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-1 gap-x-10 gap-y-6 py-6 sm:grid-cols-2">
+      <nav class="flex flex-col gap-2" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="footer.product">Produto</h2>
+        <ul class="flex flex-col [&_a]:flex [&_a]:min-h-12 [&_a]:items-center [&_a]:border-b [&_a]:border-line [&_a]:text-[17px] [&_a]:font-medium [&_a]:text-ink [&_a]:no-underline [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-12 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:text-left [&_button]:text-[17px] [&_button]:font-medium [&_button]:text-ink">
+          <li><a href="index.html#filas" data-i18n="footer.queues">Filas</a></li>
+          <li><a href="index.html#origens" data-i18n="footer.channels">Origens</a></li>
+          <li><a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a></li>
+          <li><a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a></li>
+          <li><a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a></li>
+          <li><a href="precos.html" data-i18n="footer.pricing">Preços</a></li>
+        </ul>
+      </nav>
+      <nav class="flex flex-col gap-2" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="footer.company">Empresa</h2>
+        <ul class="flex flex-col [&_a]:flex [&_a]:min-h-12 [&_a]:items-center [&_a]:border-b [&_a]:border-line [&_a]:text-[17px] [&_a]:font-medium [&_a]:text-ink [&_a]:no-underline [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-12 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:text-left [&_button]:text-[17px] [&_button]:font-medium [&_button]:text-ink">
+          <li><a href="contato.html" data-i18n="footer.contact">Contato</a></li>
+          <li><a href="privacidade.html" aria-current="page" data-i18n="footer.privacy">Privacidade</a></li>
+          <li><a href="termos.html" data-i18n="footer.terms">Termos de uso</a></li>
+          <li><button type="button" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button></li>
+        </ul>
+      </nav>
+      <div class="flex flex-col gap-3 sm:hidden">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="nav.prefs">Preferências</h2>
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+            <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+            <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+            <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+          </div>
+          <label class="relative inline-flex h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
+            <svg aria-hidden="true"><use href="#i-globe"/></svg>
+            <span class="sr-only" data-i18n="lang.label">Idioma</span>
+            <select id="lang-mobile" name="lang-mobile" class="select-arrow" data-lang-select>
+              <option value="pt-BR">PT</option>
+              <option value="en">EN</option>
+              <option value="es">ES</option>
+            </select>
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -229,7 +307,7 @@
     <nav class="flex flex-col gap-2 [&_h2]:mb-1 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_a]:w-fit [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
       <h2 data-i18n="footer.company">Empresa</h2>
       <a href="contato.html" data-i18n="footer.contact">Contato</a>
-      <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
+      <a href="privacidade.html" aria-current="page" data-i18n="footer.privacy">Privacidade</a>
       <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
       <button type="button" class="w-fit cursor-pointer border-0 bg-transparent p-0 text-left text-ink hover:text-accent-strong hover:underline" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
     </nav>

@@ -33,6 +33,7 @@ Antes de commitar, rode `npm run build` para gerar o CSS minificado.
 - **Classes utilitárias** no HTML para layout, espaçamento, tipografia e cores.
 - **Cores do tema** como utilitários ligados a variáveis CSS: `bg-bg`, `bg-bg-alt`, `bg-surface`, `text-ink`, `text-ink-2`, `border-line`, `bg-accent`, `text-accent-strong`, `text-hot` etc. Elas trocam de valor sozinhas no tema escuro, então não é preciso usar `dark:`.
 - **Tokens extras**: `font-display` (Space Grotesk), `font-sans` (Figtree), `rounded-card`, `rounded-panel`, `shadow-card`, `max-w-page` e o breakpoint `lg` em 960px.
+- **Tema fora de camadas**: as paletas clara/escura e as regras de `html`/`body` ficam fora de `@layer` em `src/styles.css`. Estilos sem camada vencem os que estão em camadas, então um reset externo (como o de uma prévia hospedada) não quebra o tema. Mantenha-as assim.
 - **CSS próprio** (`src/styles.css`) só para o que não é utilitário: paletas clara/escura, base tipográfica, animações das ilustrações, seta dos `<select>`, chave liga/desliga (`.switch`), marcadores dos documentos legais e seta das perguntas frequentes.
 
 ## Personalizar
@@ -40,7 +41,7 @@ Antes de commitar, rode `npm run build` para gerar o CSS minificado.
 - **Cores**: variáveis em `:root` (tema claro) e nos blocos `[data-theme="dark"]` / `prefers-color-scheme: dark` em `src/styles.css`. Os valores vêm do artefato "aosoluti CRM Logo". Depois de mudar, rode `npm run build`.
 - **Textos**: edite `assets/js/i18n.js`. Todo elemento com `data-i18n="chave"` é traduzido; atributos usam `data-i18n-attr="aria-label:chave"`.
 - **Login**: os botões "Entrar" / "Acessar o CRM" apontam para `/login`. Troque o `href` em `index.html` pelo endereço do app.
-- **Header e footer**: são iguais nas cinco páginas. Ao mudar um deles, replique nas outras.
+- **Header e footer**: são iguais nas cinco páginas. Ao mudar um deles, replique nas outras. Os links do rodapé também estão no header: no desktop, nos menus "Produto" e "Empresa"; abaixo de 960px, no botão de menu. Em telas menores que 640px, o tema e o idioma ficam dentro desse menu.
 - **Formulário de contato**: o envio fica desligado até você preencher `data-endpoint` no `<form id="contact-form">` de `contato.html` com a URL que recebe a mensagem. O formulário envia um `POST` em JSON com `name`, `email`, `phone`, `company`, `subject`, `message` e `lang`. Sem endpoint, o visitante vê um aviso para usar os outros canais.
 - **Campos a preencher**: os textos entre colchetes, como `[E-MAIL DE CONTATO]`, `[RAZÃO SOCIAL]`, `[CNPJ]`, `[CIDADE/UF]` e `[DATA DA PUBLICAÇÃO]`, estão em `contato.html`, `privacidade.html`, `termos.html` e `assets/js/i18n-pages.js`. Os documentos legais são um modelo: revise com a assessoria jurídica antes de publicar.
 - **Preços**: os valores em `precos.html` são fictícios. Cada preço tem `data-price-monthly` e `data-price-annual`, e o total anual fica em `data-annual-total`. Os nomes e recursos dos planos estão em `assets/js/i18n-pages.js` (chaves `pricing.*`).

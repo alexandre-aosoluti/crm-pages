@@ -50,90 +50,54 @@
   --radius-panel: 22px;              /* rounded-panel */
 }
 
-/* ---------- tema claro / escuro ---------- */
-@layer base {
-  :root {
-    color-scheme: light;
-    --bg: #f0f7f4;
-    --bg-alt: #e2efe8;
-    --surface: #ffffff;
-    --surface-2: #f6faf8;
-    --ink: #3c493f;
-    --ink-2: #57665d;          /* #7e8d85 escurecido p/ contraste 4.5:1 em texto corrido */
-    --line: #cfe0d7;
-    --accent: #a2e3c4;
-    --accent-strong: #2f7a58;  /* destaque legível como texto */
-    --on-accent: #1f3d2e;
-    --hot: #c2452a;
-    --hot-bg: #fde4dc;
-    --focus: #2f7a58;
+/* ---------- tema claro / escuro ----------
+   Fora de @layer de propósito: estilos sem camada vencem os que estão em camadas,
+   então nenhum reset externo (ex.: o do host da prévia) sobrescreve o tema. */
+:root {
+  color-scheme: light;
+  --bg: #f0f7f4;
+  --bg-alt: #e2efe8;
+  --surface: #ffffff;
+  --surface-2: #f6faf8;
+  --ink: #3c493f;
+  --ink-2: #57665d;          /* #7e8d85 escurecido p/ contraste 4.5:1 em texto corrido */
+  --line: #cfe0d7;
+  --accent: #a2e3c4;
+  --accent-strong: #2f7a58;  /* destaque legível como texto */
+  --on-accent: #1f3d2e;
+  --hot: #c2452a;
+  --hot-bg: #fde4dc;
+  --focus: #2f7a58;
 
-    --logo-line: #7e8d85;
-    --logo-accent: #a2e3c4;
-    --logo-core: #3c493f;
+  --logo-line: #7e8d85;
+  --logo-accent: #a2e3c4;
+  --logo-core: #3c493f;
 
-    --il-board: #ffffff;
-    --il-line: #cfe0d7;
-    --il-muted: #b9ccc2;
-    --il-shadow: rgba(60, 73, 63, .10);
-    --il-pants: #2d3e63;
-    --il-stool: #7e8d85;
-    --il-stroke: #3c493f;
-    --il-hub: #3c493f;
+  --il-board: #ffffff;
+  --il-line: #cfe0d7;
+  --il-muted: #b9ccc2;
+  --il-shadow: rgba(60, 73, 63, .10);
+  --il-pants: #2d3e63;
+  --il-stool: #7e8d85;
+  --il-stroke: #3c493f;
+  --il-hub: #3c493f;
 
-    --ch-web: #3b6fd6;
-    --ch-web-bg: #e3ebfb;
-    --ch-wa: #1f8a55;
-    --ch-wa-bg: #dcf3e7;
-    --ch-ig: #b83a7c;
-    --ch-ig-bg: #f8e1ee;
-    --ch-ph: #9a6410;
-    --ch-ph-bg: #fbeed2;
-    --ch-mail: #6a4fc0;
-    --ch-mail-bg: #ece6fb;
+  --ch-web: #3b6fd6;
+  --ch-web-bg: #e3ebfb;
+  --ch-wa: #1f8a55;
+  --ch-wa-bg: #dcf3e7;
+  --ch-ig: #b83a7c;
+  --ch-ig-bg: #f8e1ee;
+  --ch-ph: #9a6410;
+  --ch-ph-bg: #fbeed2;
+  --ch-mail: #6a4fc0;
+  --ch-mail-bg: #ece6fb;
 
-    --shadow: 0 1px 2px rgba(60, 73, 63, .06), 0 8px 24px -12px rgba(60, 73, 63, .18);
-  }
+  --shadow: 0 1px 2px rgba(60, 73, 63, .06), 0 8px 24px -12px rgba(60, 73, 63, .18);
+}
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --bg: #2c3730;
-      --bg-alt: #33403a;
-      --surface: #3c493f;
-      --surface-2: #435148;
-      --ink: #f0f7f4;
-      --ink-2: #b3bfb8;
-      --line: #52625a;
-      --accent-strong: #a2e3c4;
-      --hot: #ff9d85;
-      --hot-bg: #5a3b33;
-      --focus: #a2e3c4;
-      --logo-line: #b3bfb8;
-      --logo-core: #f0f7f4;
-      --il-board: #3c493f;
-      --il-line: #5d6e65;
-      --il-muted: #6f8278;
-      --il-shadow: rgba(0, 0, 0, .22);
-      --il-pants: #8ea3d9;
-      --il-stool: #b3bfb8;
-      --il-stroke: #f0f7f4;
-      --il-hub: #f0f7f4;
-      --ch-web: #9dbcf6;
-      --ch-web-bg: #34425c;
-      --ch-wa: #8fdcb2;
-      --ch-wa-bg: #2f4d3e;
-      --ch-ig: #f0a6cc;
-      --ch-ig-bg: #553648;
-      --ch-ph: #f1c979;
-      --ch-ph-bg: #54472d;
-      --ch-mail: #c7b6f5;
-      --ch-mail-bg: #43395e;
-      --shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 10px 28px -14px rgba(0, 0, 0, .5);
-    }
-  }
-
-  :root[data-theme="dark"] {
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: #2c3730;
     --bg-alt: #33403a;
@@ -168,19 +132,58 @@
     --ch-mail-bg: #43395e;
     --shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 10px 28px -14px rgba(0, 0, 0, .5);
   }
+}
 
-  /* ---------- base tipográfica ---------- */
-  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-sans);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    transition: background-color .25s ease, color .25s ease;
-  }
-  @media (max-width: 639px) { body { font-size: 16px; } }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #2c3730;
+  --bg-alt: #33403a;
+  --surface: #3c493f;
+  --surface-2: #435148;
+  --ink: #f0f7f4;
+  --ink-2: #b3bfb8;
+  --line: #52625a;
+  --accent-strong: #a2e3c4;
+  --hot: #ff9d85;
+  --hot-bg: #5a3b33;
+  --focus: #a2e3c4;
+  --logo-line: #b3bfb8;
+  --logo-core: #f0f7f4;
+  --il-board: #3c493f;
+  --il-line: #5d6e65;
+  --il-muted: #6f8278;
+  --il-shadow: rgba(0, 0, 0, .22);
+  --il-pants: #8ea3d9;
+  --il-stool: #b3bfb8;
+  --il-stroke: #f0f7f4;
+  --il-hub: #f0f7f4;
+  --ch-web: #9dbcf6;
+  --ch-web-bg: #34425c;
+  --ch-wa: #8fdcb2;
+  --ch-wa-bg: #2f4d3e;
+  --ch-ig: #f0a6cc;
+  --ch-ig-bg: #553648;
+  --ch-ph: #f1c979;
+  --ch-ph-bg: #54472d;
+  --ch-mail: #c7b6f5;
+  --ch-mail-bg: #43395e;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .2), 0 10px 28px -14px rgba(0, 0, 0, .5);
+}
+
+/* ---------- página ---------- */
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .25s ease, color .25s ease;
+}
+@media (max-width: 639px) { body { font-size: 16px; } }
+
+@layer base {
   h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; letter-spacing: -0.02em; text-wrap: balance; }
   a { color: var(--accent-strong); }
   :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }

@@ -66,20 +66,23 @@
     updateConsentValues();
   }
 
-  themeButtons.forEach(function (btn, i) {
+  /* Há dois seletores de tema (header e menu do celular); as setas navegam dentro de cada grupo. */
+  themeButtons.forEach(function (btn) {
     btn.addEventListener('click', function () { applyTheme(btn.getAttribute('data-theme-value')); });
     btn.addEventListener('keydown', function (e) {
       var step = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
       if (!step) return;
       e.preventDefault();
-      var next = themeButtons[(i + step + themeButtons.length) % themeButtons.length];
+      var group = btn.parentElement.querySelectorAll('[data-theme-value]');
+      var i = Array.prototype.indexOf.call(group, btn);
+      var next = group[(i + step + group.length) % group.length];
       applyTheme(next.getAttribute('data-theme-value'));
       next.focus();
     });
   });
 
   /* ---------- Idioma ---------- */
-  var langSelect = document.getElementById('lang');
+  var langSelects = document.querySelectorAll('[data-lang-select]');
   var base = dict['pt-BR'] || {};
 
   function t(lang, key) {
@@ -111,7 +114,7 @@
     var titleKey = document.body.getAttribute('data-title-key');
     if (titleKey && t(lang, titleKey)) document.title = t(lang, titleKey);
 
-    if (langSelect) langSelect.value = lang;
+    langSelects.forEach(function (sel) { sel.value = lang; });
     persist('lang', lang);
     updateConsentValues();
     document.dispatchEvent(new CustomEvent('aosoluti:lang', { detail: { lang: lang } }));
@@ -127,9 +130,71 @@
     return 'pt-BR';
   }
 
-  if (langSelect) {
-    langSelect.addEventListener('change', function () { applyLang(langSelect.value); });
+  langSelects.forEach(function (sel) {
+    sel.addEventListener('change', function () { applyLang(sel.value); });
+  });
+
+  /* ---------- Navegação: menus do header e menu do celular ---------- */
+  var dropdowns = document.querySelectorAll('[data-dropdown]');
+  var menuToggle = document.querySelector('[data-menu-toggle]');
+  var mobileMenu = document.getElementById('mobile-menu');
+
+  function setOpen(toggle, panel, open) {
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.hidden = !open;
   }
+
+  function closeDropdowns(except) {
+    dropdowns.forEach(function (dd) {
+      if (dd === except) return;
+      setOpen(dd.querySelector('[data-dropdown-toggle]'), dd.querySelector('ul'), false);
+    });
+  }
+
+  dropdowns.forEach(function (dd) {
+    var toggle = dd.querySelector('[data-dropdown-toggle]');
+    var panel = dd.querySelector('ul');
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') !== 'true';
+      closeDropdowns(dd);
+      setOpen(toggle, panel, open);
+    });
+    dd.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) {
+        setOpen(toggle, panel, false);
+        toggle.focus();
+      }
+    });
+    dd.addEventListener('focusout', function (e) {
+      if (!dd.contains(e.relatedTarget)) setOpen(toggle, panel, false);
+    });
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('a, button')) setOpen(toggle, panel, false);
+    });
+  });
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function () {
+      setOpen(menuToggle, mobileMenu, menuToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    mobileMenu.addEventListener('click', function (e) {
+      if (e.target.closest('a, [data-consent]')) setOpen(menuToggle, mobileMenu, false);
+    });
+    /* Ao voltar para a largura de desktop, o menu do celular não deve ficar aberto. */
+    window.matchMedia('(min-width: 960px)').addEventListener('change', function (mq) {
+      if (mq.matches) setOpen(menuToggle, mobileMenu, false);
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-dropdown]')) closeDropdowns();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menuToggle && menuToggle.getAttribute('aria-expanded') === 'true') {
+      setOpen(menuToggle, mobileMenu, false);
+      menuToggle.focus();
+    }
+  });
 
   /* ---------- Aviso e preferências de armazenamento ---------- */
   var banner = document.getElementById('consent-banner');

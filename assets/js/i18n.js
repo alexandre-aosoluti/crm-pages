@@ -10,6 +10,9 @@ window.AOSOLUTI_I18N = {
     'theme.dark': 'Escuro',
     'lang.label': 'Idioma',
     'nav.login': 'Entrar',
+    'nav.main': 'Principal',
+    'nav.menu': 'Menu',
+    'nav.prefs': 'Preferências',
 
     'hero.eyebrow': 'CRM de atendimento',
     'hero.title': 'Todo atendimento em um só quadro.',
@@ -151,6 +154,9 @@ window.AOSOLUTI_I18N = {
     'theme.dark': 'Dark',
     'lang.label': 'Language',
     'nav.login': 'Log in',
+    'nav.main': 'Main',
+    'nav.menu': 'Menu',
+    'nav.prefs': 'Preferences',
 
     'hero.eyebrow': 'Customer service CRM',
     'hero.title': 'Every conversation on one board.',
@@ -292,6 +298,9 @@ window.AOSOLUTI_I18N = {
     'theme.dark': 'Oscuro',
     'lang.label': 'Idioma',
     'nav.login': 'Iniciar sesión',
+    'nav.main': 'Principal',
+    'nav.menu': 'Menú',
+    'nav.prefs': 'Preferencias',
 
     'hero.eyebrow': 'CRM de atención',
     'hero.title': 'Toda la atención en un solo tablero.',
