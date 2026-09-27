@@ -18,6 +18,10 @@ assets/js/pricing.js    alternância entre cobrança mensal e anual
 assets/img/             favicon
 ```
 
+## Guia de implementação do sistema
+
+O passo a passo para construir o sistema apresentado nesta landing page (Keycloak, Java 25 + Spring, PostgreSQL, React + Vite + Tailwind), com requisitos funcionais e não funcionais e diretrizes de segurança, está em [`docs/implementacao/README.md`](docs/implementacao/README.md). Ele foi escrito para ser executado por agentes de IA.
+
 ## Rodar localmente
 
 ```
