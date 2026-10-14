@@ -5,6 +5,7 @@ Site estático com [Tailwind CSS v4](https://tailwindcss.com). O layout é feito
 ```
 index.html              landing page e ilustrações (SVG inline)
 precos.html             planos, comparação e perguntas frequentes
+login.html              entrar e criar conta (header mínimo com tema e idioma)
 contato.html            formulário e canais de contato
 privacidade.html        Política de Privacidade (LGPD)
 termos.html             Termos de Uso
@@ -15,6 +16,7 @@ assets/js/i18n-pages.js textos de Preços, Contato, Privacidade e Termos
 assets/js/main.js       tema, idioma e aviso de armazenamento
 assets/js/contact.js    validação e envio do formulário de contato
 assets/js/pricing.js    alternância entre cobrança mensal e anual
+assets/js/login.js      troca entrar/criar conta, validação e mostrar senha
 assets/img/             favicon
 ```
 
@@ -49,6 +51,7 @@ Antes de commitar, rode `npm run build` para gerar o CSS minificado.
 - **Formulário de contato**: o envio fica desligado até você preencher `data-endpoint` no `<form id="contact-form">` de `contato.html` com a URL que recebe a mensagem. O formulário envia um `POST` em JSON com `name`, `email`, `phone`, `company`, `subject`, `message` e `lang`. Sem endpoint, o visitante vê um aviso para usar os outros canais.
 - **Campos a preencher**: os textos entre colchetes, como `[E-MAIL DE CONTATO]`, `[RAZÃO SOCIAL]`, `[CNPJ]`, `[CIDADE/UF]` e `[DATA DA PUBLICAÇÃO]`, estão em `contato.html`, `privacidade.html`, `termos.html` e `assets/js/i18n-pages.js`. Os documentos legais são um modelo: revise com a assessoria jurídica antes de publicar.
 - **Preços**: os valores em `precos.html` são fictícios. Cada preço tem `data-price-monthly` e `data-price-annual`, e o total anual fica em `data-annual-total`. Os nomes e recursos dos planos estão em `assets/js/i18n-pages.js` (chaves `pricing.*`).
+- **Login e cadastro** (`login.html`): o seletor "Entrar / Criar conta" é um cartão que pode ser clicado, arrastado ou trocado com as setas do teclado; `login.html#cadastro` abre direto o cadastro. Os formulários só validam no navegador e mostram um aviso ao enviar: nenhum dado é enviado nem guardado. No sistema real o acesso acontece pelo Keycloak (padrão BFF do guia de implementação), então esta tela serve de referência visual para o tema de login do Keycloak, não para receber senhas no site.
 - **Ilustrações**: SVGs inline no estilo flat de pessoas (inspirado em humaaans.com), com cores ligadas aos tokens para funcionar nos dois temas.
 
 ## Aviso de armazenamento (cookies / localStorage)
