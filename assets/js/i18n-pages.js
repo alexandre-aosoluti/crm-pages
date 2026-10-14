@@ -255,13 +255,7 @@
     "login.privacy": "Política de Privacidade",
     "login.submitRegister": "Criar conta",
     "login.haveAccount": "Já tem conta?",
-    "login.goLogin": "Entrar",
-    "login.switchLabel": "Entrar ou criar conta",
-    "login.tabLoginHint": "Já tenho conta",
-    "login.tabLogin": "Entrar",
-    "login.tabRegisterHint": "Sou novo aqui",
-    "login.tabRegister": "Criar conta",
-    "login.dragHint": "Clique ou arraste o cartão para trocar"
+    "login.goLogin": "Entrar"
   });
   Object.assign(d["en"] = d["en"] || {}, {
     "page.updatedLabel": "Last updated:",
@@ -517,13 +511,7 @@
     "login.privacy": "Privacy Policy",
     "login.submitRegister": "Create account",
     "login.haveAccount": "Already have an account?",
-    "login.goLogin": "Log in",
-    "login.switchLabel": "Log in or sign up",
-    "login.tabLoginHint": "I have an account",
-    "login.tabLogin": "Log in",
-    "login.tabRegisterHint": "I’m new here",
-    "login.tabRegister": "Sign up",
-    "login.dragHint": "Click or drag the card to switch"
+    "login.goLogin": "Log in"
   });
   Object.assign(d["es"] = d["es"] || {}, {
     "page.updatedLabel": "Última actualización:",
@@ -779,12 +767,6 @@
     "login.privacy": "Política de Privacidad",
     "login.submitRegister": "Crear cuenta",
     "login.haveAccount": "¿Ya tienes cuenta?",
-    "login.goLogin": "Iniciar sesión",
-    "login.switchLabel": "Iniciar sesión o crear cuenta",
-    "login.tabLoginHint": "Ya tengo cuenta",
-    "login.tabLogin": "Iniciar sesión",
-    "login.tabRegisterHint": "Soy nuevo aquí",
-    "login.tabRegister": "Crear cuenta",
-    "login.dragHint": "Haz clic o arrastra la tarjeta para cambiar"
+    "login.goLogin": "Iniciar sesión"
   });
 })(window.AOSOLUTI_I18N = window.AOSOLUTI_I18N || {});

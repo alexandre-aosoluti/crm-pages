@@ -1,21 +1,17 @@
 /* Tela de login e cadastro.
-   - O seletor "Entrar / Criar conta" é um cartão que pode ser clicado, arrastado ou trocado pelo teclado.
+   - "Criar conta" / "Entrar", no fim de cada formulário, alternam entre os dois modos.
    - Os formulários só validam no navegador: nenhum dado é enviado nem guardado. No sistema real,
      o acesso acontece pelo Keycloak (ver docs/implementacao/README.md). */
 (function () {
   'use strict';
 
-  var tablist = document.querySelector('[data-auth-switch]');
-  if (!tablist) return;
+  var forms = { login: document.getElementById('login-form'), register: document.getElementById('register-form') };
+  if (!forms.login || !forms.register) return;
 
   var t = function (key) { return window.AOSOLUTI ? window.AOSOLUTI.t(key) : key; };
-  var tabs = tablist.querySelectorAll('[data-auth-tab]');
-  var thumb = tablist.querySelector('[data-auth-thumb]');
   var title = document.querySelector('[data-auth-title]');
   var subtitle = document.querySelector('[data-auth-subtitle]');
-  var forms = { login: document.getElementById('login-form'), register: document.getElementById('register-form') };
   var HASH = { login: 'entrar', register: 'cadastro' };
-  var mode = 'login';
 
   function setText(el, key) {
     el.setAttribute('data-i18n', key);
@@ -32,13 +28,6 @@
 
   function setMode(next, opts) {
     opts = opts || {};
-    mode = next;
-    tabs.forEach(function (tab) {
-      var on = tab.getAttribute('data-auth-tab') === next;
-      tab.setAttribute('aria-selected', on ? 'true' : 'false');
-      tab.tabIndex = on ? 0 : -1;
-    });
-    thumb.setAttribute('data-mode', next);
     Object.keys(forms).forEach(function (k) {
       forms[k].hidden = k !== next;
       if (k !== next) resetForm(forms[k]);
@@ -52,75 +41,11 @@
     }
   }
 
-  /* Cartão "em movimento" por um instante, como ao arrastar no quadro de filas. */
-  function wiggle() {
-    thumb.setAttribute('data-moving', 'true');
-    window.setTimeout(function () { thumb.removeAttribute('data-moving'); }, 260);
-  }
-
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      if (dragMoved) return;
-      var next = tab.getAttribute('data-auth-tab');
-      if (next !== mode) { wiggle(); setMode(next); }
-    });
-    tab.addEventListener('keydown', function (e) {
-      var keys = { ArrowRight: 1, ArrowLeft: -1, Home: 'login', End: 'register' };
-      if (!(e.key in keys)) return;
-      e.preventDefault();
-      var next = typeof keys[e.key] === 'string' ? keys[e.key] : (mode === 'login' ? 'register' : 'login');
-      if (next !== mode) { wiggle(); setMode(next); }
-      tablist.querySelector('[data-auth-tab="' + next + '"]').focus();
-    });
-  });
-
   document.querySelectorAll('[data-auth-go]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      wiggle();
       setMode(btn.getAttribute('data-auth-go'), { focusField: true });
     });
   });
-
-  /* ---------- Arrastar o cartão ---------- */
-  var dragStart = null;
-  var dragMoved = false;
-
-  tablist.addEventListener('pointerdown', function (e) {
-    if (e.button !== 0) return;
-    dragStart = { x: e.clientX, base: mode === 'login' ? 0 : thumb.offsetWidth, pointer: e.pointerId };
-    dragMoved = false;
-  });
-
-  tablist.addEventListener('pointermove', function (e) {
-    if (!dragStart || e.pointerId !== dragStart.pointer) return;
-    var dx = e.clientX - dragStart.x;
-    if (!dragMoved && Math.abs(dx) < 6) return;
-    if (!dragMoved) {
-      dragMoved = true;
-      tablist.setPointerCapture(e.pointerId);
-      thumb.setAttribute('data-moving', 'true');
-      thumb.style.transition = 'rotate .2s, scale .2s';
-    }
-    var max = thumb.offsetWidth;
-    var x = Math.max(0, Math.min(max, dragStart.base + dx));
-    thumb.style.translate = x + 'px 0';
-  });
-
-  function endDrag(e) {
-    if (!dragStart || (e && e.pointerId !== dragStart.pointer)) return;
-    if (dragMoved) {
-      var x = parseFloat(thumb.style.translate) || 0;
-      thumb.style.translate = '';
-      thumb.style.transition = '';
-      thumb.removeAttribute('data-moving');
-      setMode(x > thumb.offsetWidth / 2 ? 'register' : 'login');
-      /* Impede que o clique disparado ao soltar desfaça a escolha. */
-      window.setTimeout(function () { dragMoved = false; }, 0);
-    }
-    dragStart = null;
-  }
-  tablist.addEventListener('pointerup', endDrag);
-  tablist.addEventListener('pointercancel', endDrag);
 
   /* ---------- Mostrar / ocultar senha ---------- */
   document.querySelectorAll('[data-toggle-password]').forEach(function (btn) {

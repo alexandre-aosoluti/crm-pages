@@ -42,7 +42,6 @@
     <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
     <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6 5.6A9.9 9.9 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-2.6 3.4M6.6 6.6A16.6 16.6 0 0 0 2.5 12S6 18.5 12 18.5a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2M3 3l18 18"/></symbol>
-    <symbol id="i-grip" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></symbol>
     <symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
@@ -140,30 +139,12 @@
 
   <div class="flex w-full max-w-[440px] flex-col items-center gap-6">
     <div class="flex flex-col items-center gap-2 text-center">
-      <h1 class="text-[clamp(30px,5vw,40px)] font-bold tracking-[-0.03em]" data-auth-title data-i18n="login.titleLogin">Bem-vindo de volta</h1>
+      <h1 class="text-[clamp(30px,5vw,40px)] font-bold tracking-[-0.03em]" id="auth-title" data-auth-title data-i18n="login.titleLogin">Bem-vindo de volta</h1>
       <p class="max-w-[38ch] text-ink-2" data-auth-subtitle data-i18n="login.subtitleLogin">Entre para acompanhar os atendimentos da sua equipe.</p>
     </div>
 
-      <div class="w-full">
-        <div class="relative grid touch-pan-y grid-cols-2 rounded-[18px] border border-line bg-bg-alt p-1.5" role="tablist" data-i18n-attr="aria-label:login.switchLabel" aria-label="Entrar ou criar conta" data-auth-switch>
-          <span class="pointer-events-none absolute inset-y-3 left-1/2 border-l-2 border-dashed border-line" aria-hidden="true"></span>
-          <span class="pointer-events-none absolute inset-y-1.5 left-1.5 z-0 w-[calc(50%-6px)] rounded-[13px] border border-line bg-surface shadow-card transition-[translate,rotate,scale] duration-300 ease-[cubic-bezier(.2,.8,.2,1)] data-[mode=register]:translate-x-full data-[moving=true]:-rotate-2 data-[moving=true]:scale-[1.03]" data-auth-thumb data-mode="login" aria-hidden="true">
-            <svg class="absolute top-1/2 right-2 size-4 -translate-y-1/2 text-ink-2 opacity-60" aria-hidden="true"><use href="#i-grip"/></svg>
-          </span>
-          <button type="button" role="tab" id="tab-login" class="relative z-10 flex min-h-16 cursor-pointer select-none flex-col items-start justify-center gap-0.5 rounded-[13px] px-4 text-left text-ink-2 transition-colors aria-selected:text-ink sm:px-5" aria-selected="true" aria-controls="login-form" data-auth-tab="login">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.14em]" data-i18n="login.tabLoginHint">Já tenho conta</span>
-            <span class="font-display text-lg leading-tight font-semibold sm:text-xl" data-i18n="login.tabLogin">Entrar</span>
-          </button>
-          <button type="button" role="tab" id="tab-register" class="relative z-10 flex min-h-16 cursor-pointer select-none flex-col items-start justify-center gap-0.5 rounded-[13px] px-4 text-left text-ink-2 transition-colors aria-selected:text-ink sm:px-5" aria-selected="false" aria-controls="register-form" tabindex="-1" data-auth-tab="register">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.14em]" data-i18n="login.tabRegisterHint">Sou novo aqui</span>
-            <span class="font-display text-lg leading-tight font-semibold sm:text-xl" data-i18n="login.tabRegister">Criar conta</span>
-          </button>
-        </div>
-        <p class="mt-2 text-center text-[13px] text-ink-2" data-i18n="login.dragHint">Clique ou arraste o cartão para trocar</p>
-      </div>
-
     <div class="w-full rounded-panel border border-line bg-surface p-[clamp(20px,5vw,32px)] shadow-card">
-        <form id="login-form" class="flex flex-col gap-4" role="tabpanel" aria-labelledby="tab-login" novalidate>
+        <form id="login-form" class="flex flex-col gap-4" aria-labelledby="auth-title" novalidate>
           <div class="flex flex-col gap-1.5">
             <label class="text-[15px] font-semibold" for="lf-email" data-i18n="login.email">E-mail</label>
             <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot" id="lf-email" name="email" type="email" autocomplete="username" required aria-describedby="lf-email-err">
@@ -187,7 +168,7 @@
           <p class="rounded-xl bg-bg-alt px-3.5 py-2.5 text-[15px] text-ink data-[state=error]:bg-hot-bg data-[state=info]:bg-[color-mix(in_srgb,var(--accent)_35%,var(--surface))]" data-status role="status" aria-live="polite" hidden></p>
           <p class="text-center text-[15px] text-ink-2"><span data-i18n="login.noAccount">Ainda não tem conta?</span> <button type="button" class="cursor-pointer font-semibold text-accent-strong underline-offset-4 hover:underline" data-auth-go="register" data-i18n="login.goRegister">Criar conta</button></p>
         </form>
-        <form id="register-form" class="flex flex-col gap-4" role="tabpanel" aria-labelledby="tab-register" novalidate hidden>
+        <form id="register-form" class="flex flex-col gap-4" aria-labelledby="auth-title" novalidate hidden>
           <div class="flex flex-col gap-1.5">
             <label class="text-[15px] font-semibold" for="rf-name" data-i18n="login.name">Nome completo</label>
             <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot" id="rf-name" name="name" type="text" autocomplete="name" required aria-describedby="rf-name-err" maxlength="120">
