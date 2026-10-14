@@ -260,8 +260,7 @@
     "login.tabLoginHint": "Já tenho conta",
     "login.tabLogin": "Entrar",
     "login.tabRegisterHint": "Sou novo aqui",
-    "login.tabRegister": "Criar conta",
-    "login.dragHint": "Clique ou arraste o cartão para trocar"
+    "login.tabRegister": "Criar conta"
   });
   Object.assign(d["en"] = d["en"] || {}, {
     "page.updatedLabel": "Last updated:",
@@ -522,8 +521,7 @@
     "login.tabLoginHint": "I have an account",
     "login.tabLogin": "Log in",
     "login.tabRegisterHint": "I’m new here",
-    "login.tabRegister": "Sign up",
-    "login.dragHint": "Click or drag the card to switch"
+    "login.tabRegister": "Sign up"
   });
   Object.assign(d["es"] = d["es"] || {}, {
     "page.updatedLabel": "Última actualización:",
@@ -784,7 +782,6 @@
     "login.tabLoginHint": "Ya tengo cuenta",
     "login.tabLogin": "Iniciar sesión",
     "login.tabRegisterHint": "Soy nuevo aquí",
-    "login.tabRegister": "Crear cuenta",
-    "login.dragHint": "Haz clic o arrastra la tarjeta para cambiar"
+    "login.tabRegister": "Crear cuenta"
   });
 })(window.AOSOLUTI_I18N = window.AOSOLUTI_I18N || {});

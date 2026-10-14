@@ -1,5 +1,5 @@
 /* Tela de login e cadastro.
-   - O seletor "Entrar / Criar conta" é um cartão que pode ser clicado, arrastado ou trocado pelo teclado.
+   - O seletor "Entrar / Criar conta" é um cartão que desliza entre as duas opções (clique ou setas do teclado).
    - Os formulários só validam no navegador: nenhum dado é enviado nem guardado. No sistema real,
      o acesso acontece pelo Keycloak (ver docs/implementacao/README.md). */
 (function () {
@@ -52,7 +52,7 @@
     }
   }
 
-  /* Cartão "em movimento" por um instante, como ao arrastar no quadro de filas. */
+  /* Cartão "em movimento" por um instante, como ao mover um cartão no quadro de filas. */
   function wiggle() {
     thumb.setAttribute('data-moving', 'true');
     window.setTimeout(function () { thumb.removeAttribute('data-moving'); }, 260);
@@ -60,7 +60,6 @@
 
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      if (dragMoved) return;
       var next = tab.getAttribute('data-auth-tab');
       if (next !== mode) { wiggle(); setMode(next); }
     });
@@ -80,47 +79,6 @@
       setMode(btn.getAttribute('data-auth-go'), { focusField: true });
     });
   });
-
-  /* ---------- Arrastar o cartão ---------- */
-  var dragStart = null;
-  var dragMoved = false;
-
-  tablist.addEventListener('pointerdown', function (e) {
-    if (e.button !== 0) return;
-    dragStart = { x: e.clientX, base: mode === 'login' ? 0 : thumb.offsetWidth, pointer: e.pointerId };
-    dragMoved = false;
-  });
-
-  tablist.addEventListener('pointermove', function (e) {
-    if (!dragStart || e.pointerId !== dragStart.pointer) return;
-    var dx = e.clientX - dragStart.x;
-    if (!dragMoved && Math.abs(dx) < 6) return;
-    if (!dragMoved) {
-      dragMoved = true;
-      tablist.setPointerCapture(e.pointerId);
-      thumb.setAttribute('data-moving', 'true');
-      thumb.style.transition = 'rotate .2s, scale .2s';
-    }
-    var max = thumb.offsetWidth;
-    var x = Math.max(0, Math.min(max, dragStart.base + dx));
-    thumb.style.translate = x + 'px 0';
-  });
-
-  function endDrag(e) {
-    if (!dragStart || (e && e.pointerId !== dragStart.pointer)) return;
-    if (dragMoved) {
-      var x = parseFloat(thumb.style.translate) || 0;
-      thumb.style.translate = '';
-      thumb.style.transition = '';
-      thumb.removeAttribute('data-moving');
-      setMode(x > thumb.offsetWidth / 2 ? 'register' : 'login');
-      /* Impede que o clique disparado ao soltar desfaça a escolha. */
-      window.setTimeout(function () { dragMoved = false; }, 0);
-    }
-    dragStart = null;
-  }
-  tablist.addEventListener('pointerup', endDrag);
-  tablist.addEventListener('pointercancel', endDrag);
 
   /* ---------- Mostrar / ocultar senha ---------- */
   document.querySelectorAll('[data-toggle-password]').forEach(function (btn) {
