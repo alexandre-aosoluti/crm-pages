@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preços · aosoluti CRM</title>
+<meta name="description" content="Planos e preços do aosoluti CRM para equipes de atendimento de todos os tamanhos.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  /* Aplica o tema salvo antes da pintura para evitar flash. */
+  (function () {
+    try {
+      var c = JSON.parse(localStorage.getItem('aosoluti-consent') || 'null');
+      var t = c && c.theme ? localStorage.getItem('aosoluti-theme') : null;
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-title-key="pricing.docTitle" data-meta-key="pricing.meta">
+
+<!-- Ícones (sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l4-4-4-4M14 12H4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6 5.6A9.9 9.9 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-2.6 3.4M6.6 6.6A16.6 16.6 0 0 0 2.5 12S6 18.5 12 18.5a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2M3 3l18 18"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="logo-mark" viewBox="0 0 120 120">
+      <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="95" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="25" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="60" cy="20" r="12" fill="var(--logo-accent)"/>
+      <circle cx="95" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="25" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="60" cy="60" r="18" fill="var(--logo-core)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="absolute -top-12 left-3 z-[100] rounded-lg bg-ink px-3.5 py-2 text-bg no-underline focus:top-3" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-line bg-bg/85 backdrop-blur-md backdrop-saturate-[1.2]">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex min-h-[68px] items-center gap-3 lg:gap-6">
+    <a class="mr-auto inline-flex shrink-0 items-center gap-2.5 lg:mr-0 text-ink no-underline" href="index.html" aria-label="aosoluti CRM">
+      <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
+    </a>
+
+    <nav class="mr-auto hidden items-center gap-1 lg:flex" data-i18n-attr="aria-label:nav.main" aria-label="Principal">
+      <div class="relative" data-dropdown>
+        <button type="button" class="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-[15px] font-semibold text-ink hover:bg-bg-alt aria-expanded:bg-bg-alt [&_svg]:size-4 [&_svg]:transition-transform aria-expanded:[&_svg]:rotate-180" aria-expanded="false" aria-controls="menu-product" data-dropdown-toggle>
+          <span data-i18n="footer.product">Produto</span><svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul id="menu-product" class="absolute top-full left-0 z-50 mt-2 flex w-64 flex-col rounded-card border border-line bg-surface p-2 shadow-card [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a]:rounded-lg [&_a]:px-3 [&_a]:text-[15px] [&_a]:text-ink [&_a]:no-underline [&_a:hover]:bg-bg-alt [&_a[aria-current=page]]:font-semibold [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-11 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:rounded-lg [&_button]:px-3 [&_button]:text-left [&_button]:text-[15px] [&_button]:text-ink [&_button:hover]:bg-bg-alt" hidden>
+          <li><a href="index.html#filas" data-i18n="footer.queues">Filas</a></li>
+          <li><a href="index.html#origens" data-i18n="footer.channels">Origens</a></li>
+          <li><a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a></li>
+          <li><a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a></li>
+          <li><a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a></li>
+          <li><a href="precos.html" aria-current="page" data-i18n="footer.pricing">Preços</a></li>
+        </ul>
+      </div>
+      <div class="relative" data-dropdown>
+        <button type="button" class="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-[15px] font-semibold text-ink hover:bg-bg-alt aria-expanded:bg-bg-alt [&_svg]:size-4 [&_svg]:transition-transform aria-expanded:[&_svg]:rotate-180" aria-expanded="false" aria-controls="menu-company" data-dropdown-toggle>
+          <span data-i18n="footer.company">Empresa</span><svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul id="menu-company" class="absolute top-full left-0 z-50 mt-2 flex w-64 flex-col rounded-card border border-line bg-surface p-2 shadow-card [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a]:rounded-lg [&_a]:px-3 [&_a]:text-[15px] [&_a]:text-ink [&_a]:no-underline [&_a:hover]:bg-bg-alt [&_a[aria-current=page]]:font-semibold [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-11 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:rounded-lg [&_button]:px-3 [&_button]:text-left [&_button]:text-[15px] [&_button]:text-ink [&_button:hover]:bg-bg-alt" hidden>
+          <li><a href="contato.html" data-i18n="footer.contact">Contato</a></li>
+          <li><a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a></li>
+          <li><a href="termos.html" data-i18n="footer.terms">Termos de uso</a></li>
+          <li><button type="button" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="flex items-center gap-1.5 sm:gap-2.5">
+      <div class="hidden sm:inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+        <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+        <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+        <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+      </div>
+
+      <label class="hidden sm:inline-flex relative h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 max-sm:[&>svg]:hidden [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <span class="sr-only" data-i18n="lang.label">Idioma</span>
+        <select id="lang" name="lang" class="select-arrow" data-lang-select>
+          <option value="pt-BR">PT</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </label>
+
+      <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong max-sm:w-11 max-sm:px-0 max-sm:[&_span]:hidden" href="login.html" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
+        <svg aria-hidden="true"><use href="#i-login"/></svg>
+        <span data-i18n="nav.login">Entrar</span>
+      </a>
+
+      <button type="button" class="group grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border border-line bg-surface text-ink lg:hidden [&_svg]:size-5" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Menu">
+        <svg class="group-aria-expanded:hidden" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="hidden group-aria-expanded:block" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="max-h-[calc(100dvh-68px)] overflow-y-auto border-t border-line bg-bg lg:hidden" hidden>
+    <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-1 gap-x-10 gap-y-6 py-6 sm:grid-cols-2">
+      <nav class="flex flex-col gap-2" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="footer.product">Produto</h2>
+        <ul class="flex flex-col [&_a]:flex [&_a]:min-h-12 [&_a]:items-center [&_a]:border-b [&_a]:border-line [&_a]:text-[17px] [&_a]:font-medium [&_a]:text-ink [&_a]:no-underline [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-12 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:text-left [&_button]:text-[17px] [&_button]:font-medium [&_button]:text-ink">
+          <li><a href="index.html#filas" data-i18n="footer.queues">Filas</a></li>
+          <li><a href="index.html#origens" data-i18n="footer.channels">Origens</a></li>
+          <li><a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a></li>
+          <li><a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a></li>
+          <li><a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a></li>
+          <li><a href="precos.html" aria-current="page" data-i18n="footer.pricing">Preços</a></li>
+        </ul>
+      </nav>
+      <nav class="flex flex-col gap-2" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="footer.company">Empresa</h2>
+        <ul class="flex flex-col [&_a]:flex [&_a]:min-h-12 [&_a]:items-center [&_a]:border-b [&_a]:border-line [&_a]:text-[17px] [&_a]:font-medium [&_a]:text-ink [&_a]:no-underline [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-12 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:text-left [&_button]:text-[17px] [&_button]:font-medium [&_button]:text-ink">
+          <li><a href="contato.html" data-i18n="footer.contact">Contato</a></li>
+          <li><a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a></li>
+          <li><a href="termos.html" data-i18n="footer.terms">Termos de uso</a></li>
+          <li><button type="button" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button></li>
+        </ul>
+      </nav>
+      <div class="flex flex-col gap-3 sm:hidden">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="nav.prefs">Preferências</h2>
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+            <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+            <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+            <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+          </div>
+          <label class="relative inline-flex h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
+            <svg aria-hidden="true"><use href="#i-globe"/></svg>
+            <span class="sr-only" data-i18n="lang.label">Idioma</span>
+            <select id="lang-mobile" name="lang-mobile" class="select-arrow" data-lang-select>
+              <option value="pt-BR">PT</option>
+              <option value="en">EN</option>
+              <option value="es">ES</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+<section class="pt-[clamp(32px,5vw,64px)] pb-[clamp(32px,4vw,48px)]" aria-labelledby="page-title">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex flex-col items-center gap-6">
+    <div class="mx-auto flex max-w-[760px] flex-col items-center gap-4 text-center">
+      <p class="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-accent-strong" data-i18n="pricing.eyebrow">Preços</p>
+      <h1 id="page-title" class="text-[clamp(36px,5vw,60px)] font-bold tracking-[-0.03em]" data-i18n="pricing.title">Planos que crescem com a sua equipe.</h1>
+      <p class="max-w-[58ch] text-[clamp(17px,1.6vw,19px)] text-ink-2" data-i18n="pricing.lede">Comece com o essencial e libere grupos de especialistas, distribuição automática e visão do gestor quando precisar.</p>
+    </div>
+    <div class="inline-flex gap-1 rounded-full border border-line bg-surface p-1" role="radiogroup" data-i18n-attr="aria-label:pricing.billing" aria-label="Periodicidade da cobrança">
+      <button type="button" role="radio" aria-checked="true" data-billing="monthly" class="inline-flex min-h-10 cursor-pointer items-center gap-1.5 rounded-full px-4 text-sm font-semibold text-ink-2 hover:text-ink aria-checked:bg-ink aria-checked:text-bg" data-i18n="pricing.monthly">Mensal</button>
+      <button type="button" role="radio" aria-checked="false" tabindex="-1" data-billing="annual" class="inline-flex min-h-10 cursor-pointer items-center gap-1.5 rounded-full px-4 text-sm font-semibold text-ink-2 hover:text-ink aria-checked:bg-ink aria-checked:text-bg"><span data-i18n="pricing.annual">Anual</span><span class="rounded-full bg-accent px-2 py-0.5 text-xs text-on-accent">-20%</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="pb-[clamp(48px,7vw,88px)]" data-i18n-attr="aria-label:pricing.plansLabel" aria-label="Planos">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)]">
+    <div class="mx-auto grid max-w-[560px] grid-cols-1 gap-6 lg:max-w-none lg:grid-cols-3 lg:items-start">
+      <article class="relative flex flex-col gap-6 rounded-panel bg-surface p-[clamp(22px,3vw,30px)] shadow-card border border-line" aria-labelledby="plan-essential">
+        <div class="flex flex-col gap-2">
+          <h2 id="plan-essential" class="text-2xl font-bold" data-i18n="pricing.essential.name">Essencial</h2>
+          <p class="text-[15px] text-ink-2 lg:min-h-[3.2em]" data-i18n="pricing.essential.desc">Para equipes pequenas que querem organizar os primeiros atendimentos.</p>
+        </div>
+        <div class="flex flex-col gap-1">
+          <p class="flex flex-wrap items-baseline gap-x-1.5"><span class="font-display text-5xl font-bold tracking-[-0.03em] tabular-nums" data-price-monthly="R$ 49" data-price-annual="R$ 39">R$ 49</span> <span class="text-sm text-ink-2" data-i18n="pricing.perUser">/usuário por mês</span></p>
+          <p class="min-h-[1.5em] text-sm text-ink-2" data-bill-monthly="pricing.billedMonthly" data-bill-annual="pricing.billedAnnual" data-annual-total="R$ 468">Cobrança mensal</p>
+        </div>
+        <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 w-full px-[18px] border-line bg-transparent text-ink hover:border-ink" href="contato.html?assunto=demo" data-i18n="pricing.essential.cta">Começar agora</a>
+        <div class="flex flex-col gap-3 border-t border-line pt-5">
+          <p class="text-sm font-semibold" data-i18n="pricing.essential.lead">Inclui:</p>
+          <ul class="flex flex-col gap-2.5 text-[15px]">
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.essential.f1">Até 5 usuários</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.essential.f2">Até 3 filas de atendimento</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.essential.f3">Origens de atendimento personalizadas</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.essential.f4">Alarmes de prazo por fila e lembretes</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.essential.f5">Tema claro ou escuro</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.essential.f6">Suporte por e-mail</span></li>
+          </ul>
+        </div>
+      </article>
+      <article class="relative flex flex-col gap-6 rounded-panel bg-surface p-[clamp(22px,3vw,30px)] shadow-card border-2 border-accent-strong" aria-labelledby="plan-pro">
+        <p class="absolute -top-3.5 left-7 rounded-full bg-accent-strong px-3 py-1 text-xs font-semibold text-bg" data-i18n="pricing.popular">Mais escolhido</p>
+        <div class="flex flex-col gap-2">
+          <h2 id="plan-pro" class="text-2xl font-bold" data-i18n="pricing.pro.name">Profissional</h2>
+          <p class="text-[15px] text-ink-2 lg:min-h-[3.2em]" data-i18n="pricing.pro.desc">Para equipes que dividem o atendimento entre grupos de especialistas.</p>
+        </div>
+        <div class="flex flex-col gap-1">
+          <p class="flex flex-wrap items-baseline gap-x-1.5"><span class="font-display text-5xl font-bold tracking-[-0.03em] tabular-nums" data-price-monthly="R$ 89" data-price-annual="R$ 71">R$ 89</span> <span class="text-sm text-ink-2" data-i18n="pricing.perUser">/usuário por mês</span></p>
+          <p class="min-h-[1.5em] text-sm text-ink-2" data-bill-monthly="pricing.billedMonthly" data-bill-annual="pricing.billedAnnual" data-annual-total="R$ 852">Cobrança mensal</p>
+        </div>
+        <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 w-full px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" href="contato.html?assunto=demo" data-i18n="pricing.pro.cta">Começar agora</a>
+        <div class="flex flex-col gap-3 border-t border-line pt-5">
+          <p class="text-sm font-semibold" data-i18n="pricing.pro.lead">Tudo do Essencial, mais:</p>
+          <ul class="flex flex-col gap-2.5 text-[15px]">
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.pro.f1">Até 50 usuários</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.pro.f2">Filas ilimitadas</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.pro.f3">Grupos de especialistas</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.pro.f4">Distribuição automática por rodízio ou menor carga</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.pro.f5">Alarmes por grupo de especialistas</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.pro.f6">Campos personalizados, etiquetas e respostas rápidas</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.pro.f7">Suporte por chat em horário comercial</span></li>
+          </ul>
+        </div>
+      </article>
+      <article class="relative flex flex-col gap-6 rounded-panel bg-surface p-[clamp(22px,3vw,30px)] shadow-card border border-line" aria-labelledby="plan-enterprise">
+        <div class="flex flex-col gap-2">
+          <h2 id="plan-enterprise" class="text-2xl font-bold" data-i18n="pricing.enterprise.name">Empresarial</h2>
+          <p class="text-[15px] text-ink-2 lg:min-h-[3.2em]" data-i18n="pricing.enterprise.desc">Para operações maiores, com várias equipes e gestão centralizada.</p>
+        </div>
+        <div class="flex flex-col gap-1">
+          <p class="font-display text-[40px] leading-[1.2] font-bold tracking-[-0.03em]" data-i18n="pricing.custom">Sob consulta</p>
+          <p class="min-h-[1.5em] text-sm text-ink-2" data-i18n="pricing.customNote">Proposta de acordo com o tamanho da operação</p>
+        </div>
+        <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 w-full px-[18px] border-line bg-transparent text-ink hover:border-ink" href="contato.html?assunto=demo" data-i18n="pricing.enterprise.cta">Falar com vendas</a>
+        <div class="flex flex-col gap-3 border-t border-line pt-5">
+          <p class="text-sm font-semibold" data-i18n="pricing.enterprise.lead">Tudo do Profissional, mais:</p>
+          <ul class="flex flex-col gap-2.5 text-[15px]">
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.f1">Usuários ilimitados</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.f2">Visão do gestor em tempo real</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.f3">Gerente de conta dedicado</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.f4">Treinamento da equipe</span></li>
+          <li class="flex items-start gap-2.5"><svg class="mt-0.5 size-[22px] shrink-0 rounded-full bg-accent p-[3px] text-on-accent" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pricing.enterprise.f5">Suporte prioritário</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <p class="mt-5 text-center text-[13px] text-ink-2" data-i18n="pricing.note">Valores ilustrativos, em reais (R$).</p>
+  </div>
+</section>
+
+<section class="border-t border-line bg-bg-alt py-[clamp(48px,7vw,88px)]" aria-labelledby="compare-title">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex flex-col gap-7">
+    <h2 id="compare-title" class="text-[clamp(28px,3.4vw,40px)] font-bold" data-i18n="pricing.compareTitle">Compare os planos</h2>
+    <div class="relative overflow-x-auto rounded-panel border border-line bg-surface" tabindex="0" role="region" aria-labelledby="compare-title">
+      <table class="w-full min-w-[640px] border-collapse">
+        <thead>
+          <tr>
+            <th scope="col" class="px-4 py-4 text-left"><span class="sr-only" data-i18n="pricing.feature">Recurso</span></th>
+            <th scope="col" class="w-[22%] px-4 py-4 text-center font-display text-base font-semibold" data-i18n="pricing.essential.name">Essencial</th><th scope="col" class="w-[22%] px-4 py-4 text-center font-display text-base font-semibold bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]" data-i18n="pricing.pro.name">Profissional</th><th scope="col" class="w-[22%] px-4 py-4 text-center font-display text-base font-semibold" data-i18n="pricing.enterprise.name">Empresarial</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="colgroup" colspan="4" class="bg-bg-alt px-4 py-2.5 text-left font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-ink-2" data-i18n="pricing.cg1">Filas e cartões</th>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg1r1">Quadro de filas</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg1r2">Filas de atendimento</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span data-i18n="pricing.cg1r2c0">3</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><span data-i18n="pricing.cg1r2c1">Ilimitadas</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><span data-i18n="pricing.cg1r2c2">Ilimitadas</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg1r3">Origens de atendimento personalizadas</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg1r4">Etiquetas e respostas rápidas</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg1r5">Campos personalizados</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr>
+            <th scope="colgroup" colspan="4" class="bg-bg-alt px-4 py-2.5 text-left font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-ink-2" data-i18n="pricing.cg2">Equipe</th>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg2r1">Usuários</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span data-i18n="pricing.cg2r1c0">Até 5</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><span data-i18n="pricing.cg2r1c1">Até 50</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><span data-i18n="pricing.cg2r1c2">Ilimitados</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg2r2">Grupos de especialistas</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg2r3">Distribuição automática</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg2r4">Visão do gestor</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr>
+            <th scope="colgroup" colspan="4" class="bg-bg-alt px-4 py-2.5 text-left font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-ink-2" data-i18n="pricing.cg3">Alarmes</th>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg3r1">Prazo por fila</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg3r2">Lembretes agendados</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg3r3">Alarmes por grupo</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr>
+            <th scope="colgroup" colspan="4" class="bg-bg-alt px-4 py-2.5 text-left font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-ink-2" data-i18n="pricing.cg4">Suporte</th>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg4r1">E-mail</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg4r2">Chat em horário comercial</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+          <tr class="border-t border-line">
+            <th scope="row" class="px-4 py-3 text-left text-[15px] font-medium" data-i18n="pricing.cg4r3">Gerente de conta e treinamento</th>
+            <td class="px-4 py-3 text-center text-[15px] tabular-nums"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums bg-[color-mix(in_srgb,var(--accent)_14%,transparent)]"><span class="text-ink-2" aria-hidden="true">—</span><span class="sr-only" data-i18n="pricing.no">Não incluído</span></td><td class="px-4 py-3 text-center text-[15px] tabular-nums"><svg class="mx-auto size-5 text-accent-strong" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only" data-i18n="pricing.yes">Incluído</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="py-[clamp(48px,7vw,88px)]" aria-labelledby="faq-title">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-1 gap-[clamp(24px,5vw,64px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
+    <div class="flex flex-col gap-3">
+      <h2 id="faq-title" class="text-[clamp(28px,3.4vw,40px)] font-bold" data-i18n="pricing.faqTitle">Perguntas frequentes</h2>
+      <p class="text-ink-2"><span data-i18n="pricing.faqMore">Não encontrou sua dúvida?</span> <a href="contato.html" data-i18n="pricing.faqContact">Fale com a gente</a>.</p>
+    </div>
+    <div class="faq border-t border-line">
+          <details class="group border-b border-line py-4">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 font-display text-lg font-semibold" data-i18n="pricing.q1">Os valores são por usuário?</summary>
+            <p class="mt-3 max-w-[62ch] text-ink-2" data-i18n="pricing.a1">Sim. Nos planos Essencial e Profissional, o valor é por usuário ativo por mês. O plano Empresarial tem proposta personalizada.</p>
+          </details>
+          <details class="group border-b border-line py-4">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 font-display text-lg font-semibold" data-i18n="pricing.q2">Posso mudar de plano depois?</summary>
+            <p class="mt-3 max-w-[62ch] text-ink-2" data-i18n="pricing.a2">Sim. Você pode subir ou descer de plano quando quiser. A diferença é ajustada na próxima cobrança.</p>
+          </details>
+          <details class="group border-b border-line py-4">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 font-display text-lg font-semibold" data-i18n="pricing.q3">Como funciona o desconto do plano anual?</summary>
+            <p class="mt-3 max-w-[62ch] text-ink-2" data-i18n="pricing.a3">No pagamento anual, cada usuário sai 20% mais barato do que no mensal. O valor do ano é cobrado de uma vez.</p>
+          </details>
+          <details class="group border-b border-line py-4">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 font-display text-lg font-semibold" data-i18n="pricing.q4">As origens de atendimento se conectam ao WhatsApp ou ao Instagram?</summary>
+            <p class="mt-3 max-w-[62ch] text-ink-2" data-i18n="pricing.a4">Não. As origens são categorias que a sua equipe cadastra para identificar por onde cada cliente chegou. O CRM não se conecta a essas plataformas.</p>
+          </details>
+          <details class="group border-b border-line py-4">
+            <summary class="flex cursor-pointer items-start justify-between gap-4 font-display text-lg font-semibold" data-i18n="pricing.q5">Existe fidelidade no plano mensal?</summary>
+            <p class="mt-3 max-w-[62ch] text-ink-2" data-i18n="pricing.a5">Não. No plano mensal você pode cancelar quando quiser.</p>
+          </details>
+    </div>
+  </div>
+
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)]">
+    <div class="mt-[clamp(48px,7vw,80px)] flex flex-col items-start gap-5 rounded-panel bg-ink p-[clamp(24px,4vw,40px)] text-bg lg:flex-row lg:items-center lg:justify-between [&_h2]:text-[clamp(24px,3vw,32px)] [&_h2]:font-bold [&_p]:mt-2 [&_p]:max-w-[52ch] [&_p]:opacity-85">
+      <div>
+        <h2 data-i18n="pricing.ctaTitle">Precisa de algo sob medida?</h2>
+        <p data-i18n="pricing.ctaText">Conte como sua equipe trabalha e montamos uma proposta para o seu cenário.</p>
+      </div>
+      <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 min-h-[52px] px-6 text-base border-transparent bg-accent text-on-accent hover:-translate-y-px" href="contato.html?assunto=demo">
+        <span data-i18n="pricing.enterprise.cta">Falar com vendas</span>
+        <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-line bg-bg pt-12 pb-6">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-2 gap-8 sm:grid-cols-[2fr_1fr_1fr]">
+    <div class="col-span-2 flex flex-col gap-3 sm:col-span-1 [&_p]:max-w-[36ch] [&_p]:text-ink-2">
+      <a class="inline-flex items-center gap-2.5 text-ink no-underline" href="index.html" aria-label="aosoluti CRM">
+        <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
+      </a>
+      <p data-i18n="footer.tagline">Atendimento organizado, do primeiro contato à solução.</p>
+    </div>
+    <nav class="flex flex-col gap-2 [&_h2]:mb-1 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_a]:w-fit [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+      <h2 data-i18n="footer.product">Produto</h2>
+      <a href="index.html#filas" data-i18n="footer.queues">Filas</a>
+      <a href="index.html#origens" data-i18n="footer.channels">Origens</a>
+      <a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a>
+      <a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a>
+      <a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a>
+      <a href="precos.html" aria-current="page" data-i18n="footer.pricing">Preços</a>
+    </nav>
+    <nav class="flex flex-col gap-2 [&_h2]:mb-1 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_a]:w-fit [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+      <h2 data-i18n="footer.company">Empresa</h2>
+      <a href="contato.html" data-i18n="footer.contact">Contato</a>
+      <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
+      <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
+      <button type="button" class="w-fit cursor-pointer border-0 bg-transparent p-0 text-left text-ink hover:text-accent-strong hover:underline" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
+    </nav>
+  </div>
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] mt-10 border-t border-line pt-5 text-sm text-ink-2">
+    <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
+  </div>
+</footer>
+
+<!-- ============ AVISO DE ARMAZENAMENTO ============ -->
+<div class="fixed inset-x-0 bottom-0 z-60 border-t border-line bg-surface pt-4 pb-[calc(16px+env(safe-area-inset-bottom,0px))] shadow-[0_-10px_30px_-18px_rgba(0,0,0,.35)]" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+    <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-1 [&_h2]:text-[17px] [&_h2]:font-semibold [&_h2]:tracking-[-0.01em] [&_p]:max-w-[72ch] [&_p]:text-[15px] [&_p]:text-ink-2">
+      <h2 id="consent-title" data-i18n="consent.title">Configurações guardadas no seu navegador</h2>
+      <p data-i18n="consent.text">Este site pode usar o armazenamento local do navegador (localStorage) para guardar suas configurações, como tema e idioma. Não usamos cookies de publicidade nem de rastreamento.</p>
+    </div>
+    <div class="flex flex-wrap gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.reject">Recusar</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="m-auto max-h-[calc(100%-32px)] w-[min(560px,calc(100%-32px))] rounded-panel border border-line bg-surface p-0 text-ink shadow-card backdrop:bg-[rgba(28,36,31,.55)]" id="consent-dialog" aria-labelledby="consent-dialog-title">
+  <div class="flex flex-col gap-4 p-[clamp(20px,4vw,28px)]">
+    <div class="flex items-start justify-between gap-3 [&_h2]:text-[22px] [&_h2]:font-bold">
+      <h2 id="consent-dialog-title" data-i18n="consent.dialogTitle">O que guardamos no seu navegador</h2>
+      <button type="button" class="-mt-2 -mr-2 grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border-0 bg-transparent text-ink-2 hover:bg-bg-alt hover:text-ink [&_svg]:size-5" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="text-[15px] text-ink-2" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
+    <ul class="flex flex-col rounded-card border border-line [&>li]:flex [&>li]:items-start [&>li]:justify-between [&>li]:gap-4 [&>li]:border-b [&>li]:border-line [&>li]:px-4 [&>li]:py-3.5 [&>li:last-child]:border-b-0">
+      <li>
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
+          <label for="pref-theme" data-i18n="consent.themeT">Tema</label>
+          <p data-i18n="consent.themeP">Lembra se você prefere o tema claro, escuro ou o do sistema.</p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-theme" name="pref-theme">
+      </li>
+      <li>
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
+          <label for="pref-lang" data-i18n="consent.langT">Idioma</label>
+          <p data-i18n="consent.langP">Lembra o idioma escolhido para exibir o site.</p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-lang" name="pref-lang">
+      </li>
+      <li>
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
+          <label for="pref-consent" data-i18n="consent.choiceT">Sua escolha sobre este aviso</label>
+          <p data-i18n="consent.choiceP">Guardada quando você salva uma escolha, para que este aviso não apareça a cada visita. Não inclui dados pessoais.</p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-consent" name="pref-consent" checked disabled>
+      </li>
+    </ul>
+    <p class="text-sm text-ink-2"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
+    <div class="flex flex-wrap justify-end gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/i18n-pages.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pricing.js"></script>
+</body>
+</html>

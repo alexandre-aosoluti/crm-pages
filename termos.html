@@ -38,6 +38,12 @@
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6 5.6A9.9 9.9 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-2.6 3.4M6.6 6.6A16.6 16.6 0 0 0 2.5 12S6 18.5 12 18.5a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2M3 3l18 18"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
     <symbol id="logo-mark" viewBox="0 0 120 120">
@@ -52,56 +58,132 @@
   </defs>
 </svg>
 
-<a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+<a class="absolute -top-12 left-3 z-[100] rounded-lg bg-ink px-3.5 py-2 text-bg no-underline focus:top-3" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
 
 <!-- ============ HEADER ============ -->
-<header class="site-header">
-  <div class="wrap header-row">
-    <a class="brand" href="index.html" aria-label="aosoluti CRM">
-      <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
-      <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+<header class="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-line bg-bg/85 backdrop-blur-md backdrop-saturate-[1.2]">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex min-h-[68px] items-center gap-3 lg:gap-6">
+    <a class="mr-auto inline-flex shrink-0 items-center gap-2.5 lg:mr-0 text-ink no-underline" href="index.html" aria-label="aosoluti CRM">
+      <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
     </a>
 
-    <div class="header-actions">
-      <div class="theme-switch" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+    <nav class="mr-auto hidden items-center gap-1 lg:flex" data-i18n-attr="aria-label:nav.main" aria-label="Principal">
+      <div class="relative" data-dropdown>
+        <button type="button" class="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-[15px] font-semibold text-ink hover:bg-bg-alt aria-expanded:bg-bg-alt [&_svg]:size-4 [&_svg]:transition-transform aria-expanded:[&_svg]:rotate-180" aria-expanded="false" aria-controls="menu-product" data-dropdown-toggle>
+          <span data-i18n="footer.product">Produto</span><svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul id="menu-product" class="absolute top-full left-0 z-50 mt-2 flex w-64 flex-col rounded-card border border-line bg-surface p-2 shadow-card [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a]:rounded-lg [&_a]:px-3 [&_a]:text-[15px] [&_a]:text-ink [&_a]:no-underline [&_a:hover]:bg-bg-alt [&_a[aria-current=page]]:font-semibold [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-11 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:rounded-lg [&_button]:px-3 [&_button]:text-left [&_button]:text-[15px] [&_button]:text-ink [&_button:hover]:bg-bg-alt" hidden>
+          <li><a href="index.html#filas" data-i18n="footer.queues">Filas</a></li>
+          <li><a href="index.html#origens" data-i18n="footer.channels">Origens</a></li>
+          <li><a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a></li>
+          <li><a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a></li>
+          <li><a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a></li>
+          <li><a href="precos.html" data-i18n="footer.pricing">Preços</a></li>
+        </ul>
+      </div>
+      <div class="relative" data-dropdown>
+        <button type="button" class="inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full px-3.5 text-[15px] font-semibold text-ink hover:bg-bg-alt aria-expanded:bg-bg-alt [&_svg]:size-4 [&_svg]:transition-transform aria-expanded:[&_svg]:rotate-180" aria-expanded="false" aria-controls="menu-company" data-dropdown-toggle>
+          <span data-i18n="footer.company">Empresa</span><svg aria-hidden="true"><use href="#i-chevron"/></svg>
+        </button>
+        <ul id="menu-company" class="absolute top-full left-0 z-50 mt-2 flex w-64 flex-col rounded-card border border-line bg-surface p-2 shadow-card [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a]:rounded-lg [&_a]:px-3 [&_a]:text-[15px] [&_a]:text-ink [&_a]:no-underline [&_a:hover]:bg-bg-alt [&_a[aria-current=page]]:font-semibold [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-11 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:rounded-lg [&_button]:px-3 [&_button]:text-left [&_button]:text-[15px] [&_button]:text-ink [&_button:hover]:bg-bg-alt" hidden>
+          <li><a href="contato.html" data-i18n="footer.contact">Contato</a></li>
+          <li><a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a></li>
+          <li><a href="termos.html" aria-current="page" data-i18n="footer.terms">Termos de uso</a></li>
+          <li><button type="button" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="flex items-center gap-1.5 sm:gap-2.5">
+      <div class="hidden sm:inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
         <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
         <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
         <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
       </div>
 
-      <label class="lang-select">
+      <label class="hidden sm:inline-flex relative h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 max-sm:[&>svg]:hidden [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
         <svg aria-hidden="true"><use href="#i-globe"/></svg>
         <span class="sr-only" data-i18n="lang.label">Idioma</span>
-        <select id="lang" name="lang">
+        <select id="lang" name="lang" class="select-arrow" data-lang-select>
           <option value="pt-BR">PT</option>
           <option value="en">EN</option>
           <option value="es">ES</option>
         </select>
       </label>
 
-      <a class="btn btn-primary btn-login" href="/login" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
+      <a class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong max-sm:w-11 max-sm:px-0 max-sm:[&_span]:hidden" href="login.html" data-i18n-attr="aria-label:nav.login" aria-label="Entrar">
         <svg aria-hidden="true"><use href="#i-login"/></svg>
         <span data-i18n="nav.login">Entrar</span>
       </a>
+
+      <button type="button" class="group grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border border-line bg-surface text-ink lg:hidden [&_svg]:size-5" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Menu">
+        <svg class="group-aria-expanded:hidden" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="hidden group-aria-expanded:block" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="max-h-[calc(100dvh-68px)] overflow-y-auto border-t border-line bg-bg lg:hidden" hidden>
+    <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-1 gap-x-10 gap-y-6 py-6 sm:grid-cols-2">
+      <nav class="flex flex-col gap-2" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="footer.product">Produto</h2>
+        <ul class="flex flex-col [&_a]:flex [&_a]:min-h-12 [&_a]:items-center [&_a]:border-b [&_a]:border-line [&_a]:text-[17px] [&_a]:font-medium [&_a]:text-ink [&_a]:no-underline [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-12 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:text-left [&_button]:text-[17px] [&_button]:font-medium [&_button]:text-ink">
+          <li><a href="index.html#filas" data-i18n="footer.queues">Filas</a></li>
+          <li><a href="index.html#origens" data-i18n="footer.channels">Origens</a></li>
+          <li><a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a></li>
+          <li><a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a></li>
+          <li><a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a></li>
+          <li><a href="precos.html" data-i18n="footer.pricing">Preços</a></li>
+        </ul>
+      </nav>
+      <nav class="flex flex-col gap-2" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="footer.company">Empresa</h2>
+        <ul class="flex flex-col [&_a]:flex [&_a]:min-h-12 [&_a]:items-center [&_a]:border-b [&_a]:border-line [&_a]:text-[17px] [&_a]:font-medium [&_a]:text-ink [&_a]:no-underline [&_a[aria-current=page]]:text-accent-strong [&_button]:flex [&_button]:min-h-12 [&_button]:w-full [&_button]:cursor-pointer [&_button]:items-center [&_button]:text-left [&_button]:text-[17px] [&_button]:font-medium [&_button]:text-ink">
+          <li><a href="contato.html" data-i18n="footer.contact">Contato</a></li>
+          <li><a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a></li>
+          <li><a href="termos.html" aria-current="page" data-i18n="footer.terms">Termos de uso</a></li>
+          <li><button type="button" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button></li>
+        </ul>
+      </nav>
+      <div class="flex flex-col gap-3 sm:hidden">
+        <h2 class="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-2" data-i18n="nav.prefs">Preferências</h2>
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+            <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+            <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+            <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+          </div>
+          <label class="relative inline-flex h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
+            <svg aria-hidden="true"><use href="#i-globe"/></svg>
+            <span class="sr-only" data-i18n="lang.label">Idioma</span>
+            <select id="lang-mobile" name="lang-mobile" class="select-arrow" data-lang-select>
+              <option value="pt-BR">PT</option>
+              <option value="en">EN</option>
+              <option value="es">ES</option>
+            </select>
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 <main id="conteudo">
-<section class="section page-hero page-hero-legal" aria-labelledby="page-title">
-  <div class="wrap">
-    <div class="page-hero-copy">
-      <p class="eyebrow" data-i18n="terms.eyebrow">Termos</p>
+<section class="mb-[clamp(32px,5vw,56px)] border-b border-line pt-[clamp(32px,5vw,64px)] pb-[clamp(32px,4vw,48px)]" aria-labelledby="page-title">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)]">
+    <div class="flex flex-col gap-4 [&_h1]:text-[clamp(36px,5vw,60px)] [&_h1]:font-bold [&_h1]:tracking-[-0.03em]">
+      <p class="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-accent-strong" data-i18n="terms.eyebrow">Termos</p>
       <h1 id="page-title" data-i18n="terms.title">Termos de Uso</h1>
-      <p class="lede" data-i18n="terms.lede">As regras para usar o site e o aosoluti CRM: responsabilidades da sua equipe e da aosoluti.</p>
-      <p class="updated"><span data-i18n="page.updatedLabel">Última atualização:</span> <span data-i18n="page.updatedDate">[DATA DA PUBLICAÇÃO]</span></p>
+      <p class="max-w-[58ch] text-[clamp(17px,1.6vw,19px)] text-ink-2" data-i18n="terms.lede">As regras para usar o site e o aosoluti CRM: responsabilidades da sua equipe e da aosoluti.</p>
+      <p class="text-sm text-ink-2"><span data-i18n="page.updatedLabel">Última atualização:</span> <span data-i18n="page.updatedDate">[DATA DA PUBLICAÇÃO]</span></p>
     </div>
   </div>
 </section>
 
-<section class="section section-tight">
-  <div class="wrap legal-grid">
-    <nav class="toc" aria-labelledby="toc-t">
+<section class="pb-[clamp(48px,7vw,96px)]">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-1 items-start gap-[clamp(24px,5vw,72px)] lg:grid-cols-[240px_minmax(0,1fr)]">
+    <nav class="flex flex-col gap-3 rounded-panel border border-line bg-surface px-5 py-[18px] lg:sticky lg:top-[calc(env(safe-area-inset-top,0px)+92px)] lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_ol]:m-0 [&_ol]:flex [&_ol]:list-decimal [&_ol]:flex-col [&_ol]:gap-1.5 [&_ol]:pl-5 [&_ol]:text-[15px] [&_ol]:text-ink-2 [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" aria-labelledby="toc-t">
       <h2 id="toc-t" data-i18n="page.toc">Nesta página</h2>
       <ol>
         <li><a href="#terms-1" data-i18n="terms.s1.t">Aceitação</a></li>
@@ -118,21 +200,21 @@
         <li><a href="#terms-12" data-i18n="terms.s12.t">Lei aplicável e foro</a></li>
       </ol>
     </nav>
-    <article class="legal">
-      <section class="legal-section" id="terms-1" aria-labelledby="terms-1-t">
-        <h2 id="terms-1-t"><span class="legal-num">1.</span> <span data-i18n="terms.s1.t">Aceitação</span></h2>
+    <article class="flex max-w-[68ch] flex-col gap-9">
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-1" aria-labelledby="terms-1-t">
+        <h2 id="terms-1-t"><span class="text-accent-strong tabular-nums">1.</span> <span data-i18n="terms.s1.t">Aceitação</span></h2>
         <p data-i18n="terms.s1.p1">Estes Termos de Uso regem o acesso ao site e ao aosoluti CRM, oferecidos por [RAZÃO SOCIAL], inscrita no CNPJ sob o nº [CNPJ], com sede em [ENDEREÇO COMPLETO] (“aosoluti”). Ao criar uma conta ou usar o sistema, você concorda com estes termos e com a Política de Privacidade.</p>
         <p data-i18n="terms.s1.p2">Se você usa o CRM em nome de uma empresa, declara ter autorização para aceitar estes termos por ela.</p>
         <p data-i18n="terms.s1.p3">Navegar pelo site não exige aceitar o armazenamento de configurações no navegador. Esse uso depende da sua permissão e está descrito na Política de Privacidade, na seção “Cookies e armazenamento local”.</p>
       </section>
 
-      <section class="legal-section" id="terms-2" aria-labelledby="terms-2-t">
-        <h2 id="terms-2-t"><span class="legal-num">2.</span> <span data-i18n="terms.s2.t">O serviço</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-2" aria-labelledby="terms-2-t">
+        <h2 id="terms-2-t"><span class="text-accent-strong tabular-nums">2.</span> <span data-i18n="terms.s2.t">O serviço</span></h2>
         <p data-i18n="terms.s2.p1">O aosoluti CRM é um sistema de gestão de atendimento que organiza atendimentos em filas visuais, permite cadastrar origens de atendimento personalizadas para classificar os cartões e oferece personalização, alarmes e grupos de especialistas. Os recursos disponíveis dependem do plano contratado.</p>
       </section>
 
-      <section class="legal-section" id="terms-3" aria-labelledby="terms-3-t">
-        <h2 id="terms-3-t"><span class="legal-num">3.</span> <span data-i18n="terms.s3.t">Conta e acesso</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-3" aria-labelledby="terms-3-t">
+        <h2 id="terms-3-t"><span class="text-accent-strong tabular-nums">3.</span> <span data-i18n="terms.s3.t">Conta e acesso</span></h2>
         <ul>
           <li data-i18n="terms.s3.li1">Mantenha seus dados de cadastro corretos e atualizados.</li>
           <li data-i18n="terms.s3.li2">Guarde sua senha em sigilo. Cada acesso é pessoal e não deve ser compartilhado.</li>
@@ -141,8 +223,8 @@
         </ul>
       </section>
 
-      <section class="legal-section" id="terms-4" aria-labelledby="terms-4-t">
-        <h2 id="terms-4-t"><span class="legal-num">4.</span> <span data-i18n="terms.s4.t">Uso permitido</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-4" aria-labelledby="terms-4-t">
+        <h2 id="terms-4-t"><span class="text-accent-strong tabular-nums">4.</span> <span data-i18n="terms.s4.t">Uso permitido</span></h2>
         <p data-i18n="terms.s4.p1">Ao usar o CRM, você não pode:</p>
         <ul>
           <li data-i18n="terms.s4.li1">Enviar spam, mensagens em massa não solicitadas ou conteúdo ilegal, ofensivo ou enganoso.</li>
@@ -153,136 +235,137 @@
         <p data-i18n="terms.s4.p2">A aosoluti pode suspender acessos que violem estas regras, com aviso prévio sempre que possível.</p>
       </section>
 
-      <section class="legal-section" id="terms-5" aria-labelledby="terms-5-t">
-        <h2 id="terms-5-t"><span class="legal-num">5.</span> <span data-i18n="terms.s5.t">Origens de atendimento</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-5" aria-labelledby="terms-5-t">
+        <h2 id="terms-5-t"><span class="text-accent-strong tabular-nums">5.</span> <span data-i18n="terms.s5.t">Origens de atendimento</span></h2>
         <p data-i18n="terms.s5.p1">As origens de atendimento (por exemplo, web, WhatsApp, Instagram e telefone) são categorias cadastradas e gerenciadas pelos usuários do cliente, usadas para classificar os cartões. Os nomes das origens são definidos pelo próprio cliente e não indicam vínculo da aosoluti com as empresas donas dessas marcas.</p>
         <p data-i18n="terms.s5.p2">As informações de cada atendimento são registradas pelos próprios usuários no CRM, que responde pela veracidade e pela licitude desses registros.</p>
       </section>
 
-      <section class="legal-section" id="terms-6" aria-labelledby="terms-6-t">
-        <h2 id="terms-6-t"><span class="legal-num">6.</span> <span data-i18n="terms.s6.t">Dados do cliente</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-6" aria-labelledby="terms-6-t">
+        <h2 id="terms-6-t"><span class="text-accent-strong tabular-nums">6.</span> <span data-i18n="terms.s6.t">Dados do cliente</span></h2>
         <p data-i18n="terms.s6.p1">Os dados que o cliente registra no CRM pertencem ao cliente. A aosoluti os trata apenas para prestar o serviço, como operadora, conforme a Política de Privacidade. Ao fim do contrato, o cliente pode solicitar a exportação dos dados no prazo de [PRAZO PARA EXPORTAÇÃO]. Depois disso, eles serão excluídos, salvo obrigação legal de guarda.</p>
       </section>
 
-      <section class="legal-section" id="terms-7" aria-labelledby="terms-7-t">
-        <h2 id="terms-7-t"><span class="legal-num">7.</span> <span data-i18n="terms.s7.t">Planos, pagamento e cancelamento</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-7" aria-labelledby="terms-7-t">
+        <h2 id="terms-7-t"><span class="text-accent-strong tabular-nums">7.</span> <span data-i18n="terms.s7.t">Planos, pagamento e cancelamento</span></h2>
         <p data-i18n="terms.s7.p1">Preços, formas de pagamento, reajustes e condições de cancelamento seguem a proposta comercial ou o contrato firmado com o cliente. [CONDIÇÕES COMERCIAIS, SE HOUVER]</p>
       </section>
 
-      <section class="legal-section" id="terms-8" aria-labelledby="terms-8-t">
-        <h2 id="terms-8-t"><span class="legal-num">8.</span> <span data-i18n="terms.s8.t">Disponibilidade e suporte</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-8" aria-labelledby="terms-8-t">
+        <h2 id="terms-8-t"><span class="text-accent-strong tabular-nums">8.</span> <span data-i18n="terms.s8.t">Disponibilidade e suporte</span></h2>
         <p data-i18n="terms.s8.p1">Trabalhamos para manter o CRM disponível de forma contínua, mas podem ocorrer interrupções para manutenção, atualizações ou por fatores fora do nosso controle. Manutenções programadas serão avisadas com antecedência. O suporte é prestado pelos canais indicados na página de Contato.</p>
       </section>
 
-      <section class="legal-section" id="terms-9" aria-labelledby="terms-9-t">
-        <h2 id="terms-9-t"><span class="legal-num">9.</span> <span data-i18n="terms.s9.t">Propriedade intelectual</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-9" aria-labelledby="terms-9-t">
+        <h2 id="terms-9-t"><span class="text-accent-strong tabular-nums">9.</span> <span data-i18n="terms.s9.t">Propriedade intelectual</span></h2>
         <p data-i18n="terms.s9.p1">O software, a marca aosoluti, o logotipo, as ilustrações e os demais elementos do site e do sistema pertencem à aosoluti ou a seus licenciantes. O contrato dá ao cliente o direito de uso do CRM durante sua vigência, sem transferir qualquer propriedade.</p>
       </section>
 
-      <section class="legal-section" id="terms-10" aria-labelledby="terms-10-t">
-        <h2 id="terms-10-t"><span class="legal-num">10.</span> <span data-i18n="terms.s10.t">Limitação de responsabilidade</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-10" aria-labelledby="terms-10-t">
+        <h2 id="terms-10-t"><span class="text-accent-strong tabular-nums">10.</span> <span data-i18n="terms.s10.t">Limitação de responsabilidade</span></h2>
         <p data-i18n="terms.s10.p1">A aosoluti não responde pelo conteúdo que os clientes registram no CRM, nem por danos indiretos ou lucros cessantes decorrentes do uso ou da indisponibilidade do sistema, nos limites permitidos pela lei. Nada nestes termos afasta direitos garantidos pelo Código de Defesa do Consumidor, quando aplicável.</p>
       </section>
 
-      <section class="legal-section" id="terms-11" aria-labelledby="terms-11-t">
-        <h2 id="terms-11-t"><span class="legal-num">11.</span> <span data-i18n="terms.s11.t">Alterações dos termos</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-11" aria-labelledby="terms-11-t">
+        <h2 id="terms-11-t"><span class="text-accent-strong tabular-nums">11.</span> <span data-i18n="terms.s11.t">Alterações dos termos</span></h2>
         <p data-i18n="terms.s11.p1">Podemos atualizar estes termos. Mudanças relevantes serão comunicadas com antecedência por e-mail ou dentro do CRM. Continuar usando o sistema depois da data de vigência significa concordar com a nova versão.</p>
       </section>
 
-      <section class="legal-section" id="terms-12" aria-labelledby="terms-12-t">
-        <h2 id="terms-12-t"><span class="legal-num">12.</span> <span data-i18n="terms.s12.t">Lei aplicável e foro</span></h2>
+      <section class="legal-section flex flex-col gap-3 [&_h2]:text-[clamp(22px,2.4vw,26px)] [&_h2]:font-bold [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:pl-1" id="terms-12" aria-labelledby="terms-12-t">
+        <h2 id="terms-12-t"><span class="text-accent-strong tabular-nums">12.</span> <span data-i18n="terms.s12.t">Lei aplicável e foro</span></h2>
         <p data-i18n="terms.s12.p1">Estes termos seguem as leis da República Federativa do Brasil. Fica eleito o foro da comarca de [CIDADE/UF] para resolver eventuais conflitos, salvo quando a lei garantir ao consumidor o foro do seu domicílio.</p>
       </section>
-      <p class="legal-back"><a href="index.html" data-i18n="page.back">Voltar ao início</a></p>
+      <p class="border-t border-line pt-5"><a href="index.html" data-i18n="page.back">Voltar ao início</a></p>
     </article>
   </div>
 </section>
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <a class="brand" href="index.html" aria-label="aosoluti CRM">
-        <svg class="brand-mark" aria-hidden="true"><use href="#logo-mark"/></svg>
-        <span class="brand-word">aosoluti <span class="brand-crm">CRM</span></span>
+<footer class="border-t border-line bg-bg pt-12 pb-6">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] grid grid-cols-2 gap-8 sm:grid-cols-[2fr_1fr_1fr]">
+    <div class="col-span-2 flex flex-col gap-3 sm:col-span-1 [&_p]:max-w-[36ch] [&_p]:text-ink-2">
+      <a class="inline-flex items-center gap-2.5 text-ink no-underline" href="index.html" aria-label="aosoluti CRM">
+        <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
       </a>
       <p data-i18n="footer.tagline">Atendimento organizado, do primeiro contato à solução.</p>
     </div>
-    <nav class="footer-nav" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
+    <nav class="flex flex-col gap-2 [&_h2]:mb-1 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_a]:w-fit [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" data-i18n-attr="aria-label:footer.product" aria-label="Produto">
       <h2 data-i18n="footer.product">Produto</h2>
       <a href="index.html#filas" data-i18n="footer.queues">Filas</a>
       <a href="index.html#origens" data-i18n="footer.channels">Origens</a>
       <a href="index.html#personalizacao" data-i18n="footer.custom">Personalização</a>
       <a href="index.html#alarmes" data-i18n="footer.alarms">Alarmes</a>
       <a href="index.html#especialistas" data-i18n="footer.experts">Especialistas</a>
+      <a href="precos.html" data-i18n="footer.pricing">Preços</a>
     </nav>
-    <nav class="footer-nav" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
+    <nav class="flex flex-col gap-2 [&_h2]:mb-1 [&_h2]:text-[13px] [&_h2]:font-semibold [&_h2]:uppercase [&_h2]:tracking-[0.14em] [&_h2]:text-ink-2 [&_a]:w-fit [&_a]:text-ink [&_a]:no-underline [&_a:hover]:text-accent-strong [&_a:hover]:underline" data-i18n-attr="aria-label:footer.company" aria-label="Empresa">
       <h2 data-i18n="footer.company">Empresa</h2>
       <a href="contato.html" data-i18n="footer.contact">Contato</a>
       <a href="privacidade.html" data-i18n="footer.privacy">Privacidade</a>
-      <a href="termos.html" data-i18n="footer.terms">Termos de uso</a>
-      <button type="button" class="footer-link" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
+      <a href="termos.html" aria-current="page" data-i18n="footer.terms">Termos de uso</a>
+      <button type="button" class="w-fit cursor-pointer border-0 bg-transparent p-0 text-left text-ink hover:text-accent-strong hover:underline" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
     </nav>
   </div>
-  <div class="wrap footer-bottom">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] mt-10 border-t border-line pt-5 text-sm text-ink-2">
     <p>© <span id="year">2026</span> aosoluti. <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
   </div>
 </footer>
 
 <!-- ============ AVISO DE ARMAZENAMENTO ============ -->
-<div class="consent-banner" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
-  <div class="wrap consent-banner-row">
-    <div class="consent-banner-text">
+<div class="fixed inset-x-0 bottom-0 z-60 border-t border-line bg-surface pt-4 pb-[calc(16px+env(safe-area-inset-bottom,0px))] shadow-[0_-10px_30px_-18px_rgba(0,0,0,.35)]" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+    <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-1 [&_h2]:text-[17px] [&_h2]:font-semibold [&_h2]:tracking-[-0.01em] [&_p]:max-w-[72ch] [&_p]:text-[15px] [&_p]:text-ink-2">
       <h2 id="consent-title" data-i18n="consent.title">Configurações guardadas no seu navegador</h2>
       <p data-i18n="consent.text">Este site pode usar o armazenamento local do navegador (localStorage) para guardar suas configurações, como tema e idioma. Não usamos cookies de publicidade nem de rastreamento.</p>
     </div>
-    <div class="consent-banner-actions">
-      <button type="button" class="btn btn-ghost" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
-      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.reject">Recusar</button>
-      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
+    <div class="flex flex-wrap gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.reject">Recusar</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
     </div>
   </div>
 </div>
 
-<dialog class="consent-dialog" id="consent-dialog" aria-labelledby="consent-dialog-title">
-  <div class="consent-dialog-body">
-    <div class="consent-dialog-head">
+<dialog class="m-auto max-h-[calc(100%-32px)] w-[min(560px,calc(100%-32px))] rounded-panel border border-line bg-surface p-0 text-ink shadow-card backdrop:bg-[rgba(28,36,31,.55)]" id="consent-dialog" aria-labelledby="consent-dialog-title">
+  <div class="flex flex-col gap-4 p-[clamp(20px,4vw,28px)]">
+    <div class="flex items-start justify-between gap-3 [&_h2]:text-[22px] [&_h2]:font-bold">
       <h2 id="consent-dialog-title" data-i18n="consent.dialogTitle">O que guardamos no seu navegador</h2>
-      <button type="button" class="icon-btn" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button type="button" class="-mt-2 -mr-2 grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border-0 bg-transparent text-ink-2 hover:bg-bg-alt hover:text-ink [&_svg]:size-5" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
-    <p class="consent-dialog-intro" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
-    <ul class="consent-list">
+    <p class="text-[15px] text-ink-2" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
+    <ul class="flex flex-col rounded-card border border-line [&>li]:flex [&>li]:items-start [&>li]:justify-between [&>li]:gap-4 [&>li]:border-b [&>li]:border-line [&>li]:px-4 [&>li]:py-3.5 [&>li:last-child]:border-b-0">
       <li>
-        <div class="consent-item-text">
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
           <label for="pref-theme" data-i18n="consent.themeT">Tema</label>
           <p data-i18n="consent.themeP">Lembra se você prefere o tema claro, escuro ou o do sistema.</p>
-          <p class="consent-meta"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
         </div>
         <input type="checkbox" class="switch" id="pref-theme" name="pref-theme">
       </li>
       <li>
-        <div class="consent-item-text">
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
           <label for="pref-lang" data-i18n="consent.langT">Idioma</label>
           <p data-i18n="consent.langP">Lembra o idioma escolhido para exibir o site.</p>
-          <p class="consent-meta"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
         </div>
         <input type="checkbox" class="switch" id="pref-lang" name="pref-lang">
       </li>
       <li>
-        <div class="consent-item-text">
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
           <label for="pref-consent" data-i18n="consent.choiceT">Sua escolha sobre este aviso</label>
           <p data-i18n="consent.choiceP">Guardada quando você salva uma escolha, para que este aviso não apareça a cada visita. Não inclui dados pessoais.</p>
-          <p class="consent-meta"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
         </div>
         <input type="checkbox" class="switch" id="pref-consent" name="pref-consent" checked disabled>
       </li>
     </ul>
-    <p class="consent-note"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
-    <div class="consent-dialog-actions">
-      <button type="button" class="btn btn-ghost" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
-      <button type="button" class="btn btn-ghost" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
-      <button type="button" class="btn btn-primary" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
+    <p class="text-sm text-ink-2"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
+    <div class="flex flex-wrap justify-end gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
     </div>
   </div>
 </dialog>

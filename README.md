@@ -1,35 +1,57 @@
 # aosoluti CRM — landing page
 
-Página estática (HTML + CSS + JS puro), sem etapa de build.
+Site estático com [Tailwind CSS v4](https://tailwindcss.com). O layout é feito com classes utilitárias no HTML; o CSS gerado (`assets/css/styles.css`) fica versionado, então o site funciona em qualquer hospedagem estática sem etapa de build no servidor.
 
 ```
 index.html              landing page e ilustrações (SVG inline)
+precos.html             planos, comparação e perguntas frequentes
+login.html              entrar e criar conta (header mínimo com tema e idioma)
 contato.html            formulário e canais de contato
 privacidade.html        Política de Privacidade (LGPD)
 termos.html             Termos de Uso
-assets/css/styles.css   tokens de cor (tema claro/escuro), layout e responsivo
+src/styles.css          fonte do CSS: tokens de tema e itens específicos
+assets/css/styles.css   CSS gerado pelo Tailwind (não edite à mão)
 assets/js/i18n.js       textos da landing page em pt-BR, en e es
-assets/js/i18n-pages.js textos de Contato, Privacidade e Termos
-assets/js/main.js       seletor de tema, seletor de idioma
+assets/js/i18n-pages.js textos de Preços, Contato, Privacidade e Termos
+assets/js/main.js       tema, idioma e aviso de armazenamento
 assets/js/contact.js    validação e envio do formulário de contato
+assets/js/pricing.js    alternância entre cobrança mensal e anual
+assets/js/login.js      troca entrar/criar conta, validação e mostrar senha
 assets/img/             favicon
 ```
+
+## Guia de implementação do sistema
+
+O passo a passo para construir o sistema apresentado nesta landing page (Keycloak, Java 25 + Spring, PostgreSQL, React + Vite + Tailwind), com requisitos funcionais e não funcionais e diretrizes de segurança, está em [`docs/implementacao/README.md`](docs/implementacao/README.md). Ele foi escrito para ser executado por agentes de IA.
 
 ## Rodar localmente
 
 ```
-python3 -m http.server 8080
-# abra http://localhost:8080
+npm install
+npm run watch     # recompila o CSS a cada alteração
+npm run serve     # abra http://localhost:8080
 ```
+
+Antes de commitar, rode `npm run build` para gerar o CSS minificado.
+
+## CSS: Tailwind + itens específicos
+
+- **Classes utilitárias** no HTML para layout, espaçamento, tipografia e cores.
+- **Cores do tema** como utilitários ligados a variáveis CSS: `bg-bg`, `bg-bg-alt`, `bg-surface`, `text-ink`, `text-ink-2`, `border-line`, `bg-accent`, `text-accent-strong`, `text-hot` etc. Elas trocam de valor sozinhas no tema escuro, então não é preciso usar `dark:`.
+- **Tokens extras**: `font-display` (Space Grotesk), `font-sans` (Figtree), `rounded-card`, `rounded-panel`, `shadow-card`, `max-w-page` e o breakpoint `lg` em 960px.
+- **Tema fora de camadas**: as paletas clara/escura e as regras de `html`/`body` ficam fora de `@layer` em `src/styles.css`. Estilos sem camada vencem os que estão em camadas, então um reset externo (como o de uma prévia hospedada) não quebra o tema. Mantenha-as assim.
+- **CSS próprio** (`src/styles.css`) só para o que não é utilitário: paletas clara/escura, base tipográfica, animações das ilustrações, seta dos `<select>`, chave liga/desliga (`.switch`), marcadores dos documentos legais e seta das perguntas frequentes.
 
 ## Personalizar
 
-- **Cores**: variáveis em `:root` (tema claro) e nos blocos `[data-theme="dark"]` / `prefers-color-scheme: dark` em `styles.css`. Os valores vêm do artefato "aosoluti CRM Logo".
+- **Cores**: variáveis em `:root` (tema claro) e nos blocos `[data-theme="dark"]` / `prefers-color-scheme: dark` em `src/styles.css`. Os valores vêm do artefato "aosoluti CRM Logo". Depois de mudar, rode `npm run build`.
 - **Textos**: edite `assets/js/i18n.js`. Todo elemento com `data-i18n="chave"` é traduzido; atributos usam `data-i18n-attr="aria-label:chave"`.
 - **Login**: os botões "Entrar" / "Acessar o CRM" apontam para `/login`. Troque o `href` em `index.html` pelo endereço do app.
-- **Header e footer**: são iguais nas quatro páginas. Ao mudar um deles, replique nas outras.
+- **Header e footer**: são iguais nas cinco páginas. Ao mudar um deles, replique nas outras. Os links do rodapé também estão no header: no desktop, nos menus "Produto" e "Empresa"; abaixo de 960px, no botão de menu. Em telas menores que 640px, o tema e o idioma ficam dentro desse menu.
 - **Formulário de contato**: o envio fica desligado até você preencher `data-endpoint` no `<form id="contact-form">` de `contato.html` com a URL que recebe a mensagem. O formulário envia um `POST` em JSON com `name`, `email`, `phone`, `company`, `subject`, `message` e `lang`. Sem endpoint, o visitante vê um aviso para usar os outros canais.
 - **Campos a preencher**: os textos entre colchetes, como `[E-MAIL DE CONTATO]`, `[RAZÃO SOCIAL]`, `[CNPJ]`, `[CIDADE/UF]` e `[DATA DA PUBLICAÇÃO]`, estão em `contato.html`, `privacidade.html`, `termos.html` e `assets/js/i18n-pages.js`. Os documentos legais são um modelo: revise com a assessoria jurídica antes de publicar.
+- **Preços**: os valores em `precos.html` são fictícios. Cada preço tem `data-price-monthly` e `data-price-annual`, e o total anual fica em `data-annual-total`. Os nomes e recursos dos planos estão em `assets/js/i18n-pages.js` (chaves `pricing.*`).
+- **Login e cadastro** (`login.html`): o seletor "Entrar / Criar conta" é um cartão que pode ser clicado, arrastado ou trocado com as setas do teclado; `login.html#cadastro` abre direto o cadastro. Os formulários só validam no navegador e mostram um aviso ao enviar: nenhum dado é enviado nem guardado. No sistema real o acesso acontece pelo Keycloak (padrão BFF do guia de implementação), então esta tela serve de referência visual para o tema de login do Keycloak, não para receber senhas no site.
 - **Ilustrações**: SVGs inline no estilo flat de pessoas (inspirado em humaaans.com), com cores ligadas aos tokens para funcionar nos dois temas.
 
 ## Aviso de armazenamento (cookies / localStorage)

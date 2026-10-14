@@ -31,8 +31,16 @@
   function showStatus(key, kind) {
     status.setAttribute('data-i18n', key);
     status.textContent = t(key);
-    status.className = 'form-status' + (kind ? ' is-' + kind : '');
+    if (kind) status.setAttribute('data-state', kind);
+    else status.removeAttribute('data-state');
     status.hidden = false;
+  }
+
+  /* Assunto vindo do link (ex.: contato.html?assunto=demo, usado na página de preços). */
+  var subject = document.getElementById('cf-subject');
+  var wanted = (new URLSearchParams(location.search).get('assunto') || '').replace(/[^a-z]/g, '');
+  if (wanted && subject.querySelector('option[value="' + wanted + '"]')) {
+    subject.value = wanted;
   }
 
   function validate() {

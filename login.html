@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entrar · aosoluti CRM</title>
+<meta name="description" content="Entre no aosoluti CRM ou crie sua conta.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  /* Aplica o tema salvo antes da pintura para evitar flash. */
+  (function () {
+    try {
+      var c = JSON.parse(localStorage.getItem('aosoluti-consent') || 'null');
+      var t = c && c.theme ? localStorage.getItem('aosoluti-theme') : null;
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-title-key="login.docTitle" data-meta-key="login.meta">
+
+<!-- Ícones (sprite) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h3.5l2 5-2.4 1.5a11 11 0 0 0 5.9 5.9l1.5-2.4 5 2V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l4-4-4-4M14 12H4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6 5.6A9.9 9.9 0 0 1 12 5.5c6 0 9.5 6.5 9.5 6.5a17 17 0 0 1-2.6 3.4M6.6 6.6A16.6 16.6 0 0 0 2.5 12S6 18.5 12 18.5a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2M3 3l18 18"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.6"/><circle cx="15" cy="6" r="1.6"/><circle cx="9" cy="12" r="1.6"/><circle cx="15" cy="12" r="1.6"/><circle cx="9" cy="18" r="1.6"/><circle cx="15" cy="18" r="1.6"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+    <symbol id="logo-mark" viewBox="0 0 120 120">
+      <line x1="60" y1="60" x2="60" y2="20" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="95" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="25" y2="82" stroke="var(--logo-line)" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="60" cy="20" r="12" fill="var(--logo-accent)"/>
+      <circle cx="95" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="25" cy="82" r="12" fill="var(--logo-accent)"/>
+      <circle cx="60" cy="60" r="18" fill="var(--logo-core)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="absolute -top-12 left-3 z-[100] rounded-lg bg-ink px-3.5 py-2 text-bg no-underline focus:top-3" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-line bg-bg/85 backdrop-blur-md backdrop-saturate-[1.2]">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex min-h-[68px] items-center gap-3">
+    <a class="mr-auto inline-flex shrink-0 items-center gap-2.5 text-ink no-underline" href="index.html" aria-label="aosoluti CRM">
+      <svg class="size-[34px] shrink-0" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="font-display text-[19px] font-bold leading-none tracking-[-0.03em] sm:text-[21px] max-[380px]:hidden">aosoluti <span class="ml-1 align-[3px] text-xs font-medium tracking-[0.28em] text-ink-2 max-sm:hidden">CRM</span></span>
+    </a>
+    <div class="flex items-center gap-1.5 sm:gap-2.5">
+      <div class="inline-flex gap-0.5 rounded-full border border-line bg-surface p-[3px] [&_button]:grid [&_button]:h-9 [&_button]:w-8 sm:[&_button]:w-9 [&_button]:cursor-pointer [&_button]:place-items-center [&_button]:rounded-full [&_button]:text-ink-2 [&_button:hover]:text-ink [&_button[aria-checked=true]]:bg-accent [&_button[aria-checked=true]]:text-on-accent [&_svg]:size-[18px]" role="radiogroup" data-i18n-attr="aria-label:theme.label" aria-label="Tema">
+        <button type="button" role="radio" data-theme-value="light" data-i18n-attr="aria-label:theme.light;title:theme.light" aria-label="Claro" title="Claro"><svg aria-hidden="true"><use href="#i-sun"/></svg></button>
+        <button type="button" role="radio" data-theme-value="system" data-i18n-attr="aria-label:theme.system;title:theme.system" aria-label="Sistema" title="Sistema"><svg aria-hidden="true"><use href="#i-system"/></svg></button>
+        <button type="button" role="radio" data-theme-value="dark" data-i18n-attr="aria-label:theme.dark;title:theme.dark" aria-label="Escuro" title="Escuro"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+      </div>
+      <label class="relative inline-flex h-11 items-center gap-1.5 rounded-full border border-line bg-surface pl-3 pr-2 text-ink focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-focus sm:pr-2.5 [&>svg]:size-[18px] [&>svg]:text-ink-2 max-sm:[&>svg]:hidden [&_select]:cursor-pointer [&_select]:border-0 [&_select]:bg-transparent [&_select]:pr-4 [&_select]:font-sans [&_select]:text-sm [&_select]:font-semibold [&_select]:text-inherit [&_select:focus-visible]:outline-none">
+        <svg aria-hidden="true"><use href="#i-globe"/></svg>
+        <span class="sr-only" data-i18n="lang.label">Idioma</span>
+        <select id="lang" name="lang" class="select-arrow" data-lang-select>
+          <option value="pt-BR">PT</option>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </label>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo" class="relative isolate flex min-h-[calc(100dvh-125px)] flex-col items-center justify-center overflow-hidden px-[clamp(16px,4vw,40px)] pt-[clamp(28px,6vh,64px)] pb-[clamp(150px,30vw,230px)] lg:pb-[clamp(48px,8vh,96px)]">
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 flex items-end justify-between px-[clamp(8px,3vw,48px)]" aria-hidden="true">
+      <svg class="w-[132px] sm:w-[200px] lg:w-[220px] xl:w-[280px] 2xl:w-[320px]" viewBox="0 0 320 300" aria-hidden="true" focusable="false">
+        <ellipse cx="160" cy="288" rx="140" ry="10" fill="var(--il-shadow)"/>
+        <path d="M206 150 v-28 a32 32 0 0 1 64 0 v28" fill="none" stroke="var(--il-stroke)" stroke-width="10" stroke-linecap="round"/>
+        <rect x="190" y="146" width="96" height="84" rx="16" fill="var(--accent)"/>
+        <circle cx="238" cy="180" r="10" fill="#1f3d2e"/>
+        <rect x="233" y="184" width="10" height="22" rx="4" fill="#1f3d2e"/>
+        <path d="M298 104 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 Z" fill="#f5c35b"/>
+        <path d="M176 92 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 Z" fill="#f28b6c"/>
+        <path d="M84 212 L78 278" stroke="var(--il-pants)" stroke-width="15" stroke-linecap="round"/>
+        <path d="M104 212 L112 278" stroke="var(--il-pants)" stroke-width="15" stroke-linecap="round"/>
+        <path d="M62 288 q2 -11 16 -11 q10 0 11 11 Z" fill="#2b2220"/>
+        <path d="M102 288 q2 -11 16 -11 q10 0 11 11 Z" fill="#2b2220"/>
+        <rect x="87" y="110" width="12" height="18" rx="4" fill="#8d5a3b"/>
+        <path d="M70 132 Q93 121 116 132 L120 216 Q92 223 66 216 Z" fill="#6c8ee8"/>
+        <path d="M74 142 Q62 172 70 198" stroke="#6c8ee8" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <circle cx="71" cy="202" r="6.5" fill="#8d5a3b"/>
+        <circle cx="128" cy="182" r="13" fill="none" stroke="#e0a93a" stroke-width="7"/>
+        <path d="M141 180 L205 172" stroke="#e0a93a" stroke-width="7" stroke-linecap="round"/>
+        <path d="M188 174 l2 12 M199 173 l2 10" stroke="#e0a93a" stroke-width="6" stroke-linecap="round"/>
+        <path d="M112 142 Q128 160 123 176" stroke="#6c8ee8" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <circle cx="123" cy="180" r="6.5" fill="#8d5a3b"/>
+        <circle cx="93" cy="84" r="15" fill="#1f1a17"/><circle cx="80" cy="91" r="9" fill="#1f1a17"/><circle cx="106" cy="91" r="9" fill="#1f1a17"/>
+        <circle cx="93" cy="100" r="16" fill="#8d5a3b"/>
+      </svg>
+      <svg class="w-[132px] sm:w-[200px] lg:w-[220px] xl:w-[280px] 2xl:w-[320px]" viewBox="0 0 320 300" aria-hidden="true" focusable="false">
+        <ellipse cx="170" cy="288" rx="140" ry="10" fill="var(--il-shadow)"/>
+        <path d="M262 248 h40 l-5 36 h-30 Z" fill="#e8a87c"/>
+        <ellipse cx="272" cy="220" rx="10" ry="26" transform="rotate(-22 272 220)" fill="#4f9d76"/>
+        <ellipse cx="292" cy="216" rx="9" ry="28" transform="rotate(18 292 216)" fill="#7cc59f"/>
+        <ellipse cx="282" cy="206" rx="9" ry="32" fill="#5fb088"/>
+        <path d="M150 284 Q118 284 120 252 Q124 212 180 210 Q238 210 242 252 Q244 284 210 284 Z" fill="#ffd3c4"/>
+        <rect x="34" y="34" width="100" height="60" rx="18" fill="var(--accent)"/>
+        <path d="M104 92 L118 112 L120 92 Z" fill="var(--accent)"/>
+        <path d="M64 64 l13 13 l26 -26" stroke="#1f3d2e" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M184 218 L128 214 L118 274" stroke="var(--il-pants)" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M196 222 L140 228 L134 280" stroke="var(--il-pants)" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M128 288 q-2 -11 -16 -11 q-10 0 -11 11 Z" fill="#2b2220"/>
+        <path d="M144 290 q-2 -11 -16 -11 q-10 0 -11 11 Z" fill="#2b2220"/>
+        <rect x="183" y="136" width="12" height="18" rx="4" fill="#f1c7a4"/>
+        <path d="M168 226 L172 158 Q190 146 210 158 L212 226 Z" fill="#f5c35b"/>
+        <path d="M118 212 L176 212 L180 220 L122 220 Z" fill="#c9d3ce"/>
+        <path d="M118 212 L104 172 L150 172 L164 212 Z" fill="#9aa8a1"/>
+        <circle cx="134" cy="192" r="5" fill="#f0f7f4"/>
+        <path d="M178 168 Q162 190 152 208" stroke="#f5c35b" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <circle cx="150" cy="211" r="6" fill="#f1c7a4"/>
+        <path d="M172 126 Q170 104 190 104 Q210 104 208 124 L210 152 Q202 142 203 128 Q196 116 180 122 L178 152 Q168 142 172 126 Z" fill="#c2562f"/>
+        <circle cx="189" cy="126" r="16" fill="#f1c7a4"/>
+      </svg>
+  </div>
+
+  <div class="flex w-full max-w-[440px] flex-col items-center gap-6">
+    <div class="flex flex-col items-center gap-2 text-center">
+      <h1 class="text-[clamp(30px,5vw,40px)] font-bold tracking-[-0.03em]" data-auth-title data-i18n="login.titleLogin">Bem-vindo de volta</h1>
+      <p class="max-w-[38ch] text-ink-2" data-auth-subtitle data-i18n="login.subtitleLogin">Entre para acompanhar os atendimentos da sua equipe.</p>
+    </div>
+
+      <div class="w-full">
+        <div class="relative grid touch-pan-y grid-cols-2 rounded-[18px] border border-line bg-bg-alt p-1.5" role="tablist" data-i18n-attr="aria-label:login.switchLabel" aria-label="Entrar ou criar conta" data-auth-switch>
+          <span class="pointer-events-none absolute inset-y-3 left-1/2 border-l-2 border-dashed border-line" aria-hidden="true"></span>
+          <span class="pointer-events-none absolute inset-y-1.5 left-1.5 z-0 w-[calc(50%-6px)] rounded-[13px] border border-line bg-surface shadow-card transition-[translate,rotate,scale] duration-300 ease-[cubic-bezier(.2,.8,.2,1)] data-[mode=register]:translate-x-full data-[moving=true]:-rotate-2 data-[moving=true]:scale-[1.03]" data-auth-thumb data-mode="login" aria-hidden="true">
+            <svg class="absolute top-1/2 right-2 size-4 -translate-y-1/2 text-ink-2 opacity-60" aria-hidden="true"><use href="#i-grip"/></svg>
+          </span>
+          <button type="button" role="tab" id="tab-login" class="relative z-10 flex min-h-16 cursor-pointer select-none flex-col items-start justify-center gap-0.5 rounded-[13px] px-4 text-left text-ink-2 transition-colors aria-selected:text-ink sm:px-5" aria-selected="true" aria-controls="login-form" data-auth-tab="login">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.14em]" data-i18n="login.tabLoginHint">Já tenho conta</span>
+            <span class="font-display text-lg leading-tight font-semibold sm:text-xl" data-i18n="login.tabLogin">Entrar</span>
+          </button>
+          <button type="button" role="tab" id="tab-register" class="relative z-10 flex min-h-16 cursor-pointer select-none flex-col items-start justify-center gap-0.5 rounded-[13px] px-4 text-left text-ink-2 transition-colors aria-selected:text-ink sm:px-5" aria-selected="false" aria-controls="register-form" tabindex="-1" data-auth-tab="register">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.14em]" data-i18n="login.tabRegisterHint">Sou novo aqui</span>
+            <span class="font-display text-lg leading-tight font-semibold sm:text-xl" data-i18n="login.tabRegister">Criar conta</span>
+          </button>
+        </div>
+        <p class="mt-2 text-center text-[13px] text-ink-2" data-i18n="login.dragHint">Clique ou arraste o cartão para trocar</p>
+      </div>
+
+    <div class="w-full rounded-panel border border-line bg-surface p-[clamp(20px,5vw,32px)] shadow-card">
+        <form id="login-form" class="flex flex-col gap-4" role="tabpanel" aria-labelledby="tab-login" novalidate>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[15px] font-semibold" for="lf-email" data-i18n="login.email">E-mail</label>
+            <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot" id="lf-email" name="email" type="email" autocomplete="username" required aria-describedby="lf-email-err">
+            <p class="text-sm font-medium text-hot" id="lf-email-err" data-i18n="login.emailErr" hidden>Informe um e-mail válido, como nome@empresa.com.</p>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[15px] font-semibold" for="lf-password" data-i18n="login.password">Senha</label>
+            <div class="relative">
+              <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot pr-12" id="lf-password" name="password" type="password" autocomplete="current-password" required aria-describedby="lf-password-err">
+              <button type="button" class="absolute inset-y-0 right-1 my-auto grid size-10 cursor-pointer place-items-center rounded-lg text-ink-2 hover:bg-bg-alt hover:text-ink [&_svg]:size-5" data-toggle-password="lf-password" aria-controls="lf-password" aria-pressed="false" data-i18n-attr="aria-label:login.showPassword" aria-label="Mostrar senha">
+                <svg data-icon-show aria-hidden="true"><use href="#i-eye"/></svg>
+                <svg data-icon-hide hidden aria-hidden="true"><use href="#i-eye-off"/></svg>
+              </button>
+            </div>
+            <p class="text-sm font-medium text-hot" id="lf-password-err" data-i18n="login.passwordErr" hidden>Informe sua senha.</p>
+          </div>
+          <button class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 mt-1 min-h-[52px] w-full px-6 text-base border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" type="submit">
+            <span data-i18n="login.submitLogin">Entrar</span>
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+          <p class="rounded-xl bg-bg-alt px-3.5 py-2.5 text-[15px] text-ink data-[state=error]:bg-hot-bg data-[state=info]:bg-[color-mix(in_srgb,var(--accent)_35%,var(--surface))]" data-status role="status" aria-live="polite" hidden></p>
+          <p class="text-center text-[15px] text-ink-2"><span data-i18n="login.noAccount">Ainda não tem conta?</span> <button type="button" class="cursor-pointer font-semibold text-accent-strong underline-offset-4 hover:underline" data-auth-go="register" data-i18n="login.goRegister">Criar conta</button></p>
+        </form>
+        <form id="register-form" class="flex flex-col gap-4" role="tabpanel" aria-labelledby="tab-register" novalidate hidden>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[15px] font-semibold" for="rf-name" data-i18n="login.name">Nome completo</label>
+            <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot" id="rf-name" name="name" type="text" autocomplete="name" required aria-describedby="rf-name-err" maxlength="120">
+            <p class="text-sm font-medium text-hot" id="rf-name-err" data-i18n="login.nameErr" hidden>Informe nome e sobrenome.</p>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[15px] font-semibold" for="rf-email" data-i18n="login.email">E-mail</label>
+            <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot" id="rf-email" name="email" type="email" autocomplete="email" required aria-describedby="rf-email-err">
+            <p class="text-sm font-medium text-hot" id="rf-email-err" data-i18n="login.emailErr" hidden>Informe um e-mail válido, como nome@empresa.com.</p>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[15px] font-semibold" for="rf-password" data-i18n="login.newPassword">Senha</label>
+            <div class="relative">
+              <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot pr-12" id="rf-password" name="password" type="password" autocomplete="new-password" required aria-describedby="rf-password-err rf-rules">
+              <button type="button" class="absolute inset-y-0 right-1 my-auto grid size-10 cursor-pointer place-items-center rounded-lg text-ink-2 hover:bg-bg-alt hover:text-ink [&_svg]:size-5" data-toggle-password="rf-password" aria-controls="rf-password" aria-pressed="false" data-i18n-attr="aria-label:login.showPassword" aria-label="Mostrar senha">
+                <svg data-icon-show aria-hidden="true"><use href="#i-eye"/></svg>
+                <svg data-icon-hide hidden aria-hidden="true"><use href="#i-eye-off"/></svg>
+              </button>
+            </div>
+            <p class="text-sm font-medium text-hot" id="rf-password-err" data-i18n="login.newPasswordErr" hidden>A senha precisa ter pelo menos 12 caracteres.</p>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-[15px] font-semibold" for="rf-confirm" data-i18n="login.confirm">Confirmar senha</label>
+            <div class="relative">
+              <input class="min-h-[46px] w-full rounded-xl border-[1.5px] border-line bg-surface-2 px-3.5 py-2.5 font-sans text-base leading-snug text-ink transition focus:border-accent-strong focus:outline-none focus:ring-[3px] focus:ring-accent/55 aria-invalid:border-hot pr-12" id="rf-confirm" name="confirm" type="password" autocomplete="new-password" required aria-describedby="rf-confirm-err rf-rules">
+              <button type="button" class="absolute inset-y-0 right-1 my-auto grid size-10 cursor-pointer place-items-center rounded-lg text-ink-2 hover:bg-bg-alt hover:text-ink [&_svg]:size-5" data-toggle-password="rf-confirm" aria-controls="rf-confirm" aria-pressed="false" data-i18n-attr="aria-label:login.showPassword" aria-label="Mostrar senha">
+                <svg data-icon-show aria-hidden="true"><use href="#i-eye"/></svg>
+                <svg data-icon-hide hidden aria-hidden="true"><use href="#i-eye-off"/></svg>
+              </button>
+            </div>
+            <p class="text-sm font-medium text-hot" id="rf-confirm-err" data-i18n="login.confirmErr" hidden>As senhas não são iguais.</p>
+          </div>
+          <ul class="-mt-1 flex flex-col gap-1 text-sm text-ink-2" id="rf-rules">
+            <li class="group flex items-center gap-2 data-[ok=true]:text-accent-strong" id="rf-rule-length" data-ok="false"><svg class="size-4 shrink-0 group-data-[ok=true]:hidden" aria-hidden="true"><use href="#i-dot"/></svg><svg class="hidden size-4 shrink-0 group-data-[ok=true]:block" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="login.ruleLength">Pelo menos 12 caracteres</span></li>
+            <li class="group flex items-center gap-2 data-[ok=true]:text-accent-strong" id="rf-rule-match" data-ok="false"><svg class="size-4 shrink-0 group-data-[ok=true]:hidden" aria-hidden="true"><use href="#i-dot"/></svg><svg class="hidden size-4 shrink-0 group-data-[ok=true]:block" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="login.ruleMatch">As duas senhas são iguais</span></li>
+          </ul>
+          <p class="text-sm text-ink-2"><span data-i18n="login.consent">Ao criar a conta, você concorda com os</span> <a href="termos.html" data-i18n="login.terms">Termos de uso</a> <span data-i18n="login.and">e a</span> <a href="privacidade.html" data-i18n="login.privacy">Política de Privacidade</a>.</p>
+          <button class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 mt-1 min-h-[52px] w-full px-6 text-base border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" type="submit">
+            <span data-i18n="login.submitRegister">Criar conta</span>
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+          <p class="rounded-xl bg-bg-alt px-3.5 py-2.5 text-[15px] text-ink data-[state=error]:bg-hot-bg data-[state=info]:bg-[color-mix(in_srgb,var(--accent)_35%,var(--surface))]" data-status role="status" aria-live="polite" hidden></p>
+          <p class="text-center text-[15px] text-ink-2"><span data-i18n="login.haveAccount">Já tem conta?</span> <button type="button" class="cursor-pointer font-semibold text-accent-strong underline-offset-4 hover:underline" data-auth-go="login" data-i18n="login.goLogin">Entrar</button></p>
+        </form>
+    </div>
+  </div>
+</main>
+
+<footer class="border-t border-line bg-bg">
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex min-h-14 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-3 text-sm text-ink-2">
+    <p>© <span id="year">2026</span> aosoluti</p>
+    <button type="button" class="cursor-pointer border-0 bg-transparent p-0 text-ink-2 hover:text-accent-strong hover:underline" data-consent="details" data-i18n="consent.footer">Preferências de privacidade</button>
+  </div>
+</footer>
+
+<!-- ============ AVISO DE ARMAZENAMENTO ============ -->
+<div class="fixed inset-x-0 bottom-0 z-60 border-t border-line bg-surface pt-4 pb-[calc(16px+env(safe-area-inset-bottom,0px))] shadow-[0_-10px_30px_-18px_rgba(0,0,0,.35)]" id="consent-banner" role="region" aria-labelledby="consent-title" hidden>
+  <div class="mx-auto w-full max-w-page px-[clamp(16px,4vw,40px)] flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+    <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-1 [&_h2]:text-[17px] [&_h2]:font-semibold [&_h2]:tracking-[-0.01em] [&_p]:max-w-[72ch] [&_p]:text-[15px] [&_p]:text-ink-2">
+      <h2 id="consent-title" data-i18n="consent.title">Configurações guardadas no seu navegador</h2>
+      <p data-i18n="consent.text">Este site pode usar o armazenamento local do navegador (localStorage) para guardar suas configurações, como tema e idioma. Não usamos cookies de publicidade nem de rastreamento.</p>
+    </div>
+    <div class="flex flex-wrap gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="details" data-i18n="consent.details">Ver o que é guardado</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.reject">Recusar</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.accept">Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="m-auto max-h-[calc(100%-32px)] w-[min(560px,calc(100%-32px))] rounded-panel border border-line bg-surface p-0 text-ink shadow-card backdrop:bg-[rgba(28,36,31,.55)]" id="consent-dialog" aria-labelledby="consent-dialog-title">
+  <div class="flex flex-col gap-4 p-[clamp(20px,4vw,28px)]">
+    <div class="flex items-start justify-between gap-3 [&_h2]:text-[22px] [&_h2]:font-bold">
+      <h2 id="consent-dialog-title" data-i18n="consent.dialogTitle">O que guardamos no seu navegador</h2>
+      <button type="button" class="-mt-2 -mr-2 grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border-0 bg-transparent text-ink-2 hover:bg-bg-alt hover:text-ink [&_svg]:size-5" data-consent="close" data-i18n-attr="aria-label:consent.close" aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p class="text-[15px] text-ink-2" data-i18n="consent.dialogIntro">Estas informações ficam somente no seu navegador e não são enviadas para a aosoluti. Escolha o que pode ser guardado.</p>
+    <ul class="flex flex-col rounded-card border border-line [&>li]:flex [&>li]:items-start [&>li]:justify-between [&>li]:gap-4 [&>li]:border-b [&>li]:border-line [&>li]:px-4 [&>li]:py-3.5 [&>li:last-child]:border-b-0">
+      <li>
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
+          <label for="pref-theme" data-i18n="consent.themeT">Tema</label>
+          <p data-i18n="consent.themeP">Lembra se você prefere o tema claro, escuro ou o do sistema.</p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-theme</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-theme-value">Sistema</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-theme" name="pref-theme">
+      </li>
+      <li>
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
+          <label for="pref-lang" data-i18n="consent.langT">Idioma</label>
+          <p data-i18n="consent.langP">Lembra o idioma escolhido para exibir o site.</p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-lang</code> · <span data-i18n="consent.value">Valor atual:</span> <span id="pref-lang-value">Português (Brasil)</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-lang" name="pref-lang">
+      </li>
+      <li>
+        <div class="flex min-w-0 flex-col gap-[3px] [&_label]:font-semibold [&_p]:text-sm [&_p]:text-ink-2">
+          <label for="pref-consent" data-i18n="consent.choiceT">Sua escolha sobre este aviso</label>
+          <p data-i18n="consent.choiceP">Guardada quando você salva uma escolha, para que este aviso não apareça a cada visita. Não inclui dados pessoais.</p>
+          <p class="text-[13px]! [&_code]:rounded-md [&_code]:bg-bg-alt [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_code]:text-ink [&_code]:break-all"><code>aosoluti-consent</code> · <span data-i18n="consent.always">Necessário</span></p>
+        </div>
+        <input type="checkbox" class="switch" id="pref-consent" name="pref-consent" checked disabled>
+      </li>
+    </ul>
+    <p class="text-sm text-ink-2"><span data-i18n="consent.note">Este site não usa cookies. Você pode mudar sua escolha a qualquer momento em “Preferências de privacidade”, no rodapé.</span> <a href="privacidade.html#privacy-7" data-i18n="consent.more">Saiba mais</a></p>
+    <div class="flex flex-wrap justify-end gap-2 max-sm:w-full max-sm:[&_button]:flex-auto">
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="reject" data-i18n="consent.rejectAll">Recusar tudo</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-line bg-transparent text-ink hover:border-ink" data-consent="save" data-i18n="consent.save">Salvar escolhas</button>
+      <button type="button" class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border-[1.5px] font-sans text-[15px] leading-none font-semibold no-underline cursor-pointer transition [&_svg]:size-[18px] [&_svg]:shrink-0 px-[18px] border-transparent bg-ink text-bg hover:-translate-y-px hover:bg-accent-strong" data-consent="accept" data-i18n="consent.acceptAll">Aceitar tudo</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/i18n-pages.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/login.js"></script>
+</body>
+</html>
